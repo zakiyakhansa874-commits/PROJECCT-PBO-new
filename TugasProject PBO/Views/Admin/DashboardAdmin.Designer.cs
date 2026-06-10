@@ -48,7 +48,7 @@
             Column1 = new DataGridViewTextBoxColumn();
             beratbersih = new DataGridViewTextBoxColumn();
             kualitas = new DataGridViewTextBoxColumn();
-            label9 = new Label();
+            T_HPT = new Label();
             P_SSI = new Panel();
             L_StokSaatIni = new Label();
             G_Stok = new PictureBox();
@@ -69,8 +69,6 @@
             SJ_KapasitasGudang = new Label();
             BC_MenuBar = new Panel();
             BC_MenuBar2 = new Panel();
-            BC_MenuBar.SuspendLayout();
-            BC_MenuBar2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_Profil).BeginInit();
             BC_DashboardAdmin.SuspendLayout();
             BC_HPT.SuspendLayout();
@@ -83,38 +81,9 @@
             ((System.ComponentModel.ISupportInitialize)G_HasilPanen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)G_DashboardAdmin).BeginInit();
             BC_KG.SuspendLayout();
+            BC_MenuBar.SuspendLayout();
+            BC_MenuBar2.SuspendLayout();
             SuspendLayout();
-            // 
-            // BC_MenuBar
-            // 
-            BC_MenuBar.BackColor = Color.DarkOliveGreen;
-            BC_MenuBar.BorderStyle = BorderStyle.Fixed3D;
-            BC_MenuBar.Controls.Add(BC_MenuBar2);
-            BC_MenuBar.Controls.Add(L_Role);
-            BC_MenuBar.Controls.Add(L_Username);
-            BC_MenuBar.Controls.Add(G_Profil);
-            BC_MenuBar.Location = new Point(-1, -4);
-            BC_MenuBar.Name = "BC_MenuBar";
-            BC_MenuBar.Size = new Size(184, 451);
-            BC_MenuBar.TabIndex = 0;
-            BC_MenuBar.Paint += this.BC_MenuBar_Paint;
-            // 
-            // BC_MenuBar2
-            // 
-            BC_MenuBar2.BackColor = Color.Ivory;
-            BC_MenuBar2.Controls.Add(btLogout);
-            BC_MenuBar2.Controls.Add(btLaporanInventori);
-            BC_MenuBar2.Controls.Add(btMonitoringStok);
-            BC_MenuBar2.Controls.Add(btStokKeluar);
-            BC_MenuBar2.Controls.Add(btKelolaGudang);
-            BC_MenuBar2.Controls.Add(btStokMasuk);
-            BC_MenuBar2.Controls.Add(btDataHasilPanen);
-            BC_MenuBar2.Controls.Add(btDashboard);
-            BC_MenuBar2.Location = new Point(-3, 51);
-            BC_MenuBar2.Name = "BC_MenuBar2";
-            BC_MenuBar2.Size = new Size(185, 401);
-            BC_MenuBar2.TabIndex = 0;
-            BC_MenuBar2.Paint += panel3_Paint;
             // 
             // btLogout
             // 
@@ -126,7 +95,7 @@
             btLogout.TabIndex = 9;
             btLogout.Text = "Logout";
             btLogout.UseVisualStyleBackColor = false;
-            btLogout.Click += this.btLogout_Click;
+            btLogout.Click += btLogout_Click;
             // 
             // btLaporanInventori
             // 
@@ -138,7 +107,7 @@
             btLaporanInventori.TabIndex = 8;
             btLaporanInventori.Text = "Laporan Inventori";
             btLaporanInventori.UseVisualStyleBackColor = false;
-            btLaporanInventori.Click += this.btLaporanInventori_Click;
+            btLaporanInventori.Click += btLaporanInventori_Click;
             // 
             // btMonitoringStok
             // 
@@ -150,7 +119,7 @@
             btMonitoringStok.TabIndex = 6;
             btMonitoringStok.Text = "Monitoring Stok";
             btMonitoringStok.UseVisualStyleBackColor = false;
-            btMonitoringStok.Click += this.btMonitoringStok_Click;
+            btMonitoringStok.Click += btMonitoringStok_Click;
             // 
             // btStokKeluar
             // 
@@ -162,7 +131,7 @@
             btStokKeluar.TabIndex = 5;
             btStokKeluar.Text = "Stok Keluar";
             btStokKeluar.UseVisualStyleBackColor = false;
-            btStokKeluar.Click += this.btStokMasuk_Click;
+            btStokKeluar.Click += btStokMasuk_Click;
             // 
             // btKelolaGudang
             // 
@@ -174,7 +143,7 @@
             btKelolaGudang.TabIndex = 5;
             btKelolaGudang.Text = "Kelola Gudang";
             btKelolaGudang.UseVisualStyleBackColor = false;
-            btKelolaGudang.Click += this.btKelolaGudang_Click;
+            btKelolaGudang.Click += btKelolaGudang_Click;
             // 
             // btStokMasuk
             // 
@@ -186,7 +155,7 @@
             btStokMasuk.TabIndex = 4;
             btStokMasuk.Text = "Stok Masuk";
             btStokMasuk.UseVisualStyleBackColor = false;
-            btStokMasuk.Click += this.btStokMasuk_Click;
+            btStokMasuk.Click += btStokMasuk_Click;
             // 
             // btDataHasilPanen
             // 
@@ -198,7 +167,7 @@
             btDataHasilPanen.TabIndex = 3;
             btDataHasilPanen.Text = "Data Hasil Panen";
             btDataHasilPanen.UseVisualStyleBackColor = false;
-            btDataHasilPanen.Click += this.btDataHasilPanen_Click;
+            btDataHasilPanen.Click += btDataHasilPanen_Click;
             // 
             // btDashboard
             // 
@@ -210,7 +179,7 @@
             btDashboard.TabIndex = 2;
             btDashboard.Text = "Dashboard";
             btDashboard.UseVisualStyleBackColor = false;
-            btDashboard.Click += this.btDashboard_Click;
+            btDashboard.Click += btDashboard_Click;
             // 
             // L_Role
             // 
@@ -223,7 +192,7 @@
             L_Role.Size = new Size(40, 21);
             L_Role.TabIndex = 0;
             L_Role.Text = "Role";
-            L_Role.Click += this.L_Role_Click;
+            L_Role.Click += L_Role_Click;
             // 
             // L_Username
             // 
@@ -235,7 +204,7 @@
             L_Username.Size = new Size(87, 22);
             L_Username.TabIndex = 0;
             L_Username.Text = "Username";
-            L_Username.Click += this.L_Username_Click;
+            L_Username.Click += L_Username_Click;
             // 
             // G_Profil
             // 
@@ -249,7 +218,7 @@
             G_Profil.SizeMode = PictureBoxSizeMode.Zoom;
             G_Profil.TabIndex = 0;
             G_Profil.TabStop = false;
-            G_Profil.Click += this.G_Profil_Click;
+            G_Profil.Click += G_Profil_Click;
             // 
             // BC_DashboardAdmin
             // 
@@ -266,15 +235,15 @@
             BC_DashboardAdmin.Name = "BC_DashboardAdmin";
             BC_DashboardAdmin.Size = new Size(632, 456);
             BC_DashboardAdmin.TabIndex = 1;
-            BC_DashboardAdmin.Click += this.BC_DashboardAdmin_Click;
-            BC_DashboardAdmin.Paint += this.panel2_Paint;
+            BC_DashboardAdmin.Click += BC_DashboardAdmin_Click;
+            BC_DashboardAdmin.Paint += panel2_Paint;
             // 
             // BC_HPT
             // 
             BC_HPT.BackColor = Color.Peru;
             BC_HPT.BorderStyle = BorderStyle.Fixed3D;
             BC_HPT.Controls.Add(HPT_dataGridView1);
-            BC_HPT.Controls.Add(label9);
+            BC_HPT.Controls.Add(T_HPT);
             BC_HPT.Location = new Point(-2, 267);
             BC_HPT.Name = "BC_HPT";
             BC_HPT.Size = new Size(632, 188);
@@ -326,17 +295,18 @@
             kualitas.Name = "kualitas";
             kualitas.Width = 125;
             // 
-            // label9
+            // T_HPT
             // 
-            label9.AccessibleDescription = "SJ_HasilPanen_Terbaru";
-            label9.AutoSize = true;
-            label9.BackColor = Color.Ivory;
-            label9.ForeColor = SystemColors.ActiveCaptionText;
-            label9.Location = new Point(-2, -1);
-            label9.Name = "label9";
-            label9.Size = new Size(139, 20);
-            label9.TabIndex = 0;
-            label9.Text = "Hasil Panen Terbaru";
+            T_HPT.AccessibleDescription = "SJ_HasilPanen_Terbaru";
+            T_HPT.AutoSize = true;
+            T_HPT.BackColor = Color.Ivory;
+            T_HPT.ForeColor = SystemColors.ActiveCaptionText;
+            T_HPT.Location = new Point(-2, -1);
+            T_HPT.Name = "T_HPT";
+            T_HPT.Size = new Size(139, 20);
+            T_HPT.TabIndex = 0;
+            T_HPT.Text = "Hasil Panen Terbaru";
+            T_HPT.Click += this.T_HPT_Clik;
             // 
             // P_SSI
             // 
@@ -407,7 +377,7 @@
             L_TotalGedung.Size = new Size(86, 17);
             L_TotalGedung.TabIndex = 6;
             L_TotalGedung.Text = "Total Gudang";
-            L_TotalGedung.Click += this.L_TotalGedung_Click;
+            L_TotalGedung.Click += L_TotalGedung_Click;
             // 
             // A_TotalGedung
             // 
@@ -482,7 +452,7 @@
             J_DashboardAdmin.Size = new Size(231, 34);
             J_DashboardAdmin.TabIndex = 1;
             J_DashboardAdmin.Text = "Dashboard Admin";
-            J_DashboardAdmin.Click += this.J_DashboardAdmin_Click;
+            J_DashboardAdmin.Click += J_DashboardAdmin_Click;
             // 
             // BC_KG
             // 
@@ -527,18 +497,46 @@
             SJ_KapasitasGudang.TabIndex = 0;
             SJ_KapasitasGudang.Text = "Kapasitas Gudang";
             // 
-            // Dashboard
+            // BC_MenuBar
+            // 
+            BC_MenuBar.BackColor = Color.DarkOliveGreen;
+            BC_MenuBar.BorderStyle = BorderStyle.Fixed3D;
+            BC_MenuBar.Controls.Add(BC_MenuBar2);
+            BC_MenuBar.Controls.Add(L_Role);
+            BC_MenuBar.Controls.Add(L_Username);
+            BC_MenuBar.Controls.Add(G_Profil);
+            BC_MenuBar.Location = new Point(-1, -4);
+            BC_MenuBar.Name = "BC_MenuBar";
+            BC_MenuBar.Size = new Size(184, 451);
+            BC_MenuBar.TabIndex = 0;
+            BC_MenuBar.Paint += BC_MenuBar_Paint;
+            // 
+            // BC_MenuBar2
+            // 
+            BC_MenuBar2.BackColor = Color.Ivory;
+            BC_MenuBar2.Controls.Add(btLogout);
+            BC_MenuBar2.Controls.Add(btLaporanInventori);
+            BC_MenuBar2.Controls.Add(btMonitoringStok);
+            BC_MenuBar2.Controls.Add(btStokKeluar);
+            BC_MenuBar2.Controls.Add(btKelolaGudang);
+            BC_MenuBar2.Controls.Add(btStokMasuk);
+            BC_MenuBar2.Controls.Add(btDataHasilPanen);
+            BC_MenuBar2.Controls.Add(btDashboard);
+            BC_MenuBar2.Location = new Point(-3, 51);
+            BC_MenuBar2.Name = "BC_MenuBar2";
+            BC_MenuBar2.Size = new Size(185, 401);
+            BC_MenuBar2.TabIndex = 0;
+            BC_MenuBar2.Paint += panel3_Paint;
+            // 
+            // DashboardAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 448);
             Controls.Add(BC_DashboardAdmin);
             Controls.Add(BC_MenuBar);
-            Name = "Dashboard";
+            Name = "DashboardAdmin";
             Text = "Form1";
-            BC_MenuBar.ResumeLayout(false);
-            BC_MenuBar.PerformLayout();
-            BC_MenuBar2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)G_Profil).EndInit();
             BC_DashboardAdmin.ResumeLayout(false);
             BC_DashboardAdmin.PerformLayout();
@@ -557,6 +555,9 @@
             ((System.ComponentModel.ISupportInitialize)G_DashboardAdmin).EndInit();
             BC_KG.ResumeLayout(false);
             BC_KG.PerformLayout();
+            BC_MenuBar.ResumeLayout(false);
+            BC_MenuBar.PerformLayout();
+            BC_MenuBar2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -581,7 +582,7 @@
         private ProgressBar KG_progressBar;
         private Label L_TeksPendukungSJ;
         private Panel BC_HPT;
-        private Label label9;
+        private Label T_HPT;
         private DataGridView HPT_dataGridView1;
         private DataGridViewTextBoxColumn Tanggal;
         private DataGridViewTextBoxColumn Petani;

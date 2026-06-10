@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TugasProject_PBO.Views.Admin
 {
-    public partial class DashboardAdmin: Form
+    public partial class DashboardAdmin : Form
     {
         public DashboardAdmin()
         {
@@ -146,6 +146,11 @@ namespace TugasProject_PBO.Views.Admin
         }
 
         private void BC_MenuBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void T_HPT_Clik(object sender, EventArgs e)
         {
 
         }
