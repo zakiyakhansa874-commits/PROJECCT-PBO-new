@@ -14,5 +14,15 @@ namespace TugasProject_PBO.Views.Admin
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KelolaHasilPanen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

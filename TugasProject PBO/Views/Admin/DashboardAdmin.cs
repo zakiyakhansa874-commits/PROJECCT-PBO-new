@@ -121,8 +121,17 @@ namespace TugasProject_PBO.Views.Admin
 
         private void btLogout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Anda berhasil logout");
-            this.Close();
+            using (FrmKonfirmasiKeluar frm =
+           new FrmKonfirmasiKeluar("Pak Hendra"))
+            {
+                if (frm.ShowDialog() == DialogResult.Yes)
+                {
+                    LoginSIMIHAN login = new LoginSIMIHAN();
+                    login.Show();
+
+                    this.Hide();
+                }
+            }
         }
 
         // Ini BACKGROUND (BC) Bossku
