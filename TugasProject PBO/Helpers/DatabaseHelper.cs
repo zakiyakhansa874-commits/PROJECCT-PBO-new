@@ -10,9 +10,9 @@ namespace TugasProject_PBO.Helpers
         private static string connectionString =
             "Host=localhost;" +
             "Port=5432;" +
-            "Database=Projek SIMIHAN;" +
+            "Database=ProjectPBO_SIMIHAN;" +
             "Username=postgres;" +
-            "Password=Sutik13.;";
+            "Password=elmitra14;";
 
         public static NpgsqlConnection GetConnection()
         {

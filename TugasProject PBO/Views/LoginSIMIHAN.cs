@@ -51,7 +51,7 @@ namespace TugasProject_PBO.Views
         {
             comboBox1.Items.Add("Admin");
             comboBox1.Items.Add("Petani");
-            
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,5 +130,9 @@ namespace TugasProject_PBO.Views
             }
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

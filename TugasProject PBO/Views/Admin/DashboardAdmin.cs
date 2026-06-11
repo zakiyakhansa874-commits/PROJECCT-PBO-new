@@ -13,146 +13,138 @@ namespace TugasProject_PBO.Views.Admin
         public DashboardAdmin()
         {
             InitializeComponent();
+            this.Load += DashboardAdmin_Load;
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void DashboardAdmin_Load(object sender, EventArgs e)
         {
+            // Initialize header labels
+            try
+            {
+                L_TotalGedung.Text = "Total Gudang: 3";
+            }
+            catch { }
 
+            try
+            {
+                L_Username.Text = "Username: admin";
+            }
+            catch { }
+
+            try
+            {
+                L_Role.Text = "Role: Administrator";
+            }
+            catch { }
+
+            // Initialize recent harvest label (if present)
+            try
+            {
+                T_HPT.Text = "Hasil Panen Terbaru";
+            }
+            catch { }
+
+            // Populate sample rows into the HPT data grid (designer defines columns: Tanggal, Petani, Komoditas, Berat Bersih (kg), Kualitas)
+            try
+            {
+                HPT_dataGridView1.Rows.Clear();
+                HPT_dataGridView1.Rows.Add(DateTime.Now.ToString("yyyy-MM-dd"), "Pak Budi", "Jagung", "120", "A");
+                HPT_dataGridView1.Rows.Add(DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), "Bu Siti", "Padi", "860", "B");
+                HPT_dataGridView1.Rows.Add(DateTime.Now.AddDays(-2).ToString("yyyy-MM-dd"), "Pak Agus", "Kedelai", "326", "A");
+            }
+            catch { }
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void progressBar3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        // Ini LABELS (L) Bossku
         private void L_TotalGedung_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void G_Profil_Click(object sender, EventArgs e)
-        {
-
+            MessageBox.Show("Total Gudang: 3");
         }
 
         private void L_Username_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void J_DashboardAdmin_Click(object sender, EventArgs e)
-        {
-
+            MessageBox.Show("Username Admin aktif");
         }
 
         private void L_Role_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Role: Administrator");
         }
 
+        // Ini JUDUL (J) Bossku
+        private void J_DashboardAdmin_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Anda sedang berada di Dashboard Admin");
+        }
+
+        // Ini GAMBAR (G) Bossku
+        private void G_Profil_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Profil Admin ditampilkan");
+        }
+
+        // Ini BUTTONS (bt) Bossku
         private void btDashboard_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Menu Dashboard dibuka");
         }
 
         private void btDataHasilPanen_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Menu Data Hasil Panen dibuka");
         }
 
         private void btKelolaGudang_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Menu Kelola Gudang dibuka");
         }
 
         private void btStokMasuk_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Menu Stok Masuk dibuka");
         }
 
         private void btStokKeluar_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Menu Stok Keluar dibuka");
         }
 
         private void btMonitoringStok_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Menu Monitoring Stok dibuka");
         }
 
         private void btLaporanInventori_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Menu Laporan Inventori dibuka");
         }
 
         private void btLogout_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Anda berhasil logout");
+            this.Close();
         }
 
+        // Ini BACKGROUND (BC) Bossku
         private void BC_DashboardAdmin_Click(object sender, EventArgs e)
         {
-
+            this.BackColor = System.Drawing.Color.LightGray;
+            MessageBox.Show("Background Dashboard diubah menjadi abu-abu");
         }
 
         private void BC_MenuBar_Paint(object sender, PaintEventArgs e)
         {
-
+            e.Graphics.FillRectangle(System.Drawing.Brushes.DarkGreen, this.ClientRectangle);
         }
 
+        // Ini ANGKA (A) Bossku
         private void T_HPT_Clik(object sender, EventArgs e)
         {
+            MessageBox.Show("Total Hasil Panen Terbaru: 1306 kg");
+        }
 
+        private void HPT_dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

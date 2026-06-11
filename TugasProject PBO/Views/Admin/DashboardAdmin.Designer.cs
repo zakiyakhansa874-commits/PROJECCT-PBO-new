@@ -236,7 +236,7 @@
             BC_DashboardAdmin.Size = new Size(632, 456);
             BC_DashboardAdmin.TabIndex = 1;
             BC_DashboardAdmin.Click += BC_DashboardAdmin_Click;
-            BC_DashboardAdmin.Paint += panel2_Paint;
+           
             // 
             // BC_HPT
             // 
@@ -248,7 +248,7 @@
             BC_HPT.Name = "BC_HPT";
             BC_HPT.Size = new Size(632, 188);
             BC_HPT.TabIndex = 5;
-            BC_HPT.Paint += panel7_Paint;
+            
             // 
             // HPT_dataGridView1
             // 
@@ -388,7 +388,7 @@
             A_TotalGedung.Size = new Size(27, 31);
             A_TotalGedung.TabIndex = 8;
             A_TotalGedung.Text = "3";
-            A_TotalGedung.Click += label3_Click;
+            
             // 
             // P_THP
             // 
@@ -419,7 +419,7 @@
             A_TotalHasilPanen.Size = new Size(99, 31);
             A_TotalHasilPanen.TabIndex = 9;
             A_TotalHasilPanen.Text = "1306 kg";
-            A_TotalHasilPanen.Click += label5_Click;
+            
             // 
             // L_TotalHasilPanen
             // 
@@ -430,7 +430,7 @@
             L_TotalHasilPanen.Size = new Size(107, 17);
             L_TotalHasilPanen.TabIndex = 7;
             L_TotalHasilPanen.Text = "Total Hasil Panen";
-            L_TotalHasilPanen.Click += label1_Click_2;
+            
             // 
             // G_DashboardAdmin
             // 
@@ -465,7 +465,7 @@
             BC_KG.Name = "BC_KG";
             BC_KG.Size = new Size(632, 111);
             BC_KG.TabIndex = 0;
-            BC_KG.Paint += panel4_Paint;
+            
             // 
             // KG_progressBar
             // 
@@ -484,7 +484,7 @@
             L_TeksPendukungSJ.Size = new Size(269, 20);
             L_TeksPendukungSJ.TabIndex = 4;
             L_TeksPendukungSJ.Text = "Gudang Utama A - 3200/5000 kg (64%)";
-            L_TeksPendukungSJ.Click += label2_Click_1;
+            
             // 
             // SJ_KapasitasGudang
             // 
@@ -526,7 +526,7 @@
             BC_MenuBar2.Name = "BC_MenuBar2";
             BC_MenuBar2.Size = new Size(185, 401);
             BC_MenuBar2.TabIndex = 0;
-            BC_MenuBar2.Paint += panel3_Paint;
+           
             // 
             // DashboardAdmin
             // 
