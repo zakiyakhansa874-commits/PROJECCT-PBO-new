@@ -89,9 +89,10 @@
             // 
             btLogout.BackColor = Color.DarkKhaki;
             btLogout.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btLogout.Location = new Point(-5, 351);
+            btLogout.Location = new Point(-6, 439);
+            btLogout.Margin = new Padding(4);
             btLogout.Name = "btLogout";
-            btLogout.Size = new Size(183, 34);
+            btLogout.Size = new Size(229, 42);
             btLogout.TabIndex = 9;
             btLogout.Text = "Logout";
             btLogout.UseVisualStyleBackColor = false;
@@ -101,9 +102,10 @@
             // 
             btLaporanInventori.BackColor = Color.DarkKhaki;
             btLaporanInventori.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btLaporanInventori.Location = new Point(-1, 213);
+            btLaporanInventori.Location = new Point(-1, 266);
+            btLaporanInventori.Margin = new Padding(4);
             btLaporanInventori.Name = "btLaporanInventori";
-            btLaporanInventori.Size = new Size(179, 33);
+            btLaporanInventori.Size = new Size(224, 41);
             btLaporanInventori.TabIndex = 8;
             btLaporanInventori.Text = "Laporan Inventori";
             btLaporanInventori.UseVisualStyleBackColor = false;
@@ -113,9 +115,10 @@
             // 
             btMonitoringStok.BackColor = Color.DarkKhaki;
             btMonitoringStok.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btMonitoringStok.Location = new Point(-1, 182);
+            btMonitoringStok.Location = new Point(-1, 228);
+            btMonitoringStok.Margin = new Padding(4);
             btMonitoringStok.Name = "btMonitoringStok";
-            btMonitoringStok.Size = new Size(179, 34);
+            btMonitoringStok.Size = new Size(224, 42);
             btMonitoringStok.TabIndex = 6;
             btMonitoringStok.Text = "Monitoring Stok";
             btMonitoringStok.UseVisualStyleBackColor = false;
@@ -125,9 +128,10 @@
             // 
             btStokKeluar.BackColor = Color.DarkKhaki;
             btStokKeluar.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btStokKeluar.Location = new Point(-1, 150);
+            btStokKeluar.Location = new Point(-1, 188);
+            btStokKeluar.Margin = new Padding(4);
             btStokKeluar.Name = "btStokKeluar";
-            btStokKeluar.Size = new Size(186, 34);
+            btStokKeluar.Size = new Size(232, 42);
             btStokKeluar.TabIndex = 5;
             btStokKeluar.Text = "Stok Keluar";
             btStokKeluar.UseVisualStyleBackColor = false;
@@ -137,9 +141,10 @@
             // 
             btKelolaGudang.BackColor = Color.DarkKhaki;
             btKelolaGudang.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btKelolaGudang.Location = new Point(-5, 87);
+            btKelolaGudang.Location = new Point(-6, 109);
+            btKelolaGudang.Margin = new Padding(4);
             btKelolaGudang.Name = "btKelolaGudang";
-            btKelolaGudang.Size = new Size(183, 34);
+            btKelolaGudang.Size = new Size(229, 42);
             btKelolaGudang.TabIndex = 5;
             btKelolaGudang.Text = "Kelola Gudang";
             btKelolaGudang.UseVisualStyleBackColor = false;
@@ -149,9 +154,10 @@
             // 
             btStokMasuk.BackColor = Color.DarkKhaki;
             btStokMasuk.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btStokMasuk.Location = new Point(-5, 118);
+            btStokMasuk.Location = new Point(-6, 148);
+            btStokMasuk.Margin = new Padding(4);
             btStokMasuk.Name = "btStokMasuk";
-            btStokMasuk.Size = new Size(183, 34);
+            btStokMasuk.Size = new Size(229, 42);
             btStokMasuk.TabIndex = 4;
             btStokMasuk.Text = "Stok Masuk";
             btStokMasuk.UseVisualStyleBackColor = false;
@@ -161,9 +167,10 @@
             // 
             btDataHasilPanen.BackColor = Color.DarkKhaki;
             btDataHasilPanen.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btDataHasilPanen.Location = new Point(-5, 55);
+            btDataHasilPanen.Location = new Point(-6, 69);
+            btDataHasilPanen.Margin = new Padding(4);
             btDataHasilPanen.Name = "btDataHasilPanen";
-            btDataHasilPanen.Size = new Size(185, 34);
+            btDataHasilPanen.Size = new Size(231, 42);
             btDataHasilPanen.TabIndex = 3;
             btDataHasilPanen.Text = "Data Hasil Panen";
             btDataHasilPanen.UseVisualStyleBackColor = false;
@@ -173,9 +180,10 @@
             // 
             btDashboard.BackColor = Color.DarkKhaki;
             btDashboard.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btDashboard.Location = new Point(-5, 23);
+            btDashboard.Location = new Point(-6, 29);
+            btDashboard.Margin = new Padding(4);
             btDashboard.Name = "btDashboard";
-            btDashboard.Size = new Size(185, 34);
+            btDashboard.Size = new Size(231, 42);
             btDashboard.TabIndex = 2;
             btDashboard.Text = "Dashboard";
             btDashboard.UseVisualStyleBackColor = false;
@@ -187,9 +195,10 @@
             L_Role.BackColor = Color.DarkOliveGreen;
             L_Role.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             L_Role.ForeColor = SystemColors.ButtonHighlight;
-            L_Role.Location = new Point(65, 24);
+            L_Role.Location = new Point(81, 30);
+            L_Role.Margin = new Padding(4, 0, 4, 0);
             L_Role.Name = "L_Role";
-            L_Role.Size = new Size(40, 21);
+            L_Role.Size = new Size(49, 26);
             L_Role.TabIndex = 0;
             L_Role.Text = "Role";
             L_Role.Click += L_Role_Click;
@@ -199,9 +208,10 @@
             L_Username.AutoSize = true;
             L_Username.Font = new Font("Calibri", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             L_Username.ForeColor = SystemColors.ButtonHighlight;
-            L_Username.Location = new Point(65, 4);
+            L_Username.Location = new Point(81, 5);
+            L_Username.Margin = new Padding(4, 0, 4, 0);
             L_Username.Name = "L_Username";
-            L_Username.Size = new Size(87, 22);
+            L_Username.Size = new Size(106, 27);
             L_Username.TabIndex = 0;
             L_Username.Text = "Username";
             L_Username.Click += L_Username_Click;
@@ -212,9 +222,10 @@
             G_Profil.BorderStyle = BorderStyle.FixedSingle;
             G_Profil.Image = (Image)resources.GetObject("G_Profil.Image");
             G_Profil.InitialImage = null;
-            G_Profil.Location = new Point(20, 6);
+            G_Profil.Location = new Point(25, 8);
+            G_Profil.Margin = new Padding(4);
             G_Profil.Name = "G_Profil";
-            G_Profil.Size = new Size(43, 41);
+            G_Profil.Size = new Size(53, 51);
             G_Profil.SizeMode = PictureBoxSizeMode.Zoom;
             G_Profil.TabIndex = 0;
             G_Profil.TabStop = false;
@@ -231,12 +242,12 @@
             BC_DashboardAdmin.Controls.Add(G_DashboardAdmin);
             BC_DashboardAdmin.Controls.Add(J_DashboardAdmin);
             BC_DashboardAdmin.Controls.Add(BC_KG);
-            BC_DashboardAdmin.Location = new Point(172, -7);
+            BC_DashboardAdmin.Location = new Point(215, -9);
+            BC_DashboardAdmin.Margin = new Padding(4);
             BC_DashboardAdmin.Name = "BC_DashboardAdmin";
-            BC_DashboardAdmin.Size = new Size(632, 456);
+            BC_DashboardAdmin.Size = new Size(789, 569);
             BC_DashboardAdmin.TabIndex = 1;
             BC_DashboardAdmin.Click += BC_DashboardAdmin_Click;
-           
             // 
             // BC_HPT
             // 
@@ -244,21 +255,23 @@
             BC_HPT.BorderStyle = BorderStyle.Fixed3D;
             BC_HPT.Controls.Add(HPT_dataGridView1);
             BC_HPT.Controls.Add(T_HPT);
-            BC_HPT.Location = new Point(-2, 267);
+            BC_HPT.Location = new Point(-2, 334);
+            BC_HPT.Margin = new Padding(4);
             BC_HPT.Name = "BC_HPT";
-            BC_HPT.Size = new Size(632, 188);
+            BC_HPT.Size = new Size(789, 234);
             BC_HPT.TabIndex = 5;
-            
             // 
             // HPT_dataGridView1
             // 
             HPT_dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             HPT_dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tanggal, Petani, Column1, beratbersih, kualitas });
-            HPT_dataGridView1.Location = new Point(15, 28);
+            HPT_dataGridView1.Location = new Point(19, 35);
+            HPT_dataGridView1.Margin = new Padding(4);
             HPT_dataGridView1.Name = "HPT_dataGridView1";
             HPT_dataGridView1.RowHeadersWidth = 51;
-            HPT_dataGridView1.Size = new Size(599, 145);
+            HPT_dataGridView1.Size = new Size(749, 181);
             HPT_dataGridView1.TabIndex = 1;
+            HPT_dataGridView1.CellContentClick += HPT_dataGridView1_CellContentClick_1;
             // 
             // Tanggal
             // 
@@ -302,38 +315,43 @@
             T_HPT.BackColor = Color.Ivory;
             T_HPT.ForeColor = SystemColors.ActiveCaptionText;
             T_HPT.Location = new Point(-2, -1);
+            T_HPT.Margin = new Padding(4, 0, 4, 0);
             T_HPT.Name = "T_HPT";
-            T_HPT.Size = new Size(139, 20);
+            T_HPT.Size = new Size(165, 25);
             T_HPT.TabIndex = 0;
             T_HPT.Text = "Hasil Panen Terbaru";
-            T_HPT.Click += this.T_HPT_Clik;
+            T_HPT.Click += T_HPT_Click_1;
             // 
             // P_SSI
             // 
             P_SSI.Controls.Add(L_StokSaatIni);
             P_SSI.Controls.Add(G_Stok);
             P_SSI.Controls.Add(A_StokSaatIni);
-            P_SSI.Location = new Point(60, 63);
+            P_SSI.Location = new Point(75, 79);
+            P_SSI.Margin = new Padding(4);
             P_SSI.Name = "P_SSI";
-            P_SSI.Size = new Size(169, 73);
+            P_SSI.Size = new Size(211, 91);
             P_SSI.TabIndex = 9;
             // 
             // L_StokSaatIni
             // 
             L_StokSaatIni.AutoSize = true;
             L_StokSaatIni.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            L_StokSaatIni.Location = new Point(74, 13);
+            L_StokSaatIni.Location = new Point(92, 16);
+            L_StokSaatIni.Margin = new Padding(4, 0, 4, 0);
             L_StokSaatIni.Name = "L_StokSaatIni";
-            L_StokSaatIni.Size = new Size(79, 17);
+            L_StokSaatIni.Size = new Size(91, 20);
             L_StokSaatIni.TabIndex = 6;
             L_StokSaatIni.Text = "Stok Saat Ini";
+            L_StokSaatIni.Click += L_StokSaatIni_Click_1;
             // 
             // G_Stok
             // 
             G_Stok.Image = (Image)resources.GetObject("G_Stok.Image");
-            G_Stok.Location = new Point(9, 12);
+            G_Stok.Location = new Point(11, 15);
+            G_Stok.Margin = new Padding(4);
             G_Stok.Name = "G_Stok";
-            G_Stok.Size = new Size(56, 48);
+            G_Stok.Size = new Size(70, 60);
             G_Stok.SizeMode = PictureBoxSizeMode.Zoom;
             G_Stok.TabIndex = 6;
             G_Stok.TabStop = false;
@@ -342,39 +360,45 @@
             // 
             A_StokSaatIni.AutoSize = true;
             A_StokSaatIni.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            A_StokSaatIni.Location = new Point(63, 29);
+            A_StokSaatIni.Location = new Point(79, 36);
+            A_StokSaatIni.Margin = new Padding(4, 0, 4, 0);
             A_StokSaatIni.Name = "A_StokSaatIni";
-            A_StokSaatIni.Size = new Size(99, 31);
+            A_StokSaatIni.Size = new Size(122, 38);
             A_StokSaatIni.TabIndex = 8;
             A_StokSaatIni.Text = "5420 kg";
+            A_StokSaatIni.Click += A_StokSaatIni_Click;
             // 
             // P_TG
             // 
             P_TG.Controls.Add(G_Gudang);
             P_TG.Controls.Add(L_TotalGedung);
             P_TG.Controls.Add(A_TotalGedung);
-            P_TG.Location = new Point(421, 63);
+            P_TG.Location = new Point(526, 79);
+            P_TG.Margin = new Padding(4);
             P_TG.Name = "P_TG";
-            P_TG.Size = new Size(165, 73);
+            P_TG.Size = new Size(206, 91);
             P_TG.TabIndex = 4;
             // 
             // G_Gudang
             // 
             G_Gudang.Image = (Image)resources.GetObject("G_Gudang.Image");
-            G_Gudang.Location = new Point(9, 13);
+            G_Gudang.Location = new Point(11, 16);
+            G_Gudang.Margin = new Padding(4);
             G_Gudang.Name = "G_Gudang";
-            G_Gudang.Size = new Size(56, 48);
+            G_Gudang.Size = new Size(70, 60);
             G_Gudang.SizeMode = PictureBoxSizeMode.Zoom;
             G_Gudang.TabIndex = 10;
             G_Gudang.TabStop = false;
+            G_Gudang.Click += G_Gudang_Click;
             // 
             // L_TotalGedung
             // 
             L_TotalGedung.AutoSize = true;
             L_TotalGedung.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            L_TotalGedung.Location = new Point(71, 14);
+            L_TotalGedung.Location = new Point(89, 18);
+            L_TotalGedung.Margin = new Padding(4, 0, 4, 0);
             L_TotalGedung.Name = "L_TotalGedung";
-            L_TotalGedung.Size = new Size(86, 17);
+            L_TotalGedung.Size = new Size(98, 20);
             L_TotalGedung.TabIndex = 6;
             L_TotalGedung.Text = "Total Gudang";
             L_TotalGedung.Click += L_TotalGedung_Click;
@@ -383,62 +407,69 @@
             // 
             A_TotalGedung.AutoSize = true;
             A_TotalGedung.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            A_TotalGedung.Location = new Point(97, 29);
+            A_TotalGedung.Location = new Point(121, 36);
+            A_TotalGedung.Margin = new Padding(4, 0, 4, 0);
             A_TotalGedung.Name = "A_TotalGedung";
-            A_TotalGedung.Size = new Size(27, 31);
+            A_TotalGedung.Size = new Size(33, 38);
             A_TotalGedung.TabIndex = 8;
             A_TotalGedung.Text = "3";
-            
+            A_TotalGedung.Click += A_TotalGedung_Click;
             // 
             // P_THP
             // 
             P_THP.Controls.Add(G_HasilPanen);
             P_THP.Controls.Add(A_TotalHasilPanen);
             P_THP.Controls.Add(L_TotalHasilPanen);
-            P_THP.Location = new Point(239, 63);
+            P_THP.Location = new Point(299, 79);
+            P_THP.Margin = new Padding(4);
             P_THP.Name = "P_THP";
-            P_THP.Size = new Size(172, 73);
+            P_THP.Size = new Size(215, 91);
             P_THP.TabIndex = 5;
             // 
             // G_HasilPanen
             // 
             G_HasilPanen.Image = (Image)resources.GetObject("G_HasilPanen.Image");
-            G_HasilPanen.Location = new Point(6, 13);
+            G_HasilPanen.Location = new Point(8, 16);
+            G_HasilPanen.Margin = new Padding(4);
             G_HasilPanen.Name = "G_HasilPanen";
-            G_HasilPanen.Size = new Size(56, 48);
+            G_HasilPanen.Size = new Size(70, 60);
             G_HasilPanen.SizeMode = PictureBoxSizeMode.Zoom;
             G_HasilPanen.TabIndex = 11;
             G_HasilPanen.TabStop = false;
+            G_HasilPanen.Click += G_HasilPanen_Click;
             // 
             // A_TotalHasilPanen
             // 
             A_TotalHasilPanen.AutoSize = true;
             A_TotalHasilPanen.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            A_TotalHasilPanen.Location = new Point(62, 28);
+            A_TotalHasilPanen.Location = new Point(78, 35);
+            A_TotalHasilPanen.Margin = new Padding(4, 0, 4, 0);
             A_TotalHasilPanen.Name = "A_TotalHasilPanen";
-            A_TotalHasilPanen.Size = new Size(99, 31);
+            A_TotalHasilPanen.Size = new Size(122, 38);
             A_TotalHasilPanen.TabIndex = 9;
             A_TotalHasilPanen.Text = "1306 kg";
-            
+            A_TotalHasilPanen.Click += A_TotalHasilPanen_Click;
             // 
             // L_TotalHasilPanen
             // 
             L_TotalHasilPanen.AutoSize = true;
             L_TotalHasilPanen.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            L_TotalHasilPanen.Location = new Point(62, 13);
+            L_TotalHasilPanen.Location = new Point(78, 16);
+            L_TotalHasilPanen.Margin = new Padding(4, 0, 4, 0);
             L_TotalHasilPanen.Name = "L_TotalHasilPanen";
-            L_TotalHasilPanen.Size = new Size(107, 17);
+            L_TotalHasilPanen.Size = new Size(122, 20);
             L_TotalHasilPanen.TabIndex = 7;
             L_TotalHasilPanen.Text = "Total Hasil Panen";
-            
+            L_TotalHasilPanen.Click += L_TotalHasilPanen_Click_1;
             // 
             // G_DashboardAdmin
             // 
             G_DashboardAdmin.BackColor = Color.Transparent;
             G_DashboardAdmin.Image = (Image)resources.GetObject("G_DashboardAdmin.Image");
-            G_DashboardAdmin.Location = new Point(21, 11);
+            G_DashboardAdmin.Location = new Point(26, 14);
+            G_DashboardAdmin.Margin = new Padding(4);
             G_DashboardAdmin.Name = "G_DashboardAdmin";
-            G_DashboardAdmin.Size = new Size(53, 45);
+            G_DashboardAdmin.Size = new Size(66, 56);
             G_DashboardAdmin.SizeMode = PictureBoxSizeMode.Zoom;
             G_DashboardAdmin.TabIndex = 2;
             G_DashboardAdmin.TabStop = false;
@@ -447,9 +478,10 @@
             // 
             J_DashboardAdmin.AutoSize = true;
             J_DashboardAdmin.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            J_DashboardAdmin.Location = new Point(71, 18);
+            J_DashboardAdmin.Location = new Point(89, 22);
+            J_DashboardAdmin.Margin = new Padding(4, 0, 4, 0);
             J_DashboardAdmin.Name = "J_DashboardAdmin";
-            J_DashboardAdmin.Size = new Size(231, 34);
+            J_DashboardAdmin.Size = new Size(275, 41);
             J_DashboardAdmin.TabIndex = 1;
             J_DashboardAdmin.Text = "Dashboard Admin";
             J_DashboardAdmin.Click += J_DashboardAdmin_Click;
@@ -461,30 +493,33 @@
             BC_KG.Controls.Add(KG_progressBar);
             BC_KG.Controls.Add(L_TeksPendukungSJ);
             BC_KG.Controls.Add(SJ_KapasitasGudang);
-            BC_KG.Location = new Point(-2, 150);
+            BC_KG.Location = new Point(-2, 188);
+            BC_KG.Margin = new Padding(4);
             BC_KG.Name = "BC_KG";
-            BC_KG.Size = new Size(632, 111);
+            BC_KG.Size = new Size(789, 138);
             BC_KG.TabIndex = 0;
-            
             // 
             // KG_progressBar
             // 
             KG_progressBar.ForeColor = Color.SaddleBrown;
-            KG_progressBar.Location = new Point(21, 53);
+            KG_progressBar.Location = new Point(26, 66);
+            KG_progressBar.Margin = new Padding(4);
             KG_progressBar.Name = "KG_progressBar";
-            KG_progressBar.Size = new Size(573, 29);
+            KG_progressBar.Size = new Size(716, 36);
             KG_progressBar.TabIndex = 2;
+            KG_progressBar.Click += KG_progressBar_Click;
             // 
             // L_TeksPendukungSJ
             // 
             L_TeksPendukungSJ.AutoSize = true;
             L_TeksPendukungSJ.BackColor = Color.Peru;
-            L_TeksPendukungSJ.Location = new Point(18, 31);
+            L_TeksPendukungSJ.Location = new Point(22, 39);
+            L_TeksPendukungSJ.Margin = new Padding(4, 0, 4, 0);
             L_TeksPendukungSJ.Name = "L_TeksPendukungSJ";
-            L_TeksPendukungSJ.Size = new Size(269, 20);
+            L_TeksPendukungSJ.Size = new Size(328, 25);
             L_TeksPendukungSJ.TabIndex = 4;
             L_TeksPendukungSJ.Text = "Gudang Utama A - 3200/5000 kg (64%)";
-            
+            L_TeksPendukungSJ.Click += L_TeksPendukungSJ_Click;
             // 
             // SJ_KapasitasGudang
             // 
@@ -492,10 +527,12 @@
             SJ_KapasitasGudang.BackColor = Color.Ivory;
             SJ_KapasitasGudang.ForeColor = SystemColors.ActiveCaptionText;
             SJ_KapasitasGudang.Location = new Point(-2, -1);
+            SJ_KapasitasGudang.Margin = new Padding(4, 0, 4, 0);
             SJ_KapasitasGudang.Name = "SJ_KapasitasGudang";
-            SJ_KapasitasGudang.Size = new Size(128, 20);
+            SJ_KapasitasGudang.Size = new Size(154, 25);
             SJ_KapasitasGudang.TabIndex = 0;
             SJ_KapasitasGudang.Text = "Kapasitas Gudang";
+            SJ_KapasitasGudang.Click += SJ_KapasitasGudang_Click;
             // 
             // BC_MenuBar
             // 
@@ -505,9 +542,10 @@
             BC_MenuBar.Controls.Add(L_Role);
             BC_MenuBar.Controls.Add(L_Username);
             BC_MenuBar.Controls.Add(G_Profil);
-            BC_MenuBar.Location = new Point(-1, -4);
+            BC_MenuBar.Location = new Point(-1, -5);
+            BC_MenuBar.Margin = new Padding(4);
             BC_MenuBar.Name = "BC_MenuBar";
-            BC_MenuBar.Size = new Size(184, 451);
+            BC_MenuBar.Size = new Size(229, 563);
             BC_MenuBar.TabIndex = 0;
             BC_MenuBar.Paint += BC_MenuBar_Paint;
             // 
@@ -522,19 +560,20 @@
             BC_MenuBar2.Controls.Add(btStokMasuk);
             BC_MenuBar2.Controls.Add(btDataHasilPanen);
             BC_MenuBar2.Controls.Add(btDashboard);
-            BC_MenuBar2.Location = new Point(-3, 51);
+            BC_MenuBar2.Location = new Point(-4, 64);
+            BC_MenuBar2.Margin = new Padding(4);
             BC_MenuBar2.Name = "BC_MenuBar2";
-            BC_MenuBar2.Size = new Size(185, 401);
+            BC_MenuBar2.Size = new Size(231, 501);
             BC_MenuBar2.TabIndex = 0;
-           
             // 
             // DashboardAdmin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 448);
+            ClientSize = new Size(1000, 560);
             Controls.Add(BC_DashboardAdmin);
             Controls.Add(BC_MenuBar);
+            Margin = new Padding(4);
             Name = "DashboardAdmin";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)G_Profil).EndInit();

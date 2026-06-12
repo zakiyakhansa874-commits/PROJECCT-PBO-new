@@ -42,9 +42,10 @@
             // 
             GWarning.BackColor = Color.Transparent;
             GWarning.Image = (Image)resources.GetObject("GWarning.Image");
-            GWarning.Location = new Point(30, 50);
+            GWarning.Location = new Point(38, 62);
+            GWarning.Margin = new Padding(4, 4, 4, 4);
             GWarning.Name = "GWarning";
-            GWarning.Size = new Size(50, 50);
+            GWarning.Size = new Size(62, 62);
             GWarning.SizeMode = PictureBoxSizeMode.StretchImage;
             GWarning.TabIndex = 0;
             GWarning.TabStop = false;
@@ -53,9 +54,10 @@
             // 
             JJudul.AutoSize = true;
             JJudul.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            JJudul.Location = new Point(101, 50);
+            JJudul.Location = new Point(126, 62);
+            JJudul.Margin = new Padding(4, 0, 4, 0);
             JJudul.Name = "JJudul";
-            JJudul.Size = new Size(195, 25);
+            JJudul.Size = new Size(234, 29);
             JJudul.TabIndex = 1;
             JJudul.Text = "Yakin ingin keluar?";
             JJudul.Click += label1_Click;
@@ -64,9 +66,10 @@
             // 
             SJKeluar.AutoSize = true;
             SJKeluar.ForeColor = SystemColors.GrayText;
-            SJKeluar.Location = new Point(100, 90);
+            SJKeluar.Location = new Point(125, 112);
+            SJKeluar.Margin = new Padding(4, 0, 4, 0);
             SJKeluar.Name = "SJKeluar";
-            SJKeluar.Size = new Size(364, 40);
+            SJKeluar.Size = new Size(438, 50);
             SJKeluar.TabIndex = 2;
             SJKeluar.Text = "Anda akan keluar dari sesi sebagai Pak Hendra.\nSemua perubahan yang belum tersimpan akan hilang.";
             SJKeluar.Click += label1_Click_1;
@@ -74,17 +77,19 @@
             // GGaris
             // 
             GGaris.BackColor = SystemColors.ButtonShadow;
-            GGaris.Location = new Point(20, 180);
+            GGaris.Location = new Point(25, 225);
+            GGaris.Margin = new Padding(4, 4, 4, 4);
             GGaris.Name = "GGaris";
-            GGaris.Size = new Size(480, 2);
+            GGaris.Size = new Size(600, 2);
             GGaris.TabIndex = 3;
             // 
             // btKeluar
             // 
             btKeluar.BackColor = Color.Beige;
-            btKeluar.Location = new Point(220, 210);
+            btKeluar.Location = new Point(275, 262);
+            btKeluar.Margin = new Padding(4, 4, 4, 4);
             btKeluar.Name = "btKeluar";
-            btKeluar.Size = new Size(130, 35);
+            btKeluar.Size = new Size(162, 44);
             btKeluar.TabIndex = 4;
             btKeluar.Text = "Ya, Keluar";
             btKeluar.UseVisualStyleBackColor = false;
@@ -94,19 +99,20 @@
             // 
             btBatal.BackColor = Color.Beige;
             btBatal.ForeColor = Color.Black;
-            btBatal.Location = new Point(370, 210);
+            btBatal.Location = new Point(462, 262);
+            btBatal.Margin = new Padding(4, 4, 4, 4);
             btBatal.Name = "btBatal";
-            btBatal.Size = new Size(130, 35);
+            btBatal.Size = new Size(162, 44);
             btBatal.TabIndex = 5;
             btBatal.Text = "Batal";
             btBatal.UseVisualStyleBackColor = false;
             // 
             // FormKonfirmasiKeluar
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
-            ClientSize = new Size(532, 253);
+            ClientSize = new Size(818, 425);
             Controls.Add(btBatal);
             Controls.Add(btKeluar);
             Controls.Add(GGaris);
@@ -114,6 +120,7 @@
             Controls.Add(JJudul);
             Controls.Add(GWarning);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(4, 4, 4, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormKonfirmasiKeluar";
