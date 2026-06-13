@@ -104,30 +104,24 @@ namespace TugasProject_PBO.Views
             tbPassword.PlaceholderText = "Enter password";
             // Initialize email color and disable login until inputs are provided
             tbEmail.ForeColor = Color.Gray;
-            btnLogin.Enabled = false;
+            btnLogin.Enabled = true;
         }
         private void LoginSIMIHAN_Load2(object sender, EventArgs e)
         {
             // Populate items only once. Use a prompt item at index 0.
-            if (comboBox1.Items.Count == 0)
+            if (cbRole.Items.Count == 0)
             {
-                comboBox1.Items.Add("-- Select Role --"); // prompt
-                comboBox1.Items.Add("Admin");
-                comboBox1.Items.Add("Petani");
+                cbRole.Items.Add(" Select Role"); 
+                cbRole.Items.Add("Admin");
+                cbRole.Items.Add("Petani");
             }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // When role selection changes, update the login button state
-            UpdateLoginButtonState();
         }
 
         private void UpdateLoginButtonState()
         {
             bool hasPassword = !string.IsNullOrWhiteSpace(tbPassword.Text);
             // require a selection other than the prompt at index 0
-            bool hasRole = comboBox1.SelectedIndex > 0;
+            bool hasRole = cbRole.SelectedIndex > 0;
 
             // Validate email format
             bool emailValid = false;
@@ -143,23 +137,22 @@ namespace TugasProject_PBO.Views
             }
 
             // Visual cue for email validity
-            tbEmail.ForeColor = string.IsNullOrEmpty(email) ? Color.Gray : (emailValid ? Color.Black : Color.Red);
+            tbEmail.ForeColor = string.IsNullOrEmpty(email) ? Color.Gray : (emailValid ? Color.Black : Color.Black);
 
-            btnLogin.Enabled = emailValid && hasPassword && hasRole;
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tombol Login Dipanggil");
+            MessageBox.Show("Login berhasil");
 
             string username = tbEmail.Text.Trim();
             string password = tbPassword.Text.Trim();
-            string role = comboBox1.SelectedItem?.ToString();
+            string role = cbRole.SelectedItem?.ToString();
 
             MessageBox.Show(
-        "Username = " + username +
-        "\nPassword = " + password +
-        "\nRole = " + role
-                );
+                        "Username = " + username +
+                        "\nPassword = " + password +
+                        "\nRole = " + role
+                                );
 
             // Basic client-side validation
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -169,7 +162,7 @@ namespace TugasProject_PBO.Views
                 return;
             }
 
-            if (comboBox1.SelectedIndex <= 0 || string.IsNullOrEmpty(role) || role.StartsWith("--"))
+            if (cbRole.SelectedIndex <= 0 || string.IsNullOrEmpty(role) || role.StartsWith("--"))
             {
                 MessageBox.Show("Pilih role terlebih dahulu!", "Peringatan",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -187,8 +180,9 @@ namespace TugasProject_PBO.Views
                  AND role = @role"; ;
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@zakiya", username);
-                        cmd.Parameters.AddWithValue("@123", password);
+                        // Use parameter names that match the SQL query
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
                         cmd.Parameters.AddWithValue("@role", role);
 
                         using (NpgsqlDataReader reader = cmd.ExecuteReader())

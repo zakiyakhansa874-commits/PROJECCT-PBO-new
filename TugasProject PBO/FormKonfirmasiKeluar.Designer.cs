@@ -43,7 +43,7 @@
             GWarning.BackColor = Color.Transparent;
             GWarning.Image = (Image)resources.GetObject("GWarning.Image");
             GWarning.Location = new Point(38, 62);
-            GWarning.Margin = new Padding(4, 4, 4, 4);
+            GWarning.Margin = new Padding(4);
             GWarning.Name = "GWarning";
             GWarning.Size = new Size(62, 62);
             GWarning.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -78,7 +78,7 @@
             // 
             GGaris.BackColor = SystemColors.ButtonShadow;
             GGaris.Location = new Point(25, 225);
-            GGaris.Margin = new Padding(4, 4, 4, 4);
+            GGaris.Margin = new Padding(4);
             GGaris.Name = "GGaris";
             GGaris.Size = new Size(600, 2);
             GGaris.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             btKeluar.BackColor = Color.Beige;
             btKeluar.Location = new Point(275, 262);
-            btKeluar.Margin = new Padding(4, 4, 4, 4);
+            btKeluar.Margin = new Padding(4);
             btKeluar.Name = "btKeluar";
             btKeluar.Size = new Size(162, 44);
             btKeluar.TabIndex = 4;
@@ -100,12 +100,13 @@
             btBatal.BackColor = Color.Beige;
             btBatal.ForeColor = Color.Black;
             btBatal.Location = new Point(462, 262);
-            btBatal.Margin = new Padding(4, 4, 4, 4);
+            btBatal.Margin = new Padding(4);
             btBatal.Name = "btBatal";
             btBatal.Size = new Size(162, 44);
             btBatal.TabIndex = 5;
             btBatal.Text = "Batal";
             btBatal.UseVisualStyleBackColor = false;
+            btBatal.Click += btBatal_Click_1;
             // 
             // FormKonfirmasiKeluar
             // 
@@ -120,7 +121,7 @@
             Controls.Add(JJudul);
             Controls.Add(GWarning);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormKonfirmasiKeluar";

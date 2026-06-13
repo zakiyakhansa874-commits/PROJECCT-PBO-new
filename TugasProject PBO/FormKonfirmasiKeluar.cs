@@ -55,5 +55,10 @@ namespace TugasProject_PBO
         {
             MessageBox.Show("Pastikan semua data sudah tersimpan sebelum keluar.");
         }
+
+        private void btBatal_Click_1(object sender, EventArgs e)
+        {
+            this.Close(); // Tutup form konfirmasi tanpa keluar
+        }
     }
 }

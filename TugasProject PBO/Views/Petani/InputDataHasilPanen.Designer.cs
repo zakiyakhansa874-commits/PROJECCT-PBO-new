@@ -55,7 +55,7 @@
             LPetani.Size = new Size(58, 20);
             LPetani.TabIndex = 0;
             LPetani.Text = "Petani:";
-           
+            LPetani.Click += LPetani_Click;
             // 
             // LNamaPetani
             // 
@@ -67,6 +67,7 @@
             LNamaPetani.Size = new Size(103, 20);
             LNamaPetani.TabIndex = 1;
             LNamaPetani.Text = "Pak Hendra";
+            LNamaPetani.Click += LNamaPetani_Click;
             // 
             // LTanggalPanen
             // 
@@ -76,6 +77,7 @@
             LTanggalPanen.Size = new Size(120, 20);
             LTanggalPanen.TabIndex = 2;
             LTanggalPanen.Text = "Tanggal Panen:";
+            LTanggalPanen.Click += LTanggalPanen_Click;
             // 
             // dtpTanggalPanen
             // 
@@ -84,6 +86,7 @@
             dtpTanggalPanen.Name = "dtpTanggalPanen";
             dtpTanggalPanen.Size = new Size(255, 25);
             dtpTanggalPanen.TabIndex = 3;
+            dtpTanggalPanen.ValueChanged += dtpTanggalPanen_ValueChanged;
             // 
             // Lkomoditas
             // 
@@ -93,6 +96,7 @@
             Lkomoditas.Size = new Size(88, 20);
             Lkomoditas.TabIndex = 4;
             Lkomoditas.Text = "Komoditas:";
+            Lkomoditas.Click += Lkomoditas_Click;
             // 
             // cbKomoditas
             // 
@@ -102,6 +106,7 @@
             cbKomoditas.Name = "cbKomoditas";
             cbKomoditas.Size = new Size(255, 28);
             cbKomoditas.TabIndex = 5;
+            cbKomoditas.SelectedIndexChanged += cbKomoditas_SelectedIndexChanged;
             // 
             // LBeratKotor
             // 
@@ -111,6 +116,7 @@
             LBeratKotor.Size = new Size(125, 20);
             LBeratKotor.TabIndex = 6;
             LBeratKotor.Text = "Berat Kotor (kg):";
+            LBeratKotor.Click += LBeratKotor_Click;
             // 
             // txtBeratKotor
             // 
@@ -118,6 +124,7 @@
             txtBeratKotor.Name = "txtBeratKotor";
             txtBeratKotor.Size = new Size(255, 25);
             txtBeratKotor.TabIndex = 7;
+            txtBeratKotor.TextChanged += txtBeratKotor_TextChanged;
             // 
             // LBeratBersih
             // 
@@ -127,6 +134,7 @@
             LBeratBersih.Size = new Size(132, 20);
             LBeratBersih.TabIndex = 8;
             LBeratBersih.Text = "Berat Bersih (kg):";
+            LBeratBersih.Click += LBeratBersih_Click;
             // 
             // txtBeratBersih
             // 
@@ -138,7 +146,7 @@
             txtBeratBersih.Size = new Size(255, 25);
             txtBeratBersih.TabIndex = 9;
             txtBeratBersih.Text = "Otomatis dihitung";
-         
+            txtBeratBersih.TextChanged += txtBeratBersih_TextChanged;
             // 
             // LKualitas
             // 
@@ -148,6 +156,7 @@
             LKualitas.Size = new Size(69, 20);
             LKualitas.TabIndex = 10;
             LKualitas.Text = "Kualitas:";
+            LKualitas.Click += LKualitas_Click;
             // 
             // cbKualitas
             // 
@@ -157,6 +166,7 @@
             cbKualitas.Name = "cbKualitas";
             cbKualitas.Size = new Size(255, 28);
             cbKualitas.TabIndex = 11;
+            cbKualitas.SelectedIndexChanged += cbKualitas_SelectedIndexChanged;
             // 
             // LCatatan
             // 
@@ -166,7 +176,7 @@
             LCatatan.Size = new Size(70, 20);
             LCatatan.TabIndex = 12;
             LCatatan.Text = "Catatan:";
-           
+            LCatatan.Click += LCatatan_Click;
             // 
             // txtCatatan
             // 
@@ -175,6 +185,7 @@
             txtCatatan.Name = "txtCatatan";
             txtCatatan.Size = new Size(255, 52);
             txtCatatan.TabIndex = 13;
+            txtCatatan.TextChanged += txtCatatan_TextChanged;
             // 
             // GGaris
             // 
@@ -204,6 +215,7 @@
             btBatal.TabIndex = 16;
             btBatal.Text = "Batal";
             btBatal.UseVisualStyleBackColor = false;
+            btBatal.Click += btBatal_Click;
             // 
             // BCInputHasilPanen
             // 
@@ -211,7 +223,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.Beige;
-            ClientSize = new Size(617, 376);
+            ClientSize = new Size(628, 384);
             Controls.Add(btBatal);
             Controls.Add(btSimpan);
             Controls.Add(GGaris);

@@ -35,7 +35,7 @@ namespace TugasProject_PBO.Views
             pictureBox1 = new PictureBox();
             btnLogin = new Button();
             panel1 = new Panel();
-            comboBox1 = new ComboBox();
+            cbRole = new ComboBox();
             linkLabel1 = new LinkLabel();
             label5 = new Label();
             label4 = new Label();
@@ -71,14 +71,14 @@ namespace TugasProject_PBO.Views
             btnLogin.Size = new Size(120, 36);
             btnLogin.TabIndex = 9;
             btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.Ivory;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(cbRole);
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(label5);
@@ -95,17 +95,17 @@ namespace TugasProject_PBO.Views
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             // 
-            // comboBox1
+            // cbRole
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.ForeColor = Color.Gray;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(40, 385);
-            comboBox1.Margin = new Padding(4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(303, 33);
-            comboBox1.TabIndex = 8;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRole.ForeColor = Color.Gray;
+            cbRole.FormattingEnabled = true;
+            cbRole.Location = new Point(40, 385);
+            cbRole.Margin = new Padding(4);
+            cbRole.Name = "cbRole";
+            cbRole.Size = new Size(303, 33);
+            cbRole.TabIndex = 8;
+           
             // 
             // linkLabel1
             // 
@@ -133,7 +133,7 @@ namespace TugasProject_PBO.Views
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(29, 44);
+            label4.Location = new Point(5, 52);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(72, 25);
@@ -228,6 +228,6 @@ namespace TugasProject_PBO.Views
         private Label label4;
         private Label label5;
         private LinkLabel linkLabel1;
-        private ComboBox comboBox1;
+        private ComboBox cbRole;
     }
 }

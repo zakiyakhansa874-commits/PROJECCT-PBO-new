@@ -55,6 +55,7 @@
             LPetani.Size = new Size(66, 22);
             LPetani.TabIndex = 0;
             LPetani.Text = "Petani:";
+           
             // 
             // LTanggal
             // 
@@ -64,7 +65,7 @@
             LTanggal.Size = new Size(81, 22);
             LTanggal.TabIndex = 1;
             LTanggal.Text = "Tanggal:";
-            LTanggal.Click += label2_Click;
+            
             // 
             // LKomoditas
             // 
@@ -76,6 +77,7 @@
             LKomoditas.Size = new Size(99, 22);
             LKomoditas.TabIndex = 2;
             LKomoditas.Text = "Komoditas:";
+           
             // 
             // LBeratKotor
             // 
@@ -85,6 +87,7 @@
             LBeratKotor.Size = new Size(142, 22);
             LBeratKotor.TabIndex = 3;
             LBeratKotor.Text = "Berat Kotor (kg):";
+           
             // 
             // LBeratBersih
             // 
@@ -94,6 +97,7 @@
             LBeratBersih.Size = new Size(150, 22);
             LBeratBersih.TabIndex = 4;
             LBeratBersih.Text = "Berat Bersih (kg):";
+           
             // 
             // LKualitas
             // 
@@ -103,6 +107,7 @@
             LKualitas.Size = new Size(79, 22);
             LKualitas.TabIndex = 5;
             LKualitas.Text = "Kualitas:";
+           
             // 
             // LCatatan
             // 
@@ -112,6 +117,7 @@
             LCatatan.Size = new Size(78, 22);
             LCatatan.TabIndex = 6;
             LCatatan.Text = "Catatan:";
+           
             // 
             // cbPetani
             // 
@@ -121,6 +127,7 @@
             cbPetani.Name = "cbPetani";
             cbPetani.Size = new Size(260, 30);
             cbPetani.TabIndex = 7;
+            
             // 
             // dtpTanggal
             // 
@@ -129,6 +136,7 @@
             dtpTanggal.Name = "dtpTanggal";
             dtpTanggal.Size = new Size(260, 28);
             dtpTanggal.TabIndex = 8;
+            
             // 
             // cbKomoditas
             // 
@@ -138,6 +146,7 @@
             cbKomoditas.Name = "cbKomoditas";
             cbKomoditas.Size = new Size(260, 30);
             cbKomoditas.TabIndex = 9;
+            
             // 
             // txtBeratKotor
             // 
@@ -145,6 +154,7 @@
             txtBeratKotor.Name = "txtBeratKotor";
             txtBeratKotor.Size = new Size(260, 28);
             txtBeratKotor.TabIndex = 10;
+            
             // 
             // txtBeratBersih
             // 
@@ -152,6 +162,7 @@
             txtBeratBersih.Name = "txtBeratBersih";
             txtBeratBersih.Size = new Size(260, 28);
             txtBeratBersih.TabIndex = 11;
+            
             // 
             // cbKualitas
             // 
@@ -161,6 +172,7 @@
             cbKualitas.Name = "cbKualitas";
             cbKualitas.Size = new Size(260, 30);
             cbKualitas.TabIndex = 12;
+            
             // 
             // txtCatatan
             // 
@@ -169,7 +181,7 @@
             txtCatatan.Name = "txtCatatan";
             txtCatatan.Size = new Size(260, 40);
             txtCatatan.TabIndex = 13;
-            txtCatatan.TextChanged += txtCatatan_TextChanged;
+           
             // 
             // GGaris
             // 
@@ -199,6 +211,7 @@
             btBatal.TabIndex = 16;
             btBatal.Text = "Batal";
             btBatal.UseVisualStyleBackColor = false;
+            
             // 
             // KelolaHasilPanen
             // 
