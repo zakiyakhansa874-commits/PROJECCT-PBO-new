@@ -162,7 +162,7 @@ namespace TugasProject_PBO.Views
                 return;
             }
 
-            if (cbRole.SelectedIndex <= 0 || string.IsNullOrEmpty(role) || role.StartsWith("--"))
+            if (cbRole.SelectedIndex < 0 || string.IsNullOrEmpty(role) || role.StartsWith("--"))
             {
                 MessageBox.Show("Pilih role terlebih dahulu!", "Peringatan",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
