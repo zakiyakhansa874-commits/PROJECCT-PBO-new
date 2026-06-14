@@ -6,23 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TugasProject_PBO.Views.Admin
+namespace TugasProject_PBO.Views.Petani
 {
-    public partial class LaporanInventori : Form
+    public partial class MonitoringStokGudang : Form
     {
-        public LaporanInventori()
+        public MonitoringStokGudang()
         {
             InitializeComponent();
-        }
-
-        private void G_DashboardAdmin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
         private void BC_MenuBar_Paint(object sender, PaintEventArgs e)
         {
@@ -40,14 +30,5 @@ namespace TugasProject_PBO.Views.Admin
         {
 
         }
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btKelolaHasilPanen_1_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

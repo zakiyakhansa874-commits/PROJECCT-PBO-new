@@ -55,8 +55,8 @@ namespace TugasProject_PBO.Views
         private void label2_Click(object sender, EventArgs e)
         {
             // Show a short slogan/info when the label is clicked
-            MessageBox.Show("Kesegaran Alami, selalu terjaga dalam setiap panen.", "SIMIHAN", 
-            MessageBoxButtons.OK, 
+            MessageBox.Show("Kesegaran Alami, selalu terjaga dalam setiap panen.", "SIMIHAN",
+            MessageBoxButtons.OK,
             MessageBoxIcon.Information);
         }
 
@@ -111,7 +111,7 @@ namespace TugasProject_PBO.Views
             // Populate items only once. Use a prompt item at index 0.
             if (cbRole.Items.Count == 0)
             {
-                cbRole.Items.Add(" Select Role"); 
+                cbRole.Items.Add(" Select Role");
                 cbRole.Items.Add("Admin");
                 cbRole.Items.Add("Petani");
             }
@@ -237,8 +237,8 @@ namespace TugasProject_PBO.Views
         private void label3_Click(object sender, EventArgs e)
         {
             // Show more details about the application when subtitle is clicked
-            MessageBox.Show("SIMIHAN - Sistem Informasi Manajemen Hasil Panen dan Inventori.", "Tentang SIMIHAN", 
-            MessageBoxButtons.OK, 
+            MessageBox.Show("SIMIHAN - Sistem Informasi Manajemen Hasil Panen dan Inventori.", "Tentang SIMIHAN",
+            MessageBoxButtons.OK,
             MessageBoxIcon.Information);
         }
 
@@ -253,6 +253,11 @@ namespace TugasProject_PBO.Views
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

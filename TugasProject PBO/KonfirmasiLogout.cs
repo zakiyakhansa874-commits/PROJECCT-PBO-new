@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TugasProject_PBO
 {
-    public partial class FormKonfirmasiKeluar : Form
+    public partial class KonfirmasiLogout : Form
     {
-        public FormKonfirmasiKeluar()
+        public KonfirmasiLogout()
         {
             InitializeComponent();
             this.Load += FormKonfirmasiKeluar_Load;

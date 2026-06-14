@@ -52,7 +52,7 @@
             LPetani.AutoSize = true;
             LPetani.Location = new Point(10, 20);
             LPetani.Name = "LPetani";
-            LPetani.Size = new Size(58, 20);
+            LPetani.Size = new Size(48, 16);
             LPetani.TabIndex = 0;
             LPetani.Text = "Petani:";
             LPetani.Click += LPetani_Click;
@@ -61,10 +61,10 @@
             // 
             LNamaPetani.AutoSize = true;
             LNamaPetani.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LNamaPetani.ForeColor = Color.ForestGreen;
-            LNamaPetani.Location = new Point(115, 20);
+            LNamaPetani.ForeColor = Color.Black;
+            LNamaPetani.Location = new Point(151, 20);
             LNamaPetani.Name = "LNamaPetani";
-            LNamaPetani.Size = new Size(103, 20);
+            LNamaPetani.Size = new Size(89, 16);
             LNamaPetani.TabIndex = 1;
             LNamaPetani.Text = "Pak Hendra";
             LNamaPetani.Click += LNamaPetani_Click;
@@ -74,7 +74,7 @@
             LTanggalPanen.AutoSize = true;
             LTanggalPanen.Location = new Point(10, 50);
             LTanggalPanen.Name = "LTanggalPanen";
-            LTanggalPanen.Size = new Size(120, 20);
+            LTanggalPanen.Size = new Size(103, 16);
             LTanggalPanen.TabIndex = 2;
             LTanggalPanen.Text = "Tanggal Panen:";
             LTanggalPanen.Click += LTanggalPanen_Click;
@@ -84,7 +84,7 @@
             dtpTanggalPanen.Format = DateTimePickerFormat.Short;
             dtpTanggalPanen.Location = new Point(152, 46);
             dtpTanggalPanen.Name = "dtpTanggalPanen";
-            dtpTanggalPanen.Size = new Size(255, 25);
+            dtpTanggalPanen.Size = new Size(255, 22);
             dtpTanggalPanen.TabIndex = 3;
             dtpTanggalPanen.ValueChanged += dtpTanggalPanen_ValueChanged;
             // 
@@ -93,7 +93,7 @@
             Lkomoditas.AutoSize = true;
             Lkomoditas.Location = new Point(10, 80);
             Lkomoditas.Name = "Lkomoditas";
-            Lkomoditas.Size = new Size(88, 20);
+            Lkomoditas.Size = new Size(74, 16);
             Lkomoditas.TabIndex = 4;
             Lkomoditas.Text = "Komoditas:";
             Lkomoditas.Click += Lkomoditas_Click;
@@ -104,7 +104,7 @@
             cbKomoditas.FormattingEnabled = true;
             cbKomoditas.Location = new Point(152, 75);
             cbKomoditas.Name = "cbKomoditas";
-            cbKomoditas.Size = new Size(255, 28);
+            cbKomoditas.Size = new Size(255, 24);
             cbKomoditas.TabIndex = 5;
             cbKomoditas.SelectedIndexChanged += cbKomoditas_SelectedIndexChanged;
             // 
@@ -113,7 +113,7 @@
             LBeratKotor.AutoSize = true;
             LBeratKotor.Location = new Point(10, 110);
             LBeratKotor.Name = "LBeratKotor";
-            LBeratKotor.Size = new Size(125, 20);
+            LBeratKotor.Size = new Size(102, 16);
             LBeratKotor.TabIndex = 6;
             LBeratKotor.Text = "Berat Kotor (kg):";
             LBeratKotor.Click += LBeratKotor_Click;
@@ -122,7 +122,7 @@
             // 
             txtBeratKotor.Location = new Point(152, 107);
             txtBeratKotor.Name = "txtBeratKotor";
-            txtBeratKotor.Size = new Size(255, 25);
+            txtBeratKotor.Size = new Size(255, 22);
             txtBeratKotor.TabIndex = 7;
             txtBeratKotor.TextChanged += txtBeratKotor_TextChanged;
             // 
@@ -131,7 +131,7 @@
             LBeratBersih.AutoSize = true;
             LBeratBersih.Location = new Point(10, 140);
             LBeratBersih.Name = "LBeratBersih";
-            LBeratBersih.Size = new Size(132, 20);
+            LBeratBersih.Size = new Size(109, 16);
             LBeratBersih.TabIndex = 8;
             LBeratBersih.Text = "Berat Bersih (kg):";
             LBeratBersih.Click += LBeratBersih_Click;
@@ -143,9 +143,8 @@
             txtBeratBersih.Location = new Point(152, 137);
             txtBeratBersih.Name = "txtBeratBersih";
             txtBeratBersih.ReadOnly = true;
-            txtBeratBersih.Size = new Size(255, 25);
+            txtBeratBersih.Size = new Size(255, 22);
             txtBeratBersih.TabIndex = 9;
-            txtBeratBersih.Text = "Otomatis dihitung";
             txtBeratBersih.TextChanged += txtBeratBersih_TextChanged;
             // 
             // LKualitas
@@ -153,7 +152,7 @@
             LKualitas.AutoSize = true;
             LKualitas.Location = new Point(10, 170);
             LKualitas.Name = "LKualitas";
-            LKualitas.Size = new Size(69, 20);
+            LKualitas.Size = new Size(57, 16);
             LKualitas.TabIndex = 10;
             LKualitas.Text = "Kualitas:";
             LKualitas.Click += LKualitas_Click;
@@ -164,7 +163,7 @@
             cbKualitas.FormattingEnabled = true;
             cbKualitas.Location = new Point(152, 165);
             cbKualitas.Name = "cbKualitas";
-            cbKualitas.Size = new Size(255, 28);
+            cbKualitas.Size = new Size(255, 24);
             cbKualitas.TabIndex = 11;
             cbKualitas.SelectedIndexChanged += cbKualitas_SelectedIndexChanged;
             // 
@@ -173,7 +172,7 @@
             LCatatan.AutoSize = true;
             LCatatan.Location = new Point(10, 200);
             LCatatan.Name = "LCatatan";
-            LCatatan.Size = new Size(70, 20);
+            LCatatan.Size = new Size(56, 16);
             LCatatan.TabIndex = 12;
             LCatatan.Text = "Catatan:";
             LCatatan.Click += LCatatan_Click;
@@ -197,7 +196,7 @@
             // 
             // btSimpan
             // 
-            btSimpan.BackColor = Color.Beige;
+            btSimpan.BackColor = Color.DarkKhaki;
             btSimpan.Location = new Point(236, 282);
             btSimpan.Name = "btSimpan";
             btSimpan.Size = new Size(85, 37);
@@ -208,7 +207,7 @@
             // 
             // btBatal
             // 
-            btBatal.BackColor = Color.Beige;
+            btBatal.BackColor = Color.DarkKhaki;
             btBatal.Location = new Point(327, 282);
             btBatal.Name = "btBatal";
             btBatal.Size = new Size(80, 37);
@@ -219,11 +218,11 @@
             // 
             // BCInputHasilPanen
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            BackColor = Color.Beige;
-            ClientSize = new Size(628, 384);
+            BackColor = Color.LightYellow;
+            ClientSize = new Size(447, 355);
             Controls.Add(btBatal);
             Controls.Add(btSimpan);
             Controls.Add(GGaris);

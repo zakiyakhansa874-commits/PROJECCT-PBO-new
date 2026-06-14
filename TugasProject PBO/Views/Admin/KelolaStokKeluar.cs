@@ -14,5 +14,17 @@ namespace TugasProject_PBO.Views.Admin
         {
             InitializeComponent();
         }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void G_KelolaStokKeluar_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void BC_MenuBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

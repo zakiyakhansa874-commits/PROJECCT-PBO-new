@@ -1,6 +1,6 @@
 ﻿namespace TugasProject_PBO
 {
-    partial class FormKonfirmasiKeluar
+    partial class KonfirmasiLogout
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKonfirmasiKeluar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KonfirmasiLogout));
             GWarning = new PictureBox();
             JJudul = new Label();
             SJKeluar = new Label();

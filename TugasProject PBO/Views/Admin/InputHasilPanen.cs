@@ -5,7 +5,7 @@ using Npgsql;
 
 namespace TugasProject_PBO.Views.Admin
 {
-    public partial class KelolaHasilPanen : Form
+    public partial class InputHasilPanen : Form
     {
         private string connectionString =
             "Host=localhost;" +
@@ -16,7 +16,7 @@ namespace TugasProject_PBO.Views.Admin
 
         private int idHasilPanen = 0;
 
-        public KelolaHasilPanen()
+        public InputHasilPanen()
         {
             InitializeComponent();
         }

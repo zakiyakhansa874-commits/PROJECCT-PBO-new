@@ -20,8 +20,8 @@ namespace TugasProject_PBO.Views.Admin
         {
             // Header labels
             L_TotalGedung.Text = "Total Gudang: 3";
-            L_Username.Text = "Username: admin";
-            L_Role.Text = "Role: Administrator";
+            L_Username1.Text = "Username: admin";
+            L_Role1.Text = "Role: Administrator";
 
             // Informasi stok & hasil panen
             L_StokSaatIni.Text = "Stok Saat Ini: 5420 kg";
@@ -95,7 +95,7 @@ namespace TugasProject_PBO.Views.Admin
             MessageBox.Show("Menu Kelola Gudang dibuka");
             try
             {
-                var form = new KelolaGudang();
+                var form = new InputEditGudang();
                 form.ShowDialog();
             }
             catch (Exception ex)
@@ -123,7 +123,7 @@ namespace TugasProject_PBO.Views.Admin
         }
         private void btLogout_Click(object sender, EventArgs e)
         {
-            using (FormKonfirmasiKeluar frm = new FormKonfirmasiKeluar())
+            using (KonfirmasiLogout frm = new KonfirmasiLogout())
             {
                 if (frm.ShowDialog() == DialogResult.Yes)
                 {
@@ -195,7 +195,7 @@ namespace TugasProject_PBO.Views.Admin
             // Open KelolaGudang form if available
             try
             {
-                var form = new KelolaGudang();
+                var form = new InputEditGudang();
                 form.ShowDialog();
             }
             catch (Exception ex)

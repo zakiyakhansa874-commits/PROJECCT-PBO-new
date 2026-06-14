@@ -8,24 +8,29 @@ using System.Windows.Forms;
 
 namespace TugasProject_PBO.Views.Admin
 {
-    public partial class KelolaStokMasuk : Form
+    public partial class KelolaDataHasilPanen : Form
     {
-        public KelolaStokMasuk()
+        public KelolaDataHasilPanen()
         {
             InitializeComponent();
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-        private void G_KelolaStokMasuk_Click(object sender, EventArgs e)
+        private void BC_MenuBar_Paint(object sender, PaintEventArgs e)
         {
 
         }
-        private void BC_MenuBar_Paint2(object sender, PaintEventArgs e)
+        private void G_KelolaDataHasilPanen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
     }
+
 }

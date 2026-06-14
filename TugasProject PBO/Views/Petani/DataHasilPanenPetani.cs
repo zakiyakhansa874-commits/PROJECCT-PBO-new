@@ -8,11 +8,16 @@ using System.Windows.Forms;
 
 namespace TugasProject_PBO.Views.Petani
 {
-    public partial class MonitoringStok : Form
+    public partial class DataHasilPanenPetani : Form
     {
-        public MonitoringStok()
+        public DataHasilPanenPetani()
         {
             InitializeComponent();
         }
+        private void btKelolaHasilPanen_1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
