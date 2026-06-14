@@ -46,11 +46,6 @@
             BC_page2 = new Panel();
             BC_Keloladatahasilpanen2 = new Panel();
             DGV_datahasilpanen2 = new DataGridView();
-            bt_hapus2 = new Button();
-            bt_edit2 = new Button();
-            bt_tambah2 = new Button();
-            G_KelolaDataHasilPanen2 = new PictureBox();
-            J_KelolaDataHasilPanen2 = new Label();
             ID = new DataGridViewTextBoxColumn();
             BeratKotor = new DataGridViewTextBoxColumn();
             BeratBersih = new DataGridViewTextBoxColumn();
@@ -59,6 +54,11 @@
             Tanggal = new DataGridViewTextBoxColumn();
             Petani = new DataGridViewTextBoxColumn();
             Komoditas = new DataGridViewTextBoxColumn();
+            bt_hapus2 = new Button();
+            bt_edit2 = new Button();
+            bt_tambah2 = new Button();
+            G_KelolaDataHasilPanen2 = new PictureBox();
+            J_KelolaDataHasilPanen2 = new Label();
             BC_MenuBar2ini.SuspendLayout();
             BC_MenuBar2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_Profil2).BeginInit();
@@ -78,16 +78,18 @@
             BC_MenuBar2ini.Controls.Add(L_Username2);
             BC_MenuBar2ini.Controls.Add(G_Profil2);
             BC_MenuBar2ini.Location = new Point(-1, 0);
+            BC_MenuBar2ini.Margin = new Padding(4, 4, 4, 4);
             BC_MenuBar2ini.Name = "BC_MenuBar2ini";
-            BC_MenuBar2ini.Size = new Size(184, 451);
+            BC_MenuBar2ini.Size = new Size(229, 563);
             BC_MenuBar2ini.TabIndex = 2;
             // 
             // panel1
             // 
             panel1.BackColor = Color.Ivory;
-            panel1.Location = new Point(181, -2);
+            panel1.Location = new Point(226, -2);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(622, 454);
+            panel1.Size = new Size(778, 568);
             panel1.TabIndex = 3;
             // 
             // BC_MenuBar2
@@ -101,98 +103,115 @@
             BC_MenuBar2.Controls.Add(btStokMasuk2);
             BC_MenuBar2.Controls.Add(btKelolaHasilPanen2);
             BC_MenuBar2.Controls.Add(btDashboard2);
-            BC_MenuBar2.Location = new Point(-3, 51);
+            BC_MenuBar2.Location = new Point(-4, 64);
+            BC_MenuBar2.Margin = new Padding(4, 4, 4, 4);
             BC_MenuBar2.Name = "BC_MenuBar2";
-            BC_MenuBar2.Size = new Size(185, 401);
+            BC_MenuBar2.Size = new Size(231, 501);
             BC_MenuBar2.TabIndex = 0;
             // 
             // btLogout2
             // 
             btLogout2.BackColor = Color.DarkKhaki;
             btLogout2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btLogout2.Location = new Point(-5, 351);
+            btLogout2.Location = new Point(-6, 439);
+            btLogout2.Margin = new Padding(4, 4, 4, 4);
             btLogout2.Name = "btLogout2";
-            btLogout2.Size = new Size(183, 34);
+            btLogout2.Size = new Size(229, 42);
             btLogout2.TabIndex = 9;
             btLogout2.Text = "Logout";
             btLogout2.UseVisualStyleBackColor = false;
+            btLogout2.Click += btLogout2_Click;
             // 
             // btLaporanInventori2
             // 
             btLaporanInventori2.BackColor = Color.DarkKhaki;
             btLaporanInventori2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btLaporanInventori2.Location = new Point(-1, 213);
+            btLaporanInventori2.Location = new Point(-1, 266);
+            btLaporanInventori2.Margin = new Padding(4, 4, 4, 4);
             btLaporanInventori2.Name = "btLaporanInventori2";
-            btLaporanInventori2.Size = new Size(179, 33);
+            btLaporanInventori2.Size = new Size(224, 41);
             btLaporanInventori2.TabIndex = 8;
             btLaporanInventori2.Text = "Laporan Inventori";
             btLaporanInventori2.UseVisualStyleBackColor = false;
+            btLaporanInventori2.Click += btLaporanInventori2_Click;
             // 
             // btMonitoringStok2
             // 
             btMonitoringStok2.BackColor = Color.DarkKhaki;
             btMonitoringStok2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btMonitoringStok2.Location = new Point(-1, 182);
+            btMonitoringStok2.Location = new Point(-1, 228);
+            btMonitoringStok2.Margin = new Padding(4, 4, 4, 4);
             btMonitoringStok2.Name = "btMonitoringStok2";
-            btMonitoringStok2.Size = new Size(179, 34);
+            btMonitoringStok2.Size = new Size(224, 42);
             btMonitoringStok2.TabIndex = 6;
             btMonitoringStok2.Text = "Monitoring Stok";
             btMonitoringStok2.UseVisualStyleBackColor = false;
+            btMonitoringStok2.Click += btMonitoringStok2_Click;
             // 
             // btStokKeluar2
             // 
             btStokKeluar2.BackColor = Color.DarkKhaki;
             btStokKeluar2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btStokKeluar2.Location = new Point(-1, 150);
+            btStokKeluar2.Location = new Point(-1, 188);
+            btStokKeluar2.Margin = new Padding(4, 4, 4, 4);
             btStokKeluar2.Name = "btStokKeluar2";
-            btStokKeluar2.Size = new Size(186, 34);
+            btStokKeluar2.Size = new Size(232, 42);
             btStokKeluar2.TabIndex = 5;
             btStokKeluar2.Text = "Stok Keluar";
             btStokKeluar2.UseVisualStyleBackColor = false;
+            btStokKeluar2.Click += btStokKeluar2_Click;
             // 
             // btKelolaGudang2
             // 
             btKelolaGudang2.BackColor = Color.DarkKhaki;
             btKelolaGudang2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btKelolaGudang2.Location = new Point(-5, 87);
+            btKelolaGudang2.Location = new Point(-6, 109);
+            btKelolaGudang2.Margin = new Padding(4, 4, 4, 4);
             btKelolaGudang2.Name = "btKelolaGudang2";
-            btKelolaGudang2.Size = new Size(183, 34);
+            btKelolaGudang2.Size = new Size(229, 42);
             btKelolaGudang2.TabIndex = 5;
             btKelolaGudang2.Text = "Kelola Gudang";
             btKelolaGudang2.UseVisualStyleBackColor = false;
+            btKelolaGudang2.Click += btKelolaGudang2_Click;
             // 
             // btStokMasuk2
             // 
             btStokMasuk2.BackColor = Color.DarkKhaki;
             btStokMasuk2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btStokMasuk2.Location = new Point(-5, 118);
+            btStokMasuk2.Location = new Point(-6, 148);
+            btStokMasuk2.Margin = new Padding(4, 4, 4, 4);
             btStokMasuk2.Name = "btStokMasuk2";
-            btStokMasuk2.Size = new Size(183, 34);
+            btStokMasuk2.Size = new Size(229, 42);
             btStokMasuk2.TabIndex = 4;
             btStokMasuk2.Text = "Stok Masuk";
             btStokMasuk2.UseVisualStyleBackColor = false;
+            btStokMasuk2.Click += btStokMasuk2_Click;
             // 
             // btKelolaHasilPanen2
             // 
             btKelolaHasilPanen2.BackColor = Color.DarkKhaki;
             btKelolaHasilPanen2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btKelolaHasilPanen2.Location = new Point(-5, 55);
+            btKelolaHasilPanen2.Location = new Point(-6, 69);
+            btKelolaHasilPanen2.Margin = new Padding(4, 4, 4, 4);
             btKelolaHasilPanen2.Name = "btKelolaHasilPanen2";
-            btKelolaHasilPanen2.Size = new Size(185, 34);
+            btKelolaHasilPanen2.Size = new Size(231, 42);
             btKelolaHasilPanen2.TabIndex = 3;
             btKelolaHasilPanen2.Text = "Kelola Hasil Panen";
             btKelolaHasilPanen2.UseVisualStyleBackColor = false;
+            btKelolaHasilPanen2.Click += btKelolaHasilPanen2_Click;
             // 
             // btDashboard2
             // 
             btDashboard2.BackColor = Color.DarkKhaki;
             btDashboard2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btDashboard2.Location = new Point(-5, 23);
+            btDashboard2.Location = new Point(-6, 29);
+            btDashboard2.Margin = new Padding(4, 4, 4, 4);
             btDashboard2.Name = "btDashboard2";
-            btDashboard2.Size = new Size(185, 34);
+            btDashboard2.Size = new Size(231, 42);
             btDashboard2.TabIndex = 2;
             btDashboard2.Text = "Dashboard";
             btDashboard2.UseVisualStyleBackColor = false;
+            btDashboard2.Click += btDashboard2_Click;
             // 
             // L_Role2
             // 
@@ -200,9 +219,10 @@
             L_Role2.BackColor = Color.DarkOliveGreen;
             L_Role2.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             L_Role2.ForeColor = SystemColors.ButtonHighlight;
-            L_Role2.Location = new Point(65, 24);
+            L_Role2.Location = new Point(81, 30);
+            L_Role2.Margin = new Padding(4, 0, 4, 0);
             L_Role2.Name = "L_Role2";
-            L_Role2.Size = new Size(40, 21);
+            L_Role2.Size = new Size(49, 26);
             L_Role2.TabIndex = 0;
             L_Role2.Text = "Role";
             // 
@@ -211,9 +231,10 @@
             L_Username2.AutoSize = true;
             L_Username2.Font = new Font("Calibri", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             L_Username2.ForeColor = SystemColors.ButtonHighlight;
-            L_Username2.Location = new Point(65, 4);
+            L_Username2.Location = new Point(81, 5);
+            L_Username2.Margin = new Padding(4, 0, 4, 0);
             L_Username2.Name = "L_Username2";
-            L_Username2.Size = new Size(87, 22);
+            L_Username2.Size = new Size(106, 27);
             L_Username2.TabIndex = 0;
             L_Username2.Text = "Username";
             // 
@@ -223,9 +244,10 @@
             G_Profil2.BorderStyle = BorderStyle.FixedSingle;
             G_Profil2.Image = (Image)resources.GetObject("G_Profil2.Image");
             G_Profil2.InitialImage = null;
-            G_Profil2.Location = new Point(20, 6);
+            G_Profil2.Location = new Point(25, 8);
+            G_Profil2.Margin = new Padding(4, 4, 4, 4);
             G_Profil2.Name = "G_Profil2";
-            G_Profil2.Size = new Size(43, 41);
+            G_Profil2.Size = new Size(53, 51);
             G_Profil2.SizeMode = PictureBoxSizeMode.Zoom;
             G_Profil2.TabIndex = 0;
             G_Profil2.TabStop = false;
@@ -239,81 +261,33 @@
             BC_page2.Controls.Add(bt_tambah2);
             BC_page2.Controls.Add(G_KelolaDataHasilPanen2);
             BC_page2.Controls.Add(J_KelolaDataHasilPanen2);
-            BC_page2.Location = new Point(171, -10);
+            BC_page2.Location = new Point(214, -12);
+            BC_page2.Margin = new Padding(4, 4, 4, 4);
             BC_page2.Name = "BC_page2";
-            BC_page2.Size = new Size(642, 464);
+            BC_page2.Size = new Size(802, 580);
             BC_page2.TabIndex = 3;
             // 
             // BC_Keloladatahasilpanen2
             // 
             BC_Keloladatahasilpanen2.BackColor = Color.SaddleBrown;
             BC_Keloladatahasilpanen2.Controls.Add(DGV_datahasilpanen2);
-            BC_Keloladatahasilpanen2.Location = new Point(19, 120);
+            BC_Keloladatahasilpanen2.Location = new Point(24, 150);
+            BC_Keloladatahasilpanen2.Margin = new Padding(4, 4, 4, 4);
             BC_Keloladatahasilpanen2.Name = "BC_Keloladatahasilpanen2";
-            BC_Keloladatahasilpanen2.Size = new Size(587, 316);
+            BC_Keloladatahasilpanen2.Size = new Size(734, 395);
             BC_Keloladatahasilpanen2.TabIndex = 11;
             // 
             // DGV_datahasilpanen2
             // 
             DGV_datahasilpanen2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_datahasilpanen2.Columns.AddRange(new DataGridViewColumn[] { ID, BeratKotor, BeratBersih, Kualitas, Catatan, Tanggal, Petani, Komoditas });
-            DGV_datahasilpanen2.Location = new Point(20, 27);
+            DGV_datahasilpanen2.Location = new Point(25, 34);
+            DGV_datahasilpanen2.Margin = new Padding(4, 4, 4, 4);
             DGV_datahasilpanen2.Name = "DGV_datahasilpanen2";
             DGV_datahasilpanen2.RowHeadersWidth = 51;
-            DGV_datahasilpanen2.Size = new Size(544, 264);
+            DGV_datahasilpanen2.Size = new Size(680, 330);
             DGV_datahasilpanen2.TabIndex = 10;
             DGV_datahasilpanen2.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // bt_hapus2
-            // 
-            bt_hapus2.BackColor = SystemColors.ButtonHighlight;
-            bt_hapus2.Location = new Point(248, 74);
-            bt_hapus2.Name = "bt_hapus2";
-            bt_hapus2.Size = new Size(94, 29);
-            bt_hapus2.TabIndex = 9;
-            bt_hapus2.Text = "🗑️ Hapus";
-            bt_hapus2.UseVisualStyleBackColor = false;
-            // 
-            // bt_edit2
-            // 
-            bt_edit2.BackColor = SystemColors.ButtonHighlight;
-            bt_edit2.Location = new Point(142, 74);
-            bt_edit2.Name = "bt_edit2";
-            bt_edit2.Size = new Size(94, 29);
-            bt_edit2.TabIndex = 8;
-            bt_edit2.Text = "✏️ Edit";
-            bt_edit2.UseVisualStyleBackColor = false;
-            // 
-            // bt_tambah2
-            // 
-            bt_tambah2.BackColor = SystemColors.ButtonHighlight;
-            bt_tambah2.Location = new Point(36, 74);
-            bt_tambah2.Name = "bt_tambah2";
-            bt_tambah2.Size = new Size(94, 29);
-            bt_tambah2.TabIndex = 7;
-            bt_tambah2.Text = "➕Tambah";
-            bt_tambah2.UseVisualStyleBackColor = false;
-            // 
-            // G_KelolaDataHasilPanen2
-            // 
-            G_KelolaDataHasilPanen2.BackColor = Color.Transparent;
-            G_KelolaDataHasilPanen2.Image = (Image)resources.GetObject("G_KelolaDataHasilPanen2.Image");
-            G_KelolaDataHasilPanen2.Location = new Point(19, 16);
-            G_KelolaDataHasilPanen2.Name = "G_KelolaDataHasilPanen2";
-            G_KelolaDataHasilPanen2.Size = new Size(53, 45);
-            G_KelolaDataHasilPanen2.SizeMode = PictureBoxSizeMode.Zoom;
-            G_KelolaDataHasilPanen2.TabIndex = 6;
-            G_KelolaDataHasilPanen2.TabStop = false;
-            // 
-            // J_KelolaDataHasilPanen2
-            // 
-            J_KelolaDataHasilPanen2.AutoSize = true;
-            J_KelolaDataHasilPanen2.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            J_KelolaDataHasilPanen2.Location = new Point(69, 23);
-            J_KelolaDataHasilPanen2.Name = "J_KelolaDataHasilPanen2";
-            J_KelolaDataHasilPanen2.Size = new Size(305, 34);
-            J_KelolaDataHasilPanen2.TabIndex = 5;
-            J_KelolaDataHasilPanen2.Text = "Kelola Data Hasil Panen";
             // 
             // ID
             // 
@@ -371,13 +345,73 @@
             Komoditas.Name = "Komoditas";
             Komoditas.Width = 125;
             // 
+            // bt_hapus2
+            // 
+            bt_hapus2.BackColor = SystemColors.ButtonHighlight;
+            bt_hapus2.Location = new Point(310, 92);
+            bt_hapus2.Margin = new Padding(4, 4, 4, 4);
+            bt_hapus2.Name = "bt_hapus2";
+            bt_hapus2.Size = new Size(118, 36);
+            bt_hapus2.TabIndex = 9;
+            bt_hapus2.Text = "🗑️ Hapus";
+            bt_hapus2.UseVisualStyleBackColor = false;
+            bt_hapus2.Click += bt_hapus2_Click;
+            // 
+            // bt_edit2
+            // 
+            bt_edit2.BackColor = SystemColors.ButtonHighlight;
+            bt_edit2.Location = new Point(178, 92);
+            bt_edit2.Margin = new Padding(4, 4, 4, 4);
+            bt_edit2.Name = "bt_edit2";
+            bt_edit2.Size = new Size(118, 36);
+            bt_edit2.TabIndex = 8;
+            bt_edit2.Text = "✏️ Edit";
+            bt_edit2.UseVisualStyleBackColor = false;
+            bt_edit2.Click += bt_edit2_Click;
+            // 
+            // bt_tambah2
+            // 
+            bt_tambah2.BackColor = SystemColors.ButtonHighlight;
+            bt_tambah2.Location = new Point(45, 92);
+            bt_tambah2.Margin = new Padding(4, 4, 4, 4);
+            bt_tambah2.Name = "bt_tambah2";
+            bt_tambah2.Size = new Size(118, 36);
+            bt_tambah2.TabIndex = 7;
+            bt_tambah2.Text = "➕Tambah";
+            bt_tambah2.UseVisualStyleBackColor = false;
+            bt_tambah2.Click += bt_tambah2_Click;
+            // 
+            // G_KelolaDataHasilPanen2
+            // 
+            G_KelolaDataHasilPanen2.BackColor = Color.Transparent;
+            G_KelolaDataHasilPanen2.Image = (Image)resources.GetObject("G_KelolaDataHasilPanen2.Image");
+            G_KelolaDataHasilPanen2.Location = new Point(24, 20);
+            G_KelolaDataHasilPanen2.Margin = new Padding(4, 4, 4, 4);
+            G_KelolaDataHasilPanen2.Name = "G_KelolaDataHasilPanen2";
+            G_KelolaDataHasilPanen2.Size = new Size(66, 56);
+            G_KelolaDataHasilPanen2.SizeMode = PictureBoxSizeMode.Zoom;
+            G_KelolaDataHasilPanen2.TabIndex = 6;
+            G_KelolaDataHasilPanen2.TabStop = false;
+            // 
+            // J_KelolaDataHasilPanen2
+            // 
+            J_KelolaDataHasilPanen2.AutoSize = true;
+            J_KelolaDataHasilPanen2.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            J_KelolaDataHasilPanen2.Location = new Point(86, 29);
+            J_KelolaDataHasilPanen2.Margin = new Padding(4, 0, 4, 0);
+            J_KelolaDataHasilPanen2.Name = "J_KelolaDataHasilPanen2";
+            J_KelolaDataHasilPanen2.Size = new Size(364, 41);
+            J_KelolaDataHasilPanen2.TabIndex = 5;
+            J_KelolaDataHasilPanen2.Text = "Kelola Data Hasil Panen";
+            // 
             // KelolaDataHasilPanen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1000, 562);
             Controls.Add(BC_page2);
             Controls.Add(BC_MenuBar2ini);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "KelolaDataHasilPanen";
             Text = "Form1";
             BC_MenuBar2ini.ResumeLayout(false);

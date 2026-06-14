@@ -148,24 +148,19 @@ namespace TugasProject_PBO.Views
             string password = tbPassword.Text.Trim();
             string role = cbRole.SelectedItem?.ToString();
 
-            MessageBox.Show(
-                        "Username = " + username +
-                        "\nPassword = " + password +
-                        "\nRole = " + role
-                                );
 
             // Basic client-side validation
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Username dan password harus diisi.", "Peringatan",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (cbRole.SelectedIndex < 0 || string.IsNullOrEmpty(role) || role.StartsWith("--"))
             {
                 MessageBox.Show("Pilih role terlebih dahulu!", "Peringatan",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

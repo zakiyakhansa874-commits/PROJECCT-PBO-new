@@ -69,9 +69,9 @@
             SJKeluar.Location = new Point(125, 112);
             SJKeluar.Margin = new Padding(4, 0, 4, 0);
             SJKeluar.Name = "SJKeluar";
-            SJKeluar.Size = new Size(438, 50);
+            SJKeluar.Size = new Size(310, 50);
             SJKeluar.TabIndex = 2;
-            SJKeluar.Text = "Anda akan keluar dari sesi sebagai Pak Hendra.\nSemua perubahan yang belum tersimpan akan hilang.";
+            SJKeluar.Text = "Apakah anda ingin keluar dari aplikasi\r\n.\r\n";
             SJKeluar.Click += label1_Click_1;
             // 
             // GGaris
@@ -108,7 +108,7 @@
             btBatal.UseVisualStyleBackColor = false;
             btBatal.Click += btBatal_Click_1;
             // 
-            // FormKonfirmasiKeluar
+            // KonfirmasiLogout
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -124,7 +124,7 @@
             Margin = new Padding(4);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FormKonfirmasiKeluar";
+            Name = "KonfirmasiLogout";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Konfirmasi Keluar";
             Load += FormKonfirmasiKeluar_Load;

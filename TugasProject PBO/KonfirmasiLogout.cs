@@ -20,8 +20,7 @@ namespace TugasProject_PBO
         {
             // Set teks konfirmasi sesuai kebutuhan
             btKeluar.Text = "Yakin ingin keluar?\n" +
-                                 "Anda akan keluar dari sesi sebagai Pak Hendra.\n" +
-                                 "Semua perubahan yang belum tersimpan akan hilang.";
+                                 "Apakah yakin ingin keluar aplikasi.";
         }
 
         private void btKeluar_Click(object sender, EventArgs e)

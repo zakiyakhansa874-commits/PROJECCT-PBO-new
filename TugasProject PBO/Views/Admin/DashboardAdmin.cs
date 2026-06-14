@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +21,8 @@ namespace TugasProject_PBO.Views.Admin
         {
             // Header labels
             L_TotalGedung.Text = "Total Gudang: 3";
-            L_Username1.Text = "Username: admin";
-            L_Role1.Text = "Role: Administrator";
+            L_Username1.Text = "Username: Elmi";
+            L_Role1.Text = "Role: Admin";
 
             // Informasi stok & hasil panen
             L_StokSaatIni.Text = "Stok Saat Ini: 5420 kg";
@@ -88,7 +89,18 @@ namespace TugasProject_PBO.Views.Admin
         }
         private void btDataHasilPanen_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Menu Data Hasil Panen dibuka");
+            try
+            {
+                var form = new KelolaDataHasilPanen();
+                form.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal membuka Kelola Data Hasil Panen: " + ex.Message, "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
         }
         private void btKelolaGudang_Click(object sender, EventArgs e)
         {
@@ -100,9 +112,7 @@ namespace TugasProject_PBO.Views.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka Kelola Gudang: " + ex.Message, "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+                
             }
         }
         private void btStokMasuk_Click(object sender, EventArgs e)
@@ -262,14 +272,14 @@ namespace TugasProject_PBO.Views.Admin
                 string berat = row.Cells[3].Value?.ToString() ?? "-";
                 string kualitas = row.Cells[4].Value?.ToString() ?? "-";
 
-                MessageBox.Show($"Tanggal: {tanggal}\nPetani: {petani}\nKomoditas: {komoditas}\nBerat Bersih: {berat} kg\nKualitas: {kualitas}", "Detail Hasil Panen", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show($"Tanggal: {tanggal}\nPetani: {petani}\nKomoditas: {komoditas}\nBerat Bersih: {berat} kg\nKualitas: {kualitas}", "Detail Hasil Panen",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal mendapatkan data baris: " + ex.Message, "Error", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Gagal mendapatkan data baris: " + ex.Message, "Error",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
         }

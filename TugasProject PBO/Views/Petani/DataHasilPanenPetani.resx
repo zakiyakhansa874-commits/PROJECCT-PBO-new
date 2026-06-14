@@ -524,28 +524,10 @@
   <metadata name="Catatan.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Tanggal4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Komoditas.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="BeratKotor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="BeratBersih.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Kualitas.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Catatan.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="G_TotalBeratBersih8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEbdSURBVHhe7d0J
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEbdSURBVHhe7d0J
         +HfVvP//FyfNpUkqTUpFJYqSlClThBMSv8yS+TiZ4pgyHUOZzomfTJkpHBxFypChkAaV0qBJ0qBSkij5
         /6+39vf3vb3v933f3/1Za++91t7Px3W9rsul2muv/d2fz35/9l57LQlAV1aUtIuk50h6u6QvSPqJpF9L
         +q2kayX9XdJfmv99oaSzJX1X0kclvUbSkyVt5TcMAADKsYKkR0s6RNKJkv4q6f/LlN9L+rqkAyVt5xsG
@@ -854,7 +836,7 @@
   <data name="G_TotalEntri8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEbdSURBVHhe7d0J
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEbdSURBVHhe7d0J
         +HfVvP//FyfNpUkqTUpFJYqSlClThBMSv8yS+TiZ4pgyHUOZzomfTJkpHBxFypChkAaV0qBJ0qBSkij5
         /6+39vf3vb3v933f3/1Za++91t7Px3W9rsul2muv/d2fz35/9l57LQlAV1aUtIuk50h6u6QvSPqJpF9L
         +q2kayX9XdJfmv99oaSzJX1X0kclvUbSkyVt5TcMAADKsYKkR0s6RNKJkv4q6f/LlN9L+rqkAyVt5xsG
@@ -1163,7 +1145,7 @@
   <data name="G_InputHasilPetani.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEdeSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEdeSURBVHhe7d0H
         tDVZWebxlxwahKaBBoaMINCEQRkEJAfJ4CBRSSI5SuwRyTpKzkEEHAWRpOBIVKJNThKb2EpODTQ5NGlm
         PVJXv356f7fOW3FX1f+31rNWw1d3165d55yqc2qHCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
