@@ -175,6 +175,7 @@
             btBatal4.TabIndex = 15;
             btBatal4.Text = "Batal";
             btBatal4.UseVisualStyleBackColor = true;
+            btBatal4.Click += this.btBatal4_Click;
             // 
             // panel1
             // 

@@ -40,12 +40,12 @@ namespace TugasProject_PBO.Views
 
                 Rectangle headerRect = new Rectangle(0, 0, panel1.Width, 80);
                 using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-                           headerRect, Color.DarkOliveGreen, Color.SeaGreen, 90f))
+                           headerRect, Color.DarkOliveGreen, Color.Yellow, 90f))
                 {
                     g.FillRectangle(brush, headerRect);
                 }
 
-                using (var titleFont = new Font("Calibri", 14f, FontStyle.Bold))
+                using (var titleFont = new Font("Times New Roman", 15f, FontStyle.Bold))
                 using (var titleBrush = new SolidBrush(Color.White))
                 using (var sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
                 {

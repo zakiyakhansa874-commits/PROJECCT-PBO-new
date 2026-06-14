@@ -119,6 +119,7 @@
             btLaporanInventori4.TabIndex = 8;
             btLaporanInventori4.Text = "Laporan Inventori";
             btLaporanInventori4.UseVisualStyleBackColor = false;
+            btLaporanInventori4.Click += btLaporanInventori4_Click;
             // 
             // btMonitoringStok4
             // 
@@ -131,6 +132,7 @@
             btMonitoringStok4.TabIndex = 6;
             btMonitoringStok4.Text = "Monitoring Stok";
             btMonitoringStok4.UseVisualStyleBackColor = false;
+            btMonitoringStok4.Click += btMonitoringStok4_Click;
             // 
             // btStokKeluar4
             // 
@@ -143,6 +145,7 @@
             btStokKeluar4.TabIndex = 5;
             btStokKeluar4.Text = "Stok Keluar";
             btStokKeluar4.UseVisualStyleBackColor = false;
+            btStokKeluar4.Click += btStokKeluar4_Click;
             // 
             // btKelolaGudang4
             // 
@@ -155,6 +158,7 @@
             btKelolaGudang4.TabIndex = 5;
             btKelolaGudang4.Text = "Kelola Gudang";
             btKelolaGudang4.UseVisualStyleBackColor = false;
+            btKelolaGudang4.Click += btKelolaGudang4_Click;
             // 
             // btStokMasuk4
             // 
@@ -167,6 +171,7 @@
             btStokMasuk4.TabIndex = 4;
             btStokMasuk4.Text = "Stok Masuk";
             btStokMasuk4.UseVisualStyleBackColor = false;
+            btStokMasuk4.Click += btStokMasuk4_Click;
             // 
             // btKelolaHasilPanen4
             // 
@@ -179,6 +184,7 @@
             btKelolaHasilPanen4.TabIndex = 3;
             btKelolaHasilPanen4.Text = "Kelola Hasil Panen";
             btKelolaHasilPanen4.UseVisualStyleBackColor = false;
+            btKelolaHasilPanen4.Click += btKelolaHasilPanen4_Click;
             // 
             // btDashboard4
             // 
@@ -191,6 +197,7 @@
             btDashboard4.TabIndex = 2;
             btDashboard4.Text = "Dashboard";
             btDashboard4.UseVisualStyleBackColor = false;
+            btDashboard4.Click += btDashboard4_Click;
             // 
             // L_Role4
             // 
@@ -256,6 +263,7 @@
             btHapus4.TabIndex = 11;
             btHapus4.Text = "🗑️ Hapus";
             btHapus4.UseVisualStyleBackColor = false;
+            btHapus4.Click += btHapus4_Click;
             // 
             // btTambah4
             // 
@@ -289,6 +297,7 @@
             DGV_KelolaStokMasuk4.RowHeadersWidth = 51;
             DGV_KelolaStokMasuk4.Size = new Size(644, 325);
             DGV_KelolaStokMasuk4.TabIndex = 0;
+            DGV_KelolaStokMasuk4.CellContentClick += DGV_KelolaStokMasuk4_CellContentClick;
             // 
             // ID
             // 

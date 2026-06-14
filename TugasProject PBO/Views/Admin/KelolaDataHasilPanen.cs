@@ -29,8 +29,8 @@ namespace TugasProject_PBO.Views.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal memuat data awal: " + ex.Message, "Error", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Gagal memuat data awal: " + ex.Message, "Error",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
         }
@@ -50,7 +50,7 @@ namespace TugasProject_PBO.Views.Admin
                     // Query mengambil seluruh data hasil panen untuk Admin
                     const string sql = @"
                     SELECT
-                        id_hasil_panen,
+                        id_hasilpanen,
                         berat_kotor,
                         berat_bersih,
                         kualitas,
@@ -59,7 +59,7 @@ namespace TugasProject_PBO.Views.Admin
                         id_petani,
                         komoditas
                     FROM hasil_panen
-                    ORDER BY id_hasil_panen DESC";
+                    ORDER BY id_hasilpanen DESC";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     using (var reader = cmd.ExecuteReader())
@@ -134,14 +134,14 @@ namespace TugasProject_PBO.Views.Admin
         {
             if (selectedId == 0)
             {
-                MessageBox.Show("Silakan pilih data pada tabel terlebih dahulu untuk diubah!", "Informasi", 
+                MessageBox.Show("Silakan pilih data pada tabel terlebih dahulu untuk diubah!", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Integrasikan dengan form edit Anda di sini membawa `selectedId`
-            MessageBox.Show($"Fitur edit untuk ID: {selectedId} siap dikembangkan.", "Edit Data", 
-            MessageBoxButtons.OK, 
+            MessageBox.Show($"Fitur edit untuk ID: {selectedId} siap dikembangkan.", "Edit Data",
+            MessageBoxButtons.OK,
             MessageBoxIcon.Information);
 
             // Contoh implementasi form edit:
@@ -152,14 +152,14 @@ namespace TugasProject_PBO.Views.Admin
         {
             if (selectedId == 0)
             {
-                MessageBox.Show("Silakan pilih baris data yang ingin dihapus terlebih dahulu!", "Peringatan", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Silakan pilih baris data yang ingin dihapus terlebih dahulu!", "Peringatan",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
                 return;
             }
 
-            var konfirmasi = MessageBox.Show($"Apakah Anda yakin ingin menghapus data hasil panen dengan ID {selectedId}?", "Konfirmasi Hapus", 
-                MessageBoxButtons.YesNo, 
+            var konfirmasi = MessageBox.Show($"Apakah Anda yakin ingin menghapus data hasil panen dengan ID {selectedId}?", "Konfirmasi Hapus",
+                MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
             if (konfirmasi == DialogResult.Yes)
@@ -176,16 +176,16 @@ namespace TugasProject_PBO.Views.Admin
                         }
                     }
 
-                    MessageBox.Show("Data berhasil dihapus!", "Sukses", 
-                    MessageBoxButtons.OK, 
+                    MessageBox.Show("Data berhasil dihapus!", "Sukses",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                     selectedId = 0; // reset selection
                     LoadDataPanenAll(); // Refresh tabel
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Gagal menghapus data: " + ex.Message, "Error", 
-                    MessageBoxButtons.OK, 
+                    MessageBox.Show("Gagal menghapus data: " + ex.Message, "Error",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 }
             }
@@ -242,7 +242,7 @@ namespace TugasProject_PBO.Views.Admin
             {
                 if (frm.ShowDialog() == DialogResult.Yes)
                 {
-      
+
                     LoginSIMIHAN login = new LoginSIMIHAN();
                     login.Show();
                     this.Hide();
@@ -254,5 +254,10 @@ namespace TugasProject_PBO.Views.Admin
         private void label1_Click(object sender, EventArgs e) { _ = sender; _ = e; }
         private void BC_MenuBar_Paint(object sender, PaintEventArgs e) { _ = sender; _ = e; }
         private void G_KelolaDataHasilPanen_Click(object sender, EventArgs e) { _ = sender; _ = e; }
+
+        private void J_KelolaDataHasilPanen2_Click(object sender, EventArgs e)
+        {
+            _ = sender;
+        }
     }
 }

@@ -78,7 +78,7 @@
             BC_MenuBar2ini.Controls.Add(L_Username2);
             BC_MenuBar2ini.Controls.Add(G_Profil2);
             BC_MenuBar2ini.Location = new Point(-1, 0);
-            BC_MenuBar2ini.Margin = new Padding(4, 4, 4, 4);
+            BC_MenuBar2ini.Margin = new Padding(4);
             BC_MenuBar2ini.Name = "BC_MenuBar2ini";
             BC_MenuBar2ini.Size = new Size(229, 563);
             BC_MenuBar2ini.TabIndex = 2;
@@ -87,7 +87,7 @@
             // 
             panel1.BackColor = Color.Ivory;
             panel1.Location = new Point(226, -2);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(778, 568);
             panel1.TabIndex = 3;
@@ -104,7 +104,7 @@
             BC_MenuBar2.Controls.Add(btKelolaHasilPanen2);
             BC_MenuBar2.Controls.Add(btDashboard2);
             BC_MenuBar2.Location = new Point(-4, 64);
-            BC_MenuBar2.Margin = new Padding(4, 4, 4, 4);
+            BC_MenuBar2.Margin = new Padding(4);
             BC_MenuBar2.Name = "BC_MenuBar2";
             BC_MenuBar2.Size = new Size(231, 501);
             BC_MenuBar2.TabIndex = 0;
@@ -114,7 +114,7 @@
             btLogout2.BackColor = Color.DarkKhaki;
             btLogout2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btLogout2.Location = new Point(-6, 439);
-            btLogout2.Margin = new Padding(4, 4, 4, 4);
+            btLogout2.Margin = new Padding(4);
             btLogout2.Name = "btLogout2";
             btLogout2.Size = new Size(229, 42);
             btLogout2.TabIndex = 9;
@@ -127,7 +127,7 @@
             btLaporanInventori2.BackColor = Color.DarkKhaki;
             btLaporanInventori2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btLaporanInventori2.Location = new Point(-1, 266);
-            btLaporanInventori2.Margin = new Padding(4, 4, 4, 4);
+            btLaporanInventori2.Margin = new Padding(4);
             btLaporanInventori2.Name = "btLaporanInventori2";
             btLaporanInventori2.Size = new Size(224, 41);
             btLaporanInventori2.TabIndex = 8;
@@ -140,7 +140,7 @@
             btMonitoringStok2.BackColor = Color.DarkKhaki;
             btMonitoringStok2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btMonitoringStok2.Location = new Point(-1, 228);
-            btMonitoringStok2.Margin = new Padding(4, 4, 4, 4);
+            btMonitoringStok2.Margin = new Padding(4);
             btMonitoringStok2.Name = "btMonitoringStok2";
             btMonitoringStok2.Size = new Size(224, 42);
             btMonitoringStok2.TabIndex = 6;
@@ -153,7 +153,7 @@
             btStokKeluar2.BackColor = Color.DarkKhaki;
             btStokKeluar2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btStokKeluar2.Location = new Point(-1, 188);
-            btStokKeluar2.Margin = new Padding(4, 4, 4, 4);
+            btStokKeluar2.Margin = new Padding(4);
             btStokKeluar2.Name = "btStokKeluar2";
             btStokKeluar2.Size = new Size(232, 42);
             btStokKeluar2.TabIndex = 5;
@@ -166,7 +166,7 @@
             btKelolaGudang2.BackColor = Color.DarkKhaki;
             btKelolaGudang2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btKelolaGudang2.Location = new Point(-6, 109);
-            btKelolaGudang2.Margin = new Padding(4, 4, 4, 4);
+            btKelolaGudang2.Margin = new Padding(4);
             btKelolaGudang2.Name = "btKelolaGudang2";
             btKelolaGudang2.Size = new Size(229, 42);
             btKelolaGudang2.TabIndex = 5;
@@ -179,7 +179,7 @@
             btStokMasuk2.BackColor = Color.DarkKhaki;
             btStokMasuk2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btStokMasuk2.Location = new Point(-6, 148);
-            btStokMasuk2.Margin = new Padding(4, 4, 4, 4);
+            btStokMasuk2.Margin = new Padding(4);
             btStokMasuk2.Name = "btStokMasuk2";
             btStokMasuk2.Size = new Size(229, 42);
             btStokMasuk2.TabIndex = 4;
@@ -192,7 +192,7 @@
             btKelolaHasilPanen2.BackColor = Color.DarkKhaki;
             btKelolaHasilPanen2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btKelolaHasilPanen2.Location = new Point(-6, 69);
-            btKelolaHasilPanen2.Margin = new Padding(4, 4, 4, 4);
+            btKelolaHasilPanen2.Margin = new Padding(4);
             btKelolaHasilPanen2.Name = "btKelolaHasilPanen2";
             btKelolaHasilPanen2.Size = new Size(231, 42);
             btKelolaHasilPanen2.TabIndex = 3;
@@ -205,7 +205,7 @@
             btDashboard2.BackColor = Color.DarkKhaki;
             btDashboard2.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btDashboard2.Location = new Point(-6, 29);
-            btDashboard2.Margin = new Padding(4, 4, 4, 4);
+            btDashboard2.Margin = new Padding(4);
             btDashboard2.Name = "btDashboard2";
             btDashboard2.Size = new Size(231, 42);
             btDashboard2.TabIndex = 2;
@@ -245,7 +245,7 @@
             G_Profil2.Image = (Image)resources.GetObject("G_Profil2.Image");
             G_Profil2.InitialImage = null;
             G_Profil2.Location = new Point(25, 8);
-            G_Profil2.Margin = new Padding(4, 4, 4, 4);
+            G_Profil2.Margin = new Padding(4);
             G_Profil2.Name = "G_Profil2";
             G_Profil2.Size = new Size(53, 51);
             G_Profil2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -262,7 +262,7 @@
             BC_page2.Controls.Add(G_KelolaDataHasilPanen2);
             BC_page2.Controls.Add(J_KelolaDataHasilPanen2);
             BC_page2.Location = new Point(214, -12);
-            BC_page2.Margin = new Padding(4, 4, 4, 4);
+            BC_page2.Margin = new Padding(4);
             BC_page2.Name = "BC_page2";
             BC_page2.Size = new Size(802, 580);
             BC_page2.TabIndex = 3;
@@ -272,7 +272,7 @@
             BC_Keloladatahasilpanen2.BackColor = Color.SaddleBrown;
             BC_Keloladatahasilpanen2.Controls.Add(DGV_datahasilpanen2);
             BC_Keloladatahasilpanen2.Location = new Point(24, 150);
-            BC_Keloladatahasilpanen2.Margin = new Padding(4, 4, 4, 4);
+            BC_Keloladatahasilpanen2.Margin = new Padding(4);
             BC_Keloladatahasilpanen2.Name = "BC_Keloladatahasilpanen2";
             BC_Keloladatahasilpanen2.Size = new Size(734, 395);
             BC_Keloladatahasilpanen2.TabIndex = 11;
@@ -282,7 +282,7 @@
             DGV_datahasilpanen2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_datahasilpanen2.Columns.AddRange(new DataGridViewColumn[] { ID, BeratKotor, BeratBersih, Kualitas, Catatan, Tanggal, Petani, Komoditas });
             DGV_datahasilpanen2.Location = new Point(25, 34);
-            DGV_datahasilpanen2.Margin = new Padding(4, 4, 4, 4);
+            DGV_datahasilpanen2.Margin = new Padding(4);
             DGV_datahasilpanen2.Name = "DGV_datahasilpanen2";
             DGV_datahasilpanen2.RowHeadersWidth = 51;
             DGV_datahasilpanen2.Size = new Size(680, 330);
@@ -349,7 +349,7 @@
             // 
             bt_hapus2.BackColor = SystemColors.ButtonHighlight;
             bt_hapus2.Location = new Point(310, 92);
-            bt_hapus2.Margin = new Padding(4, 4, 4, 4);
+            bt_hapus2.Margin = new Padding(4);
             bt_hapus2.Name = "bt_hapus2";
             bt_hapus2.Size = new Size(118, 36);
             bt_hapus2.TabIndex = 9;
@@ -361,7 +361,7 @@
             // 
             bt_edit2.BackColor = SystemColors.ButtonHighlight;
             bt_edit2.Location = new Point(178, 92);
-            bt_edit2.Margin = new Padding(4, 4, 4, 4);
+            bt_edit2.Margin = new Padding(4);
             bt_edit2.Name = "bt_edit2";
             bt_edit2.Size = new Size(118, 36);
             bt_edit2.TabIndex = 8;
@@ -373,7 +373,7 @@
             // 
             bt_tambah2.BackColor = SystemColors.ButtonHighlight;
             bt_tambah2.Location = new Point(45, 92);
-            bt_tambah2.Margin = new Padding(4, 4, 4, 4);
+            bt_tambah2.Margin = new Padding(4);
             bt_tambah2.Name = "bt_tambah2";
             bt_tambah2.Size = new Size(118, 36);
             bt_tambah2.TabIndex = 7;
@@ -386,7 +386,7 @@
             G_KelolaDataHasilPanen2.BackColor = Color.Transparent;
             G_KelolaDataHasilPanen2.Image = (Image)resources.GetObject("G_KelolaDataHasilPanen2.Image");
             G_KelolaDataHasilPanen2.Location = new Point(24, 20);
-            G_KelolaDataHasilPanen2.Margin = new Padding(4, 4, 4, 4);
+            G_KelolaDataHasilPanen2.Margin = new Padding(4);
             G_KelolaDataHasilPanen2.Name = "G_KelolaDataHasilPanen2";
             G_KelolaDataHasilPanen2.Size = new Size(66, 56);
             G_KelolaDataHasilPanen2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -403,6 +403,7 @@
             J_KelolaDataHasilPanen2.Size = new Size(364, 41);
             J_KelolaDataHasilPanen2.TabIndex = 5;
             J_KelolaDataHasilPanen2.Text = "Kelola Data Hasil Panen";
+            J_KelolaDataHasilPanen2.Click += J_KelolaDataHasilPanen2_Click;
             // 
             // KelolaDataHasilPanen
             // 
@@ -411,7 +412,7 @@
             ClientSize = new Size(1000, 562);
             Controls.Add(BC_page2);
             Controls.Add(BC_MenuBar2ini);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "KelolaDataHasilPanen";
             Text = "Form1";
             BC_MenuBar2ini.ResumeLayout(false);
