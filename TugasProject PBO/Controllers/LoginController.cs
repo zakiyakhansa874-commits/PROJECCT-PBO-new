@@ -1,49 +1,44 @@
-﻿using inventory_panen_mvc.Models;
-//using inventory_panen_mvc.Views;
-//using inventory_panen_mvc.Helpers;
-//using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using TugasProject_PBO.Helpers;
+using TugasProject_PBO.Models;
+using TugasProject_PBO.Views.Admin;
+using TugasProject_PBO.Views.Petani;
 
-//namespace inventory_panen_mvc.Controllers
-//{
-//    public class LoginController
-//    {
-//        private LoginForm view;
-//        private UserContext context;
+namespace TugasProject_PBO.Controllers
+{
+    public class LoginController
+    {
+        public void ProcessLogin(string email, string password, string role)
+        {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show(
+                    "Email dan Password tidak boleh kosong!",
+                    "Peringatan",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
 
-//        public LoginController(LoginForm loginForm)
-//        {
-//            this.view = loginForm;
-//            this.context = new UserContext();
-//        }
+                return;
+            }
 
-//        public void ProcessLogin()
-//        {
-//            string email = view.EmailInput;
-//            string password = view.PasswordInput;
-
-//            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-//            {
-//                MessageBox.Show("Email dan Password tidak boleh kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//                return;
-//            }
-
-//            User user = context.Login(email, password);
-//            if (user != null)
-//            {
-//                // Set Global Session
-//                SessionHelper.StartSession(user.Id, user.Username, user.Role);
-
-//                MessageBox.Show($"Selamat datang, {user.Username}! Anda masuk sebagai {user.Role}.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-//                // Buka Dashboard & Sembunyikan Form Login
-//                DashboardForm dashboard = new DashboardForm();
-//                dashboard.Show();
-//                view.Hide();
-//            }
-//            else
-//            {
-//                MessageBox.Show("Email atau Password salah!", "Gagal Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//            }
-//        }
-//    }
-//}
+            if (role == "Admin")
+            {
+                DashboardAdmin dashboard = new DashboardAdmin();
+                dashboard.Show();
+            }
+            else if (role == "Petani")
+            {
+                DataHasilPanenPetani formPetani = new DataHasilPanenPetani();
+                formPetani.Show();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Role tidak dikenali!",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+    }
+}

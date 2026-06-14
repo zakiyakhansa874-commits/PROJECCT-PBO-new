@@ -1,14 +1,17 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using TugasProject_PBO.Views;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using TugasProject_PBO.Helpers;
-using Npgsql;
+using TugasProject_PBO.Views;
+using TugasProject_PBO.Views.Admin;
+using TugasProject_PBO.Views.Petani;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace TugasProject_PBO.Views
 {
@@ -142,78 +145,36 @@ namespace TugasProject_PBO.Views
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Login berhasil");
-
             string username = tbEmail.Text.Trim();
             string password = tbPassword.Text.Trim();
-            string role = cbRole.SelectedItem?.ToString();
+            string role = cbRole.SelectedItem?.ToString() ?? "";
 
-
-            // Basic client-side validation
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Username dan password harus diisi.", "Peringatan",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Username dan password harus diisi.");
                 return;
             }
 
-            if (cbRole.SelectedIndex < 0 || string.IsNullOrEmpty(role) || role.StartsWith("--"))
+            if (string.IsNullOrEmpty(role))
             {
-                MessageBox.Show("Pilih role terlebih dahulu!", "Peringatan",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Pilih role terlebih dahulu!");
                 return;
             }
 
-            try
+            if (role == "Admin")
             {
-                using (NpgsqlConnection conn = DatabaseHelper.GetConnection())
-                {
-                    string query = @"SELECT *
-                 FROM ""User""
-                 WHERE username = @username
-                 AND password = @password
-                 AND role = @role"; ;
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                    {
-                        // Use parameter names that match the SQL query
-                        cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password);
-                        cmd.Parameters.AddWithValue("@role", role);
-
-                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                SessionHelper.SetSession(
-                                    Convert.ToInt32(reader["id_user"]),
-                                    reader["username"].ToString(),
-                                    reader["username"].ToString(),
-                                    reader["role"].ToString()
-                                );
-
-                                // Open dashboard modelessly and close login when dashboard closes
-                                var dashboard = new TugasProject_PBO.Views.Admin.DashboardAdmin();
-                                dashboard.FormClosed += (s, ev) => this.Close();
-                                this.Hide();
-                                dashboard.Show();
-                                return;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Username, password, atau role salah!", "Login Gagal",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
-                        }
-                    }
-                }
+                DashboardAdmin dashboard = new DashboardAdmin();
+                dashboard.Show();
+                this.Hide();
             }
-            catch (Exception ex)
+            else if (role == "Petani")
             {
-                MessageBox.Show("Error koneksi database: " + ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DataHasilPanenPetani formPetani = new DataHasilPanenPetani();
+                formPetani.Show();
+                this.Hide();
             }
         }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Menu Sign Up belum dibuat.");
@@ -253,6 +214,11 @@ namespace TugasProject_PBO.Views
         }
 
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbRole_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

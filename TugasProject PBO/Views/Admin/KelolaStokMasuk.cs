@@ -27,5 +27,16 @@ namespace TugasProject_PBO.Views.Admin
         {
 
         }
+
+        private void BC_Page4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btTambah4_Click(object sender, EventArgs e)
+        {
+            InputStokMasuk4 form = new InputStokMasuk4();
+            form.ShowDialog();
+        }
     }
 }

@@ -48,8 +48,9 @@ namespace TugasProject_PBO.Views.Admin
                 using (var conn = Helpers.DatabaseHelper.GetConnection())
                 {
                     // Query mengambil seluruh data hasil panen untuk Admin
-                    const string sql = @"SELECT
-                        id_hasilpanen,
+                    const string sql = @"
+                    SELECT
+                        id_hasil_panen,
                         berat_kotor,
                         berat_bersih,
                         kualitas,
@@ -57,15 +58,15 @@ namespace TugasProject_PBO.Views.Admin
                         tanggal_panen,
                         id_petani,
                         komoditas
-                        FROM hasil_panen
-                        ORDER BY id_hasil_panen DESC";
+                    FROM hasil_panen
+                    ORDER BY id_hasil_panen DESC";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            int id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                            int id = reader.GetInt32(0);
                             decimal beratKotor = reader.IsDBNull(1) ? 0M : reader.GetDecimal(1);
                             decimal beratBersih = reader.IsDBNull(2) ? 0M : reader.GetDecimal(2);
                             string kualitas = reader.IsDBNull(3) ? "-" : reader.GetString(3);
@@ -82,7 +83,11 @@ namespace TugasProject_PBO.Views.Admin
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(
+                    ex.ToString(),
+                    "ERROR DATABASE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -108,7 +113,7 @@ namespace TugasProject_PBO.Views.Admin
             try
             {
                 // Membuka form tambah input secara Dialog Modal
-                using (var formTambah = new BCInputHasilPanen())
+                using (var formTambah = new InputHasilPanen())
                 {
                     // Jika di form input mengeklik simpan dan berhasil (DialogResult.OK)
                     if (formTambah.ShowDialog() == DialogResult.OK)
@@ -163,7 +168,7 @@ namespace TugasProject_PBO.Views.Admin
                 {
                     using (var conn = Helpers.DatabaseHelper.GetConnection())
                     {
-                        string sql = @"DELETE FROM ""Hasil_Panen"" WHERE id_hasilpanen = @id";
+                        string sql = @"DELETE FROM ""hasil_panen"" WHERE id_hasilpanen = @id";
                         using (var cmd = new Npgsql.NpgsqlCommand(sql, conn))
                         {
                             cmd.Parameters.AddWithValue("@id", selectedId);

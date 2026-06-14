@@ -9,10 +9,10 @@ namespace TugasProject_PBO.Views.Admin
     {
         private string connectionString =
             "Host=localhost;" +
-            "Port=5432;" +
+            "Port=5433;" +
             "Database=ProjectPBO_SIMIHAN;" +
             "Username=postgres;" +
-            "Password=Sutik13.";
+            "Password=galang13";
 
         public InputEditGudang()
         {
@@ -88,6 +88,7 @@ namespace TugasProject_PBO.Views.Admin
                             Convert.ToDecimal(txtStokSaatIni.Text));
 
                         cmd.ExecuteNonQuery();
+
                     }
                 }
 

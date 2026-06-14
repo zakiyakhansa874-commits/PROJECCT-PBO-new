@@ -9,10 +9,10 @@ namespace TugasProject_PBO.Views.Admin
     {
         private string connectionString =
             "Host=localhost;" +
-            "Port=5432;" +
+            "Port=5433;" +
             "Database=ProjectPBO_SIMIHAN;" +
             "Username=postgres;" +
-            "Password=elmitra14";
+            "Password=galang13";
 
         private int idHasilPanen = 0;
 
@@ -41,8 +41,14 @@ namespace TugasProject_PBO.Views.Admin
                 {
                     conn.Open();
 
-                    string sql =
-                        "SELECT id_petani, nama_petani FROM petani ORDER BY nama_petani";
+                    string sql = @"
+                    SELECT
+                        p.id_petani,
+                        u.nama
+                    FROM ""Petani"" p
+                    INNER JOIN ""User"" u
+                        ON p.id_user = u.id_user
+                    ORDER BY u.nama";
 
                     DataTable dt = new DataTable();
 
@@ -52,7 +58,7 @@ namespace TugasProject_PBO.Views.Admin
                     da.Fill(dt);
 
                     cbPetani.DataSource = dt;
-                    cbPetani.DisplayMember = "nama_petani";
+                    cbPetani.DisplayMember = "nama";
                     cbPetani.ValueMember = "id_petani";
                     cbPetani.SelectedIndex = -1;
                 }
@@ -206,8 +212,8 @@ namespace TugasProject_PBO.Views.Admin
                         "Informasi",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-
-                    BersihkanForm();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
             }
             catch (Exception ex)

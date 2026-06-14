@@ -74,7 +74,7 @@
             BC_MenuBar3ini.Controls.Add(L_Username);
             BC_MenuBar3ini.Controls.Add(G_Profil);
             BC_MenuBar3ini.Location = new Point(-1, 0);
-            BC_MenuBar3ini.Margin = new Padding(4, 4, 4, 4);
+            BC_MenuBar3ini.Margin = new Padding(4);
             BC_MenuBar3ini.Name = "BC_MenuBar3ini";
             BC_MenuBar3ini.Size = new Size(229, 563);
             BC_MenuBar3ini.TabIndex = 1;
@@ -92,7 +92,7 @@
             BC_MenuBar3.Controls.Add(btKelolaHasilPanen3);
             BC_MenuBar3.Controls.Add(btDashboard3);
             BC_MenuBar3.Location = new Point(-4, 64);
-            BC_MenuBar3.Margin = new Padding(4, 4, 4, 4);
+            BC_MenuBar3.Margin = new Padding(4);
             BC_MenuBar3.Name = "BC_MenuBar3";
             BC_MenuBar3.Size = new Size(231, 501);
             BC_MenuBar3.TabIndex = 0;
@@ -102,7 +102,7 @@
             btLogout3.BackColor = Color.DarkKhaki;
             btLogout3.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btLogout3.Location = new Point(-6, 439);
-            btLogout3.Margin = new Padding(4, 4, 4, 4);
+            btLogout3.Margin = new Padding(4);
             btLogout3.Name = "btLogout3";
             btLogout3.Size = new Size(229, 42);
             btLogout3.TabIndex = 9;
@@ -115,7 +115,7 @@
             btLaporanInventori3.BackColor = Color.DarkKhaki;
             btLaporanInventori3.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btLaporanInventori3.Location = new Point(-1, 266);
-            btLaporanInventori3.Margin = new Padding(4, 4, 4, 4);
+            btLaporanInventori3.Margin = new Padding(4);
             btLaporanInventori3.Name = "btLaporanInventori3";
             btLaporanInventori3.Size = new Size(224, 41);
             btLaporanInventori3.TabIndex = 8;
@@ -128,7 +128,7 @@
             btMonitoringStok3.BackColor = Color.DarkKhaki;
             btMonitoringStok3.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btMonitoringStok3.Location = new Point(-1, 228);
-            btMonitoringStok3.Margin = new Padding(4, 4, 4, 4);
+            btMonitoringStok3.Margin = new Padding(4);
             btMonitoringStok3.Name = "btMonitoringStok3";
             btMonitoringStok3.Size = new Size(224, 42);
             btMonitoringStok3.TabIndex = 6;
@@ -141,7 +141,7 @@
             btStokKeluar3.BackColor = Color.DarkKhaki;
             btStokKeluar3.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btStokKeluar3.Location = new Point(-1, 188);
-            btStokKeluar3.Margin = new Padding(4, 4, 4, 4);
+            btStokKeluar3.Margin = new Padding(4);
             btStokKeluar3.Name = "btStokKeluar3";
             btStokKeluar3.Size = new Size(232, 42);
             btStokKeluar3.TabIndex = 5;
@@ -154,7 +154,7 @@
             btKelolaGudang3.BackColor = Color.DarkKhaki;
             btKelolaGudang3.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btKelolaGudang3.Location = new Point(-6, 109);
-            btKelolaGudang3.Margin = new Padding(4, 4, 4, 4);
+            btKelolaGudang3.Margin = new Padding(4);
             btKelolaGudang3.Name = "btKelolaGudang3";
             btKelolaGudang3.Size = new Size(229, 42);
             btKelolaGudang3.TabIndex = 5;
@@ -167,7 +167,7 @@
             btStokMasuk3.BackColor = Color.DarkKhaki;
             btStokMasuk3.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btStokMasuk3.Location = new Point(-6, 148);
-            btStokMasuk3.Margin = new Padding(4, 4, 4, 4);
+            btStokMasuk3.Margin = new Padding(4);
             btStokMasuk3.Name = "btStokMasuk3";
             btStokMasuk3.Size = new Size(229, 42);
             btStokMasuk3.TabIndex = 4;
@@ -180,7 +180,7 @@
             btKelolaHasilPanen3.BackColor = Color.DarkKhaki;
             btKelolaHasilPanen3.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btKelolaHasilPanen3.Location = new Point(-6, 69);
-            btKelolaHasilPanen3.Margin = new Padding(4, 4, 4, 4);
+            btKelolaHasilPanen3.Margin = new Padding(4);
             btKelolaHasilPanen3.Name = "btKelolaHasilPanen3";
             btKelolaHasilPanen3.Size = new Size(231, 42);
             btKelolaHasilPanen3.TabIndex = 3;
@@ -193,7 +193,7 @@
             btDashboard3.BackColor = Color.DarkKhaki;
             btDashboard3.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btDashboard3.Location = new Point(-6, 29);
-            btDashboard3.Margin = new Padding(4, 4, 4, 4);
+            btDashboard3.Margin = new Padding(4);
             btDashboard3.Name = "btDashboard3";
             btDashboard3.Size = new Size(231, 42);
             btDashboard3.TabIndex = 2;
@@ -233,7 +233,7 @@
             G_Profil.Image = (Image)resources.GetObject("G_Profil.Image");
             G_Profil.InitialImage = null;
             G_Profil.Location = new Point(25, 8);
-            G_Profil.Margin = new Padding(4, 4, 4, 4);
+            G_Profil.Margin = new Padding(4);
             G_Profil.Name = "G_Profil";
             G_Profil.Size = new Size(53, 51);
             G_Profil.SizeMode = PictureBoxSizeMode.Zoom;
@@ -250,17 +250,18 @@
             BC_Page3.Controls.Add(G_KelolaGudang3);
             BC_Page3.Controls.Add(J_KelolaGudang3);
             BC_Page3.Location = new Point(214, 0);
-            BC_Page3.Margin = new Padding(4, 4, 4, 4);
+            BC_Page3.Margin = new Padding(4);
             BC_Page3.Name = "BC_Page3";
             BC_Page3.Size = new Size(796, 580);
             BC_Page3.TabIndex = 2;
+            BC_Page3.Paint += BC_Page3_Paint;
             // 
             // P_DGV3
             // 
             P_DGV3.BackColor = Color.SaddleBrown;
             P_DGV3.Controls.Add(DGV_KelolaGudang3);
             P_DGV3.Location = new Point(32, 140);
-            P_DGV3.Margin = new Padding(4, 4, 4, 4);
+            P_DGV3.Margin = new Padding(4);
             P_DGV3.Name = "P_DGV3";
             P_DGV3.Size = new Size(722, 395);
             P_DGV3.TabIndex = 13;
@@ -270,7 +271,7 @@
             DGV_KelolaGudang3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_KelolaGudang3.Columns.AddRange(new DataGridViewColumn[] { ID, NamaGudang, Lokasi, Kapasitas, StokSaatIni, Terisi });
             DGV_KelolaGudang3.Location = new Point(31, 30);
-            DGV_KelolaGudang3.Margin = new Padding(4, 4, 4, 4);
+            DGV_KelolaGudang3.Margin = new Padding(4);
             DGV_KelolaGudang3.Name = "DGV_KelolaGudang3";
             DGV_KelolaGudang3.RowHeadersWidth = 51;
             DGV_KelolaGudang3.Size = new Size(660, 336);
@@ -322,7 +323,7 @@
             // btHapus3
             // 
             btHapus3.Location = new Point(309, 78);
-            btHapus3.Margin = new Padding(4, 4, 4, 4);
+            btHapus3.Margin = new Padding(4);
             btHapus3.Name = "btHapus3";
             btHapus3.Size = new Size(118, 36);
             btHapus3.TabIndex = 12;
@@ -333,7 +334,7 @@
             // btEdit3
             // 
             btEdit3.Location = new Point(175, 78);
-            btEdit3.Margin = new Padding(4, 4, 4, 4);
+            btEdit3.Margin = new Padding(4);
             btEdit3.Name = "btEdit3";
             btEdit3.Size = new Size(118, 36);
             btEdit3.TabIndex = 11;
@@ -344,7 +345,7 @@
             // btTambah3
             // 
             btTambah3.Location = new Point(42, 78);
-            btTambah3.Margin = new Padding(4, 4, 4, 4);
+            btTambah3.Margin = new Padding(4);
             btTambah3.Name = "btTambah3";
             btTambah3.Size = new Size(118, 36);
             btTambah3.TabIndex = 10;
@@ -357,7 +358,7 @@
             G_KelolaGudang3.BackColor = Color.Transparent;
             G_KelolaGudang3.Image = (Image)resources.GetObject("G_KelolaGudang3.Image");
             G_KelolaGudang3.Location = new Point(32, 10);
-            G_KelolaGudang3.Margin = new Padding(4, 4, 4, 4);
+            G_KelolaGudang3.Margin = new Padding(4);
             G_KelolaGudang3.Name = "G_KelolaGudang3";
             G_KelolaGudang3.Size = new Size(66, 56);
             G_KelolaGudang3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -383,7 +384,7 @@
             ClientSize = new Size(1000, 562);
             Controls.Add(BC_Page3);
             Controls.Add(BC_MenuBar3ini);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "KelolaGudang";
             Text = "Form1";
             BC_MenuBar3ini.ResumeLayout(false);

@@ -33,8 +33,8 @@ namespace TugasProject_PBO.Views.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal memuat data awal gudang: " + ex.Message, "Error", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Gagal memuat data awal gudang: " + ex.Message, "Error",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
         }
@@ -142,8 +142,8 @@ namespace TugasProject_PBO.Views.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka form edit gudang: " + ex.Message, "Peringatan", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Gagal membuka form edit gudang: " + ex.Message, "Peringatan",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
             }
         }
@@ -152,15 +152,19 @@ namespace TugasProject_PBO.Views.Admin
         {
             if (selectedGudangId == 0)
             {
-                MessageBox.Show("Silakan klik pada baris tabel gudang yang ingin dihapus!", "Peringatan", 
-                MessageBoxButtons.OK, 
-                MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Silakan pilih data gudang yang ingin dihapus!",
+                    "Peringatan",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return;
             }
 
-            var konfirmasi = MessageBox.Show($"Apakah Anda yakin ingin menghapus data gudang dengan ID {selectedGudangId}?", "Konfirmasi Hapus", 
-            MessageBoxButtons.YesNo, 
-            MessageBoxIcon.Question);
+            DialogResult konfirmasi = MessageBox.Show(
+                "Apakah Anda yakin ingin menghapus data gudang ini?",
+                "Konfirmasi Hapus",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
             if (konfirmasi == DialogResult.Yes)
             {
@@ -168,29 +172,48 @@ namespace TugasProject_PBO.Views.Admin
                 {
                     using (var conn = Helpers.DatabaseHelper.GetConnection())
                     {
-                        string sql = @"DELETE FROM ""Gudang"" WHERE id_gudang = @id";
-                        using (var cmd = new NpgsqlCommand(sql, conn))
+                        // Hapus data Stok_Masuk yang terkait dengan gudang
+                        string deleteStokMasuk =
+                            @"DELETE FROM ""Stok_Masuk""
+                      WHERE id_gudang = @id";
+
+                        using (var cmd1 = new NpgsqlCommand(deleteStokMasuk, conn))
                         {
-                            cmd.Parameters.AddWithValue("@id", selectedGudangId);
-                            cmd.ExecuteNonQuery();
+                            cmd1.Parameters.AddWithValue("@id", selectedGudangId);
+                            cmd1.ExecuteNonQuery();
+                        }
+
+                        // Hapus data gudang
+                        string deleteGudang =
+                            @"DELETE FROM ""Gudang""
+                      WHERE id_gudang = @id";
+
+                        using (var cmd2 = new NpgsqlCommand(deleteGudang, conn))
+                        {
+                            cmd2.Parameters.AddWithValue("@id", selectedGudangId);
+                            cmd2.ExecuteNonQuery();
                         }
                     }
 
-                    MessageBox.Show("Data gudang berhasil dihapus secara permanen!", "Sukses", 
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Information);
-                    selectedGudangId = 0; // Reset tanda seleksi
-                    LoadDataGudangAll(); // Refresh grid view
+                    MessageBox.Show(
+                        "Data gudang berhasil dihapus!",
+                        "Sukses",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    selectedGudangId = 0;
+                    LoadDataGudangAll();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Gagal menghapus data gudang: " + ex.Message, "Error", 
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        "Gagal menghapus data: " + ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
         }
-
         // ==========================================
         // SCRIPT NAVIGASI SIDEBAR MENU (KIRI)
         // ==========================================
@@ -261,5 +284,10 @@ namespace TugasProject_PBO.Views.Admin
         private void G_KelolaGudang_Click(object sender, EventArgs e) { }
         private void BC_MenuBar_Paint3(object sender, PaintEventArgs e) { }
         private void J_KelolaGudang3_Click(object sender, EventArgs e) { }
+
+        private void BC_Page3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

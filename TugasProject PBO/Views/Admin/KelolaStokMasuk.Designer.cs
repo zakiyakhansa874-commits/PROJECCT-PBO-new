@@ -43,11 +43,9 @@
             L_Username4 = new Label();
             G_Profil4 = new PictureBox();
             BC_Page4 = new Panel();
-            G_KelolaStokMasuk4 = new PictureBox();
-            J_KelolaStokMasuk4 = new Label();
-            P_KelolaStokMasuk4 = new Panel();
-            btTambah4 = new Button();
             btHapus4 = new Button();
+            btTambah4 = new Button();
+            P_KelolaStokMasuk4 = new Panel();
             DGV_KelolaStokMasuk4 = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             Tanggal = new DataGridViewTextBoxColumn();
@@ -56,13 +54,15 @@
             Jumlah = new DataGridViewTextBoxColumn();
             Kualitas = new DataGridViewTextBoxColumn();
             Catatan = new DataGridViewTextBoxColumn();
+            G_KelolaStokMasuk4 = new PictureBox();
+            J_KelolaStokMasuk4 = new Label();
             BC_MenuBar4ini.SuspendLayout();
             BC_MenuBar4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_Profil4).BeginInit();
             BC_Page4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)G_KelolaStokMasuk4).BeginInit();
             P_KelolaStokMasuk4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_KelolaStokMasuk4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)G_KelolaStokMasuk4).BeginInit();
             SuspendLayout();
             // 
             // BC_MenuBar4ini
@@ -74,8 +74,9 @@
             BC_MenuBar4ini.Controls.Add(L_Username4);
             BC_MenuBar4ini.Controls.Add(G_Profil4);
             BC_MenuBar4ini.Location = new Point(-1, 0);
+            BC_MenuBar4ini.Margin = new Padding(4);
             BC_MenuBar4ini.Name = "BC_MenuBar4ini";
-            BC_MenuBar4ini.Size = new Size(184, 451);
+            BC_MenuBar4ini.Size = new Size(229, 563);
             BC_MenuBar4ini.TabIndex = 2;
             // 
             // BC_MenuBar4
@@ -89,18 +90,20 @@
             BC_MenuBar4.Controls.Add(btStokMasuk4);
             BC_MenuBar4.Controls.Add(btKelolaHasilPanen4);
             BC_MenuBar4.Controls.Add(btDashboard4);
-            BC_MenuBar4.Location = new Point(-3, 51);
+            BC_MenuBar4.Location = new Point(-4, 64);
+            BC_MenuBar4.Margin = new Padding(4);
             BC_MenuBar4.Name = "BC_MenuBar4";
-            BC_MenuBar4.Size = new Size(185, 401);
+            BC_MenuBar4.Size = new Size(231, 501);
             BC_MenuBar4.TabIndex = 0;
             // 
             // btLogout4
             // 
             btLogout4.BackColor = Color.DarkKhaki;
             btLogout4.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btLogout4.Location = new Point(-5, 351);
+            btLogout4.Location = new Point(-6, 439);
+            btLogout4.Margin = new Padding(4);
             btLogout4.Name = "btLogout4";
-            btLogout4.Size = new Size(183, 34);
+            btLogout4.Size = new Size(229, 42);
             btLogout4.TabIndex = 9;
             btLogout4.Text = "Logout";
             btLogout4.UseVisualStyleBackColor = false;
@@ -109,9 +112,10 @@
             // 
             btLaporanInventori4.BackColor = Color.DarkKhaki;
             btLaporanInventori4.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btLaporanInventori4.Location = new Point(-1, 213);
+            btLaporanInventori4.Location = new Point(-1, 266);
+            btLaporanInventori4.Margin = new Padding(4);
             btLaporanInventori4.Name = "btLaporanInventori4";
-            btLaporanInventori4.Size = new Size(179, 33);
+            btLaporanInventori4.Size = new Size(224, 41);
             btLaporanInventori4.TabIndex = 8;
             btLaporanInventori4.Text = "Laporan Inventori";
             btLaporanInventori4.UseVisualStyleBackColor = false;
@@ -120,9 +124,10 @@
             // 
             btMonitoringStok4.BackColor = Color.DarkKhaki;
             btMonitoringStok4.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btMonitoringStok4.Location = new Point(-1, 182);
+            btMonitoringStok4.Location = new Point(-1, 228);
+            btMonitoringStok4.Margin = new Padding(4);
             btMonitoringStok4.Name = "btMonitoringStok4";
-            btMonitoringStok4.Size = new Size(179, 34);
+            btMonitoringStok4.Size = new Size(224, 42);
             btMonitoringStok4.TabIndex = 6;
             btMonitoringStok4.Text = "Monitoring Stok";
             btMonitoringStok4.UseVisualStyleBackColor = false;
@@ -131,9 +136,10 @@
             // 
             btStokKeluar4.BackColor = Color.DarkKhaki;
             btStokKeluar4.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btStokKeluar4.Location = new Point(-1, 150);
+            btStokKeluar4.Location = new Point(-1, 188);
+            btStokKeluar4.Margin = new Padding(4);
             btStokKeluar4.Name = "btStokKeluar4";
-            btStokKeluar4.Size = new Size(186, 34);
+            btStokKeluar4.Size = new Size(232, 42);
             btStokKeluar4.TabIndex = 5;
             btStokKeluar4.Text = "Stok Keluar";
             btStokKeluar4.UseVisualStyleBackColor = false;
@@ -142,9 +148,10 @@
             // 
             btKelolaGudang4.BackColor = Color.DarkKhaki;
             btKelolaGudang4.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btKelolaGudang4.Location = new Point(-5, 87);
+            btKelolaGudang4.Location = new Point(-6, 109);
+            btKelolaGudang4.Margin = new Padding(4);
             btKelolaGudang4.Name = "btKelolaGudang4";
-            btKelolaGudang4.Size = new Size(183, 34);
+            btKelolaGudang4.Size = new Size(229, 42);
             btKelolaGudang4.TabIndex = 5;
             btKelolaGudang4.Text = "Kelola Gudang";
             btKelolaGudang4.UseVisualStyleBackColor = false;
@@ -153,9 +160,10 @@
             // 
             btStokMasuk4.BackColor = Color.DarkKhaki;
             btStokMasuk4.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btStokMasuk4.Location = new Point(-5, 118);
+            btStokMasuk4.Location = new Point(-6, 148);
+            btStokMasuk4.Margin = new Padding(4);
             btStokMasuk4.Name = "btStokMasuk4";
-            btStokMasuk4.Size = new Size(183, 34);
+            btStokMasuk4.Size = new Size(229, 42);
             btStokMasuk4.TabIndex = 4;
             btStokMasuk4.Text = "Stok Masuk";
             btStokMasuk4.UseVisualStyleBackColor = false;
@@ -164,9 +172,10 @@
             // 
             btKelolaHasilPanen4.BackColor = Color.DarkKhaki;
             btKelolaHasilPanen4.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btKelolaHasilPanen4.Location = new Point(-5, 55);
+            btKelolaHasilPanen4.Location = new Point(-6, 69);
+            btKelolaHasilPanen4.Margin = new Padding(4);
             btKelolaHasilPanen4.Name = "btKelolaHasilPanen4";
-            btKelolaHasilPanen4.Size = new Size(185, 34);
+            btKelolaHasilPanen4.Size = new Size(231, 42);
             btKelolaHasilPanen4.TabIndex = 3;
             btKelolaHasilPanen4.Text = "Kelola Hasil Panen";
             btKelolaHasilPanen4.UseVisualStyleBackColor = false;
@@ -175,9 +184,10 @@
             // 
             btDashboard4.BackColor = Color.DarkKhaki;
             btDashboard4.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btDashboard4.Location = new Point(-5, 23);
+            btDashboard4.Location = new Point(-6, 29);
+            btDashboard4.Margin = new Padding(4);
             btDashboard4.Name = "btDashboard4";
-            btDashboard4.Size = new Size(185, 34);
+            btDashboard4.Size = new Size(231, 42);
             btDashboard4.TabIndex = 2;
             btDashboard4.Text = "Dashboard";
             btDashboard4.UseVisualStyleBackColor = false;
@@ -188,9 +198,10 @@
             L_Role4.BackColor = Color.DarkOliveGreen;
             L_Role4.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             L_Role4.ForeColor = SystemColors.ButtonHighlight;
-            L_Role4.Location = new Point(65, 24);
+            L_Role4.Location = new Point(81, 30);
+            L_Role4.Margin = new Padding(4, 0, 4, 0);
             L_Role4.Name = "L_Role4";
-            L_Role4.Size = new Size(40, 21);
+            L_Role4.Size = new Size(49, 26);
             L_Role4.TabIndex = 0;
             L_Role4.Text = "Role";
             // 
@@ -199,9 +210,10 @@
             L_Username4.AutoSize = true;
             L_Username4.Font = new Font("Calibri", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             L_Username4.ForeColor = SystemColors.ButtonHighlight;
-            L_Username4.Location = new Point(65, 4);
+            L_Username4.Location = new Point(81, 5);
+            L_Username4.Margin = new Padding(4, 0, 4, 0);
             L_Username4.Name = "L_Username4";
-            L_Username4.Size = new Size(87, 22);
+            L_Username4.Size = new Size(106, 27);
             L_Username4.TabIndex = 0;
             L_Username4.Text = "Username";
             // 
@@ -211,9 +223,10 @@
             G_Profil4.BorderStyle = BorderStyle.FixedSingle;
             G_Profil4.Image = (Image)resources.GetObject("G_Profil4.Image");
             G_Profil4.InitialImage = null;
-            G_Profil4.Location = new Point(20, 6);
+            G_Profil4.Location = new Point(25, 8);
+            G_Profil4.Margin = new Padding(4);
             G_Profil4.Name = "G_Profil4";
-            G_Profil4.Size = new Size(43, 41);
+            G_Profil4.Size = new Size(53, 51);
             G_Profil4.SizeMode = PictureBoxSizeMode.Zoom;
             G_Profil4.TabIndex = 0;
             G_Profil4.TabStop = false;
@@ -226,71 +239,55 @@
             BC_Page4.Controls.Add(P_KelolaStokMasuk4);
             BC_Page4.Controls.Add(G_KelolaStokMasuk4);
             BC_Page4.Controls.Add(J_KelolaStokMasuk4);
-            BC_Page4.Location = new Point(171, -2);
+            BC_Page4.Location = new Point(214, -2);
+            BC_Page4.Margin = new Padding(4);
             BC_Page4.Name = "BC_Page4";
-            BC_Page4.Size = new Size(638, 456);
+            BC_Page4.Size = new Size(798, 570);
             BC_Page4.TabIndex = 3;
+            BC_Page4.Paint += BC_Page4_Paint;
             // 
-            // G_KelolaStokMasuk4
+            // btHapus4
             // 
-            G_KelolaStokMasuk4.BackColor = Color.Transparent;
-            G_KelolaStokMasuk4.Image = (Image)resources.GetObject("G_KelolaStokMasuk4.Image");
-            G_KelolaStokMasuk4.Location = new Point(23, 7);
-            G_KelolaStokMasuk4.Name = "G_KelolaStokMasuk4";
-            G_KelolaStokMasuk4.Size = new Size(53, 45);
-            G_KelolaStokMasuk4.SizeMode = PictureBoxSizeMode.Zoom;
-            G_KelolaStokMasuk4.TabIndex = 8;
-            G_KelolaStokMasuk4.TabStop = false;
-            G_KelolaStokMasuk4.Click += G_KelolaStokMasuk_Click;
+            btHapus4.BackColor = SystemColors.ButtonHighlight;
+            btHapus4.Location = new Point(185, 80);
+            btHapus4.Margin = new Padding(4);
+            btHapus4.Name = "btHapus4";
+            btHapus4.Size = new Size(118, 36);
+            btHapus4.TabIndex = 11;
+            btHapus4.Text = "🗑️ Hapus";
+            btHapus4.UseVisualStyleBackColor = false;
             // 
-            // J_KelolaStokMasuk4
+            // btTambah4
             // 
-            J_KelolaStokMasuk4.AutoSize = true;
-            J_KelolaStokMasuk4.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            J_KelolaStokMasuk4.Location = new Point(73, 14);
-            J_KelolaStokMasuk4.Name = "J_KelolaStokMasuk4";
-            J_KelolaStokMasuk4.Size = new Size(242, 34);
-            J_KelolaStokMasuk4.TabIndex = 7;
-            J_KelolaStokMasuk4.Text = "Kelola Stok Masuk";
-            J_KelolaStokMasuk4.Click += label1_Click;
+            btTambah4.BackColor = SystemColors.ButtonHighlight;
+            btTambah4.Location = new Point(48, 80);
+            btTambah4.Margin = new Padding(4);
+            btTambah4.Name = "btTambah4";
+            btTambah4.Size = new Size(118, 36);
+            btTambah4.TabIndex = 10;
+            btTambah4.Text = "➕Tambah";
+            btTambah4.UseVisualStyleBackColor = false;
+            btTambah4.Click += btTambah4_Click;
             // 
             // P_KelolaStokMasuk4
             // 
             P_KelolaStokMasuk4.BackColor = Color.SaddleBrown;
             P_KelolaStokMasuk4.Controls.Add(DGV_KelolaStokMasuk4);
-            P_KelolaStokMasuk4.Location = new Point(23, 110);
+            P_KelolaStokMasuk4.Location = new Point(29, 138);
+            P_KelolaStokMasuk4.Margin = new Padding(4);
             P_KelolaStokMasuk4.Name = "P_KelolaStokMasuk4";
-            P_KelolaStokMasuk4.Size = new Size(581, 315);
+            P_KelolaStokMasuk4.Size = new Size(726, 394);
             P_KelolaStokMasuk4.TabIndex = 9;
-            // 
-            // btTambah4
-            // 
-            btTambah4.BackColor = SystemColors.ButtonHighlight;
-            btTambah4.Location = new Point(38, 64);
-            btTambah4.Name = "btTambah4";
-            btTambah4.Size = new Size(94, 29);
-            btTambah4.TabIndex = 10;
-            btTambah4.Text = "➕Tambah";
-            btTambah4.UseVisualStyleBackColor = false;
-            // 
-            // btHapus4
-            // 
-            btHapus4.BackColor = SystemColors.ButtonHighlight;
-            btHapus4.Location = new Point(148, 64);
-            btHapus4.Name = "btHapus4";
-            btHapus4.Size = new Size(94, 29);
-            btHapus4.TabIndex = 11;
-            btHapus4.Text = "🗑️ Hapus";
-            btHapus4.UseVisualStyleBackColor = false;
             // 
             // DGV_KelolaStokMasuk4
             // 
             DGV_KelolaStokMasuk4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_KelolaStokMasuk4.Columns.AddRange(new DataGridViewColumn[] { ID, Tanggal, Gudang, Petani, Jumlah, Kualitas, Catatan });
-            DGV_KelolaStokMasuk4.Location = new Point(33, 27);
+            DGV_KelolaStokMasuk4.Location = new Point(41, 34);
+            DGV_KelolaStokMasuk4.Margin = new Padding(4);
             DGV_KelolaStokMasuk4.Name = "DGV_KelolaStokMasuk4";
             DGV_KelolaStokMasuk4.RowHeadersWidth = 51;
-            DGV_KelolaStokMasuk4.Size = new Size(515, 260);
+            DGV_KelolaStokMasuk4.Size = new Size(644, 325);
             DGV_KelolaStokMasuk4.TabIndex = 0;
             // 
             // ID
@@ -342,13 +339,39 @@
             Catatan.Name = "Catatan";
             Catatan.Width = 125;
             // 
+            // G_KelolaStokMasuk4
+            // 
+            G_KelolaStokMasuk4.BackColor = Color.Transparent;
+            G_KelolaStokMasuk4.Image = (Image)resources.GetObject("G_KelolaStokMasuk4.Image");
+            G_KelolaStokMasuk4.Location = new Point(29, 9);
+            G_KelolaStokMasuk4.Margin = new Padding(4);
+            G_KelolaStokMasuk4.Name = "G_KelolaStokMasuk4";
+            G_KelolaStokMasuk4.Size = new Size(66, 56);
+            G_KelolaStokMasuk4.SizeMode = PictureBoxSizeMode.Zoom;
+            G_KelolaStokMasuk4.TabIndex = 8;
+            G_KelolaStokMasuk4.TabStop = false;
+            G_KelolaStokMasuk4.Click += G_KelolaStokMasuk_Click;
+            // 
+            // J_KelolaStokMasuk4
+            // 
+            J_KelolaStokMasuk4.AutoSize = true;
+            J_KelolaStokMasuk4.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            J_KelolaStokMasuk4.Location = new Point(91, 18);
+            J_KelolaStokMasuk4.Margin = new Padding(4, 0, 4, 0);
+            J_KelolaStokMasuk4.Name = "J_KelolaStokMasuk4";
+            J_KelolaStokMasuk4.Size = new Size(292, 41);
+            J_KelolaStokMasuk4.TabIndex = 7;
+            J_KelolaStokMasuk4.Text = "Kelola Stok Masuk";
+            J_KelolaStokMasuk4.Click += label1_Click;
+            // 
             // KelolaStokMasuk
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1000, 562);
             Controls.Add(BC_Page4);
             Controls.Add(BC_MenuBar4ini);
+            Margin = new Padding(4);
             Name = "KelolaStokMasuk";
             Text = "Form4";
             BC_MenuBar4ini.ResumeLayout(false);
@@ -357,9 +380,9 @@
             ((System.ComponentModel.ISupportInitialize)G_Profil4).EndInit();
             BC_Page4.ResumeLayout(false);
             BC_Page4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)G_KelolaStokMasuk4).EndInit();
             P_KelolaStokMasuk4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DGV_KelolaStokMasuk4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)G_KelolaStokMasuk4).EndInit();
             ResumeLayout(false);
         }
 
