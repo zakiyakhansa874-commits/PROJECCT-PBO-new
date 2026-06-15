@@ -12,7 +12,7 @@ namespace TugasProject_PBO.Views.Admin
             "Port=5432;" +
             "Database=ProjectPBO_SIMIHAN;" +
             "Username=postgres;" +
-            "Password=elmitra14";
+            "Password=Jember01";
 
         private int idHasilPanen = 0;
 

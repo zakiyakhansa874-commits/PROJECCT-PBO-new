@@ -228,5 +228,18 @@ namespace TugasProject_PBO.Views.Admin
             laporan.Show();
             this.Close();
         }
+
+        private void btLogout4_Click(object sender, EventArgs e)
+        {
+            using (KonfirmasiLogout frm = new KonfirmasiLogout())
+            {
+                if (frm.ShowDialog() == DialogResult.Yes)
+                {
+                    LoginSIMIHAN login = new LoginSIMIHAN();
+                    login.Show();
+                    this.Hide();
+                }
+            }
+        }
     }
 }

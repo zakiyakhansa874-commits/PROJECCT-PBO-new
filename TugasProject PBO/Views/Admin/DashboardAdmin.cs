@@ -115,36 +115,15 @@ namespace TugasProject_PBO.Views.Admin
         }
         private void btKelolaGudang_Click(object sender, EventArgs e)
         {
-            try
-            {
-                KelolaGudang form = new KelolaGudang();
-                form.Show();
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal membuka Kelola Gudang: " + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+            KelolaGudang form = new KelolaGudang();
+            form.Show();
+            this.Hide();
         }
         private void btStokMasuk_Click(object sender, EventArgs e)
         {
-            try
-            {
-                KelolaStokMasuk form = new KelolaStokMasuk();
-                form.Show();
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Gagal membuka menu Stok Masuk: " + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+            KelolaStokMasuk form = new KelolaStokMasuk();
+            form.Show();
+            this.Hide();  
         }
         private void btStokKeluar_Click(object sender, EventArgs e)
         {
@@ -152,11 +131,15 @@ namespace TugasProject_PBO.Views.Admin
         }
         private void btMonitoringStok_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Menu Monitoring Stok dibuka");
+            MonitoringStok form = new MonitoringStok();
+            form.Show();
+            this.Hide();
         }
         private void btLaporanInventori_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Menu Laporan Inventori dibuka");
+            LaporanInventori form = new LaporanInventori();
+            form.Show();
+            this.Hide();
         }
         private void btLogout_Click(object sender, EventArgs e)
         {
@@ -229,19 +212,13 @@ namespace TugasProject_PBO.Views.Admin
 
         private void G_Gudang_Click(object sender, EventArgs e)
         {
-            try
+            
             {
                 KelolaGudang form = new KelolaGudang();
                 form.Show();
                 this.Hide();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal membuka Kelola Gudang: " + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+            
         }
 
         private void A_TotalGedung_Click(object sender, EventArgs e)

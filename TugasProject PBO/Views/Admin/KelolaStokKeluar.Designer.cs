@@ -43,11 +43,9 @@
             L_Username5 = new Label();
             G_Profil5 = new PictureBox();
             BC_Page5 = new Panel();
-            G_KelolaStokKeluar5 = new PictureBox();
-            J_KelolaStokKeluar5 = new Label();
-            P_DGV5 = new Panel();
             btHapus5 = new Button();
             btTambah5 = new Button();
+            P_DGV5 = new Panel();
             DGV_KelolaStokKeluar5 = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             Tanggal = new DataGridViewTextBoxColumn();
@@ -55,13 +53,15 @@
             Tujuan = new DataGridViewTextBoxColumn();
             Jumlah = new DataGridViewTextBoxColumn();
             Keterangan = new DataGridViewTextBoxColumn();
+            G_KelolaStokKeluar5 = new PictureBox();
+            J_KelolaStokKeluar5 = new Label();
             BC_MenuBar5ini.SuspendLayout();
             BC_MenuBar5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_Profil5).BeginInit();
             BC_Page5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)G_KelolaStokKeluar5).BeginInit();
             P_DGV5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_KelolaStokKeluar5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)G_KelolaStokKeluar5).BeginInit();
             SuspendLayout();
             // 
             // BC_MenuBar5ini
@@ -103,6 +103,7 @@
             btLogout5.TabIndex = 9;
             btLogout5.Text = "Logout";
             btLogout5.UseVisualStyleBackColor = false;
+            btLogout5.Click += btLogout5_Click;
             // 
             // btLaporanInventori5
             // 
@@ -125,6 +126,7 @@
             btMonitoringStok5.TabIndex = 6;
             btMonitoringStok5.Text = "Monitoring Stok";
             btMonitoringStok5.UseVisualStyleBackColor = false;
+            btMonitoringStok5.Click += btMonitoringStok5_Click;
             // 
             // btStokKeluar5
             // 
@@ -147,6 +149,7 @@
             btKelolaGudang5.TabIndex = 5;
             btKelolaGudang5.Text = "Kelola Gudang";
             btKelolaGudang5.UseVisualStyleBackColor = false;
+            btKelolaGudang5.Click += btKelolaGudang5_Click;
             // 
             // btStokMasuk5
             // 
@@ -158,6 +161,7 @@
             btStokMasuk5.TabIndex = 4;
             btStokMasuk5.Text = "Stok Masuk";
             btStokMasuk5.UseVisualStyleBackColor = false;
+            btStokMasuk5.Click += btStokMasuk5_Click;
             // 
             // btKelolaHasilPanen5
             // 
@@ -180,6 +184,7 @@
             btDashboard5.TabIndex = 2;
             btDashboard5.Text = "Dashboard";
             btDashboard5.UseVisualStyleBackColor = false;
+            btDashboard5.Click += btDashboard5_Click;
             // 
             // L_Role5
             // 
@@ -229,36 +234,7 @@
             BC_Page5.Name = "BC_Page5";
             BC_Page5.Size = new Size(635, 462);
             BC_Page5.TabIndex = 3;
-            // 
-            // G_KelolaStokKeluar5
-            // 
-            G_KelolaStokKeluar5.BackColor = Color.Transparent;
-            G_KelolaStokKeluar5.Image = (Image)resources.GetObject("G_KelolaStokKeluar5.Image");
-            G_KelolaStokKeluar5.Location = new Point(23, 6);
-            G_KelolaStokKeluar5.Name = "G_KelolaStokKeluar5";
-            G_KelolaStokKeluar5.Size = new Size(53, 45);
-            G_KelolaStokKeluar5.SizeMode = PictureBoxSizeMode.Zoom;
-            G_KelolaStokKeluar5.TabIndex = 8;
-            G_KelolaStokKeluar5.TabStop = false;
-            // 
-            // J_KelolaStokKeluar5
-            // 
-            J_KelolaStokKeluar5.AutoSize = true;
-            J_KelolaStokKeluar5.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            J_KelolaStokKeluar5.Location = new Point(73, 13);
-            J_KelolaStokKeluar5.Name = "J_KelolaStokKeluar5";
-            J_KelolaStokKeluar5.Size = new Size(242, 34);
-            J_KelolaStokKeluar5.TabIndex = 7;
-            J_KelolaStokKeluar5.Text = "Kelola Stok Keluar";
-            // 
-            // P_DGV5
-            // 
-            P_DGV5.BackColor = Color.SaddleBrown;
-            P_DGV5.Controls.Add(DGV_KelolaStokKeluar5);
-            P_DGV5.Location = new Point(23, 108);
-            P_DGV5.Name = "P_DGV5";
-            P_DGV5.Size = new Size(582, 317);
-            P_DGV5.TabIndex = 9;
+            BC_Page5.Paint += BC_Page5_Paint;
             // 
             // btHapus5
             // 
@@ -279,6 +255,15 @@
             btTambah5.TabIndex = 12;
             btTambah5.Text = "➕Tambah";
             btTambah5.UseVisualStyleBackColor = false;
+            // 
+            // P_DGV5
+            // 
+            P_DGV5.BackColor = Color.SaddleBrown;
+            P_DGV5.Controls.Add(DGV_KelolaStokKeluar5);
+            P_DGV5.Location = new Point(23, 108);
+            P_DGV5.Name = "P_DGV5";
+            P_DGV5.Size = new Size(582, 317);
+            P_DGV5.TabIndex = 9;
             // 
             // DGV_KelolaStokKeluar5
             // 
@@ -332,6 +317,27 @@
             Keterangan.Name = "Keterangan";
             Keterangan.Width = 125;
             // 
+            // G_KelolaStokKeluar5
+            // 
+            G_KelolaStokKeluar5.BackColor = Color.Transparent;
+            G_KelolaStokKeluar5.Image = (Image)resources.GetObject("G_KelolaStokKeluar5.Image");
+            G_KelolaStokKeluar5.Location = new Point(23, 6);
+            G_KelolaStokKeluar5.Name = "G_KelolaStokKeluar5";
+            G_KelolaStokKeluar5.Size = new Size(53, 45);
+            G_KelolaStokKeluar5.SizeMode = PictureBoxSizeMode.Zoom;
+            G_KelolaStokKeluar5.TabIndex = 8;
+            G_KelolaStokKeluar5.TabStop = false;
+            // 
+            // J_KelolaStokKeluar5
+            // 
+            J_KelolaStokKeluar5.AutoSize = true;
+            J_KelolaStokKeluar5.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            J_KelolaStokKeluar5.Location = new Point(73, 13);
+            J_KelolaStokKeluar5.Name = "J_KelolaStokKeluar5";
+            J_KelolaStokKeluar5.Size = new Size(242, 34);
+            J_KelolaStokKeluar5.TabIndex = 7;
+            J_KelolaStokKeluar5.Text = "Kelola Stok Keluar";
+            // 
             // KelolaStokKeluar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -347,9 +353,9 @@
             ((System.ComponentModel.ISupportInitialize)G_Profil5).EndInit();
             BC_Page5.ResumeLayout(false);
             BC_Page5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)G_KelolaStokKeluar5).EndInit();
             P_DGV5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DGV_KelolaStokKeluar5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)G_KelolaStokKeluar5).EndInit();
             ResumeLayout(false);
         }
 

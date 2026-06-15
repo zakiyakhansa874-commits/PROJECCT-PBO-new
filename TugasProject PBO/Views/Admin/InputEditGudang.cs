@@ -7,12 +7,6 @@ namespace TugasProject_PBO.Views.Admin
 {
     public partial class InputEditGudang : Form
     {
-        private string connectionString =
-            "Host=localhost;" +
-            "Port=5432;" +
-            "Database=ProjectPBO_SIMIHAN;" +
-            "Username=postgres;" +
-            "Password=elmitra14";
 
         public InputEditGudang()
         {
@@ -38,65 +32,59 @@ namespace TugasProject_PBO.Views.Admin
             {
                 if (string.IsNullOrWhiteSpace(txtNamaGudang.Text) ||
                     string.IsNullOrWhiteSpace(txtLokasi.Text) ||
-                    string.IsNullOrWhiteSpace(txtKapasitas.Text) ||
-                    string.IsNullOrWhiteSpace(txtStokSaatIni.Text))
+                    string.IsNullOrWhiteSpace(txtKapasitas.Text))
                 {
-                    MessageBox.Show("Semua data harus diisi!", "Peringatan",
+                    MessageBox.Show(
+                        "Semua data harus diisi!",
+                        "Peringatan",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
                     return;
                 }
 
-                using (NpgsqlConnection conn =
-                       new NpgsqlConnection(connectionString))
+                using (var conn = TugasProject_PBO.Helpers.DatabaseHelper.GetConnection())
                 {
-                    conn.Open();
+                   
 
-                    // Ubah query simpan perubahan Anda menjadi struktur seperti ini:
-                    string query = @"UPDATE ""gudang"" 
-                 SET nama_gudang = @nama, 
-                     lokasi = @lokasi, 
-                     ""kapasitas_maksimal"" = @kapasitas 
-                 WHERE id_gudang = @id";
-                    // ^^^ Pastikan memakai id_gudang, bukan "WHERE id = @id"
+                    string query = @"
+            INSERT INTO ""Gudang""
+            (
+                nama_gudang,
+                lokasi,
+                kapasitas_maksimal
+            )
+            VALUES
+            (
+                @nama,
+                @lokasi,
+                @kapasitas
+            )";
 
-                    using (NpgsqlCommand cmd =
-                           new NpgsqlCommand(query, conn))
+                    using (var cmd = new NpgsqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@id_gudang", 1); // Ganti dengan ID gudang yang ingin diedit
+                        cmd.Parameters.AddWithValue("@nama", txtNamaGudang.Text);
+                        cmd.Parameters.AddWithValue("@lokasi", txtLokasi.Text);
                         cmd.Parameters.AddWithValue(
-                            "@nama_gudang",
-                            txtNamaGudang.Text);
-
-                        cmd.Parameters.AddWithValue(
-                            "@lokasi",
-                            txtLokasi.Text);
-
-                        cmd.Parameters.AddWithValue(
-                            "@kapasitas_maksimal",
+                            "@kapasitas",
                             Convert.ToDecimal(txtKapasitas.Text));
 
-                        cmd.Parameters.AddWithValue(
-                            "@stok_saat_ini",
-                            Convert.ToDecimal(txtStokSaatIni.Text));
-
                         cmd.ExecuteNonQuery();
-
                     }
                 }
 
                 MessageBox.Show(
-                    "Data gudang berhasil disimpan!",
+                    "Data gudang berhasil ditambahkan!",
                     "Sukses",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                BersihkanForm();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Terjadi kesalahan: " + ex.Message,
+                    ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);

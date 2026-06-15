@@ -26,5 +26,51 @@ namespace TugasProject_PBO.Views.Admin
         {
 
         }
+
+        private void btDashboard5_Click(object sender, EventArgs e)
+        {
+            DashboardAdmin dashboard = new DashboardAdmin();
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void btKelolaGudang5_Click(object sender, EventArgs e)
+        {
+            KelolaGudang form = new KelolaGudang();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btStokMasuk5_Click(object sender, EventArgs e)
+        {
+            KelolaStokMasuk form = new KelolaStokMasuk();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btMonitoringStok5_Click(object sender, EventArgs e)
+        {
+            MonitoringStok form = new MonitoringStok();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btLogout5_Click(object sender, EventArgs e)
+        {
+            using (KonfirmasiLogout frm = new KonfirmasiLogout())
+            {
+                if (frm.ShowDialog() == DialogResult.Yes)
+                {
+                    LoginSIMIHAN login = new LoginSIMIHAN();
+                    login.Show();
+                    this.Hide();
+                }
+            }
+        }
+
+        private void BC_Page5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

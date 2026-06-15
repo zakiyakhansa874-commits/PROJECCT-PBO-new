@@ -21,7 +21,7 @@ namespace TugasProject_PBO.Views.Petani
                 if (!string.IsNullOrEmpty(SessionHelper.Nama))
                 {
                     L_Username8.Text = SessionHelper.Nama;
-                    L_Role8.Text = SessionHelper.Role ?? "Petani";
+                    L_Petani8.Text = SessionHelper.Role ?? "Petani";
                 }
 
                 LoadHasilPanen();
@@ -89,7 +89,7 @@ namespace TugasProject_PBO.Views.Petani
 
         private void btKelolaHasilPanen_1_Click(object sender, EventArgs e)
         {
-            KelolaDataHasilPanen frm = new KelolaDataHasilPanen();
+            MonitoringStokGudang frm = new MonitoringStokGudang();
             frm.Show();
             this.Hide();
         }
@@ -172,5 +172,11 @@ namespace TugasProject_PBO.Views.Petani
         private void label2_Click(object sender, EventArgs e) { _ = sender; _ = e; }
         private void label5_Click(object sender, EventArgs e) { _ = sender; _ = e; }
 
+        private void btInputBaru8_Click_1(object sender, EventArgs e)
+        {
+            InputHasilPanen frm = new InputHasilPanen();
+            frm.Show();
+            this.Hide();
+        }
     }
 }

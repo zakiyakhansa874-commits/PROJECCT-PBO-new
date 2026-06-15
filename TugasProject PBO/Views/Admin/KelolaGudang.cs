@@ -66,7 +66,7 @@ namespace TugasProject_PBO.Views.Admin
                                    LEFT JOIN ""Stok_Masuk"" sm ON g.id_gudang = sm.id_gudang
                                    GROUP BY g.id_gudang, g.nama_gudang, g.lokasi, g.kapasitas_maksimal
                                    ORDER BY g.id_gudang ASC";
-                    
+
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     using (var reader = cmd.ExecuteReader())
@@ -148,8 +148,8 @@ namespace TugasProject_PBO.Views.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka form tambah gudang: " + ex.Message, "Peringatan", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Gagal membuka form tambah gudang: " + ex.Message, "Peringatan",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
             }
         }
@@ -158,8 +158,8 @@ namespace TugasProject_PBO.Views.Admin
         {
             if (selectedGudangId == 0)
             {
-                MessageBox.Show("Silakan pilih salah satu gudang di dalam tabel terlebih dahulu!", "Informasi", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Silakan pilih salah satu gudang di dalam tabel terlebih dahulu!", "Informasi",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
                 return;
             }
@@ -184,8 +184,8 @@ namespace TugasProject_PBO.Views.Admin
         {
             if (selectedGudangId == 0)
             {
-                MessageBox.Show("Silakan pilih data gudang yang ingin dihapus!", "Peringatan", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Silakan pilih data gudang yang ingin dihapus!", "Peringatan",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
                 return;
             }

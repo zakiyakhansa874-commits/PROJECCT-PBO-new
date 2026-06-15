@@ -121,6 +121,7 @@
             btLogout_7.TabIndex = 9;
             btLogout_7.Text = "Logout";
             btLogout_7.UseVisualStyleBackColor = false;
+            btLogout_7.Click += btLogout_7_Click;
             // 
             // btLaporanInventori_7
             // 
@@ -132,6 +133,7 @@
             btLaporanInventori_7.TabIndex = 8;
             btLaporanInventori_7.Text = "Laporan Inventori";
             btLaporanInventori_7.UseVisualStyleBackColor = false;
+            btLaporanInventori_7.Click += btLaporanInventori_7_Click;
             // 
             // btMonitoringStok_7
             // 
@@ -143,6 +145,7 @@
             btMonitoringStok_7.TabIndex = 6;
             btMonitoringStok_7.Text = "Monitoring Stok";
             btMonitoringStok_7.UseVisualStyleBackColor = false;
+            btMonitoringStok_7.Click += btMonitoringStok_7_Click;
             // 
             // btStokKeluar_7
             // 
@@ -154,6 +157,7 @@
             btStokKeluar_7.TabIndex = 5;
             btStokKeluar_7.Text = "Stok Keluar";
             btStokKeluar_7.UseVisualStyleBackColor = false;
+            btStokKeluar_7.Click += btStokKeluar_7_Click;
             // 
             // btKelolaGudang_7
             // 
@@ -165,6 +169,7 @@
             btKelolaGudang_7.TabIndex = 5;
             btKelolaGudang_7.Text = "Kelola Gudang";
             btKelolaGudang_7.UseVisualStyleBackColor = false;
+            btKelolaGudang_7.Click += btKelolaGudang_7_Click;
             // 
             // btStokMasuk_7
             // 
@@ -176,6 +181,7 @@
             btStokMasuk_7.TabIndex = 4;
             btStokMasuk_7.Text = "Stok Masuk";
             btStokMasuk_7.UseVisualStyleBackColor = false;
+            btStokMasuk_7.Click += btStokMasuk_7_Click;
             // 
             // btKelolaHasilPanen_7
             // 
@@ -198,6 +204,7 @@
             btDashboard_7.TabIndex = 2;
             btDashboard_7.Text = "Dashboard";
             btDashboard_7.UseVisualStyleBackColor = false;
+            btDashboard_7.Click += btDashboard_7_Click;
             // 
             // L_Role7
             // 

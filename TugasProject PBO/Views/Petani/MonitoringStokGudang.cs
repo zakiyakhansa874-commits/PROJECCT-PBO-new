@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TugasProject_PBO.Views.Admin;
 
 namespace TugasProject_PBO.Views.Petani
 {
@@ -29,6 +30,25 @@ namespace TugasProject_PBO.Views.Petani
         private void J_DashboardAdmin_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void L_Role9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btDashboard_9_Click(object sender, EventArgs e)
+        {
+            DataHasilPanenPetani frm = new DataHasilPanenPetani();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btKelolaHasilPanen_9_Click(object sender, EventArgs e)
+        {
+            KonfirmasiLogout frm = new KonfirmasiLogout();
+            frm.Show();
+            this.Hide();
         }
     }
 }

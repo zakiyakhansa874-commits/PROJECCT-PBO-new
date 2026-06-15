@@ -34,43 +34,43 @@
             btLogout_9 = new Button();
             btKelolaHasilPanen_9 = new Button();
             btDashboard_9 = new Button();
-            L_Role9 = new Label();
+            L_Petani9 = new Label();
             L_Username9 = new Label();
             G_Profil9 = new PictureBox();
             BC_Page9 = new Panel();
             BC_MonitoringCoklat9 = new Panel();
-            G_MonitoringStok9 = new PictureBox();
-            J_MonitoringStok9 = new Label();
-            SJ_StatusGudangSaatIni9 = new Label();
-            SJ_Ringkasan9 = new Label();
-            PB_MonitoringStok9 = new ProgressBar();
-            L_GudangUtamaA9 = new Label();
-            L_BlokA9 = new Label();
-            A_BawahBlokA9 = new Label();
-            P_JumlahGudang9 = new Panel();
-            L_StokSaatIni = new Label();
-            G_JumlahGudang9 = new PictureBox();
-            A_JumlahGudang9 = new Label();
-            P_TotalStok9 = new Panel();
-            label6 = new Label();
-            G_TotalStok9 = new PictureBox();
-            A_TotalStok9 = new Label();
             P_TotalKapasitas9 = new Panel();
             label8 = new Label();
             G_TotalKapasitas9 = new PictureBox();
             A_TotalKapasitas9 = new Label();
+            P_TotalStok9 = new Panel();
+            label6 = new Label();
+            G_TotalStok9 = new PictureBox();
+            A_TotalStok9 = new Label();
+            P_JumlahGudang9 = new Panel();
+            L_StokSaatIni = new Label();
+            G_JumlahGudang9 = new PictureBox();
+            A_JumlahGudang9 = new Label();
+            A_BawahBlokA9 = new Label();
+            L_BlokA9 = new Label();
+            L_GudangUtamaA9 = new Label();
+            PB_MonitoringStok9 = new ProgressBar();
+            SJ_Ringkasan9 = new Label();
+            SJ_StatusGudangSaatIni9 = new Label();
+            G_MonitoringStok9 = new PictureBox();
+            J_MonitoringStok9 = new Label();
             BC_MenuBar9ini.SuspendLayout();
             BC_MenuBar9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_Profil9).BeginInit();
             BC_Page9.SuspendLayout();
             BC_MonitoringCoklat9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)G_MonitoringStok9).BeginInit();
-            P_JumlahGudang9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)G_JumlahGudang9).BeginInit();
-            P_TotalStok9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)G_TotalStok9).BeginInit();
             P_TotalKapasitas9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_TotalKapasitas9).BeginInit();
+            P_TotalStok9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)G_TotalStok9).BeginInit();
+            P_JumlahGudang9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)G_JumlahGudang9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)G_MonitoringStok9).BeginInit();
             SuspendLayout();
             // 
             // BC_MenuBar9ini
@@ -78,7 +78,7 @@
             BC_MenuBar9ini.BackColor = Color.DarkOliveGreen;
             BC_MenuBar9ini.BorderStyle = BorderStyle.Fixed3D;
             BC_MenuBar9ini.Controls.Add(BC_MenuBar9);
-            BC_MenuBar9ini.Controls.Add(L_Role9);
+            BC_MenuBar9ini.Controls.Add(L_Petani9);
             BC_MenuBar9ini.Controls.Add(L_Username9);
             BC_MenuBar9ini.Controls.Add(G_Profil9);
             BC_MenuBar9ini.Location = new Point(-1, -1);
@@ -129,18 +129,20 @@
             btDashboard_9.TabIndex = 2;
             btDashboard_9.Text = "Input Hasil Panen";
             btDashboard_9.UseVisualStyleBackColor = false;
+            btDashboard_9.Click += btDashboard_9_Click;
             // 
-            // L_Role9
+            // L_Petani9
             // 
-            L_Role9.AutoSize = true;
-            L_Role9.BackColor = Color.DarkOliveGreen;
-            L_Role9.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            L_Role9.ForeColor = SystemColors.ButtonHighlight;
-            L_Role9.Location = new Point(65, 24);
-            L_Role9.Name = "L_Role9";
-            L_Role9.Size = new Size(40, 21);
-            L_Role9.TabIndex = 0;
-            L_Role9.Text = "Role";
+            L_Petani9.AutoSize = true;
+            L_Petani9.BackColor = Color.DarkOliveGreen;
+            L_Petani9.Font = new Font("Calibri", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            L_Petani9.ForeColor = SystemColors.ButtonHighlight;
+            L_Petani9.Location = new Point(65, 24);
+            L_Petani9.Name = "L_Petani9";
+            L_Petani9.Size = new Size(54, 21);
+            L_Petani9.TabIndex = 0;
+            L_Petani9.Text = "Petani";
+            L_Petani9.Click += L_Role9_Click;
             // 
             // L_Username9
             // 
@@ -194,128 +196,46 @@
             BC_MonitoringCoklat9.Size = new Size(576, 339);
             BC_MonitoringCoklat9.TabIndex = 5;
             // 
-            // G_MonitoringStok9
+            // P_TotalKapasitas9
             // 
-            G_MonitoringStok9.BackColor = Color.Transparent;
-            G_MonitoringStok9.ErrorImage = (Image)resources.GetObject("G_MonitoringStok9.ErrorImage");
-            G_MonitoringStok9.Image = (Image)resources.GetObject("G_MonitoringStok9.Image");
-            G_MonitoringStok9.Location = new Point(14, 20);
-            G_MonitoringStok9.Name = "G_MonitoringStok9";
-            G_MonitoringStok9.Size = new Size(53, 45);
-            G_MonitoringStok9.SizeMode = PictureBoxSizeMode.Zoom;
-            G_MonitoringStok9.TabIndex = 4;
-            G_MonitoringStok9.TabStop = false;
+            P_TotalKapasitas9.Controls.Add(label8);
+            P_TotalKapasitas9.Controls.Add(G_TotalKapasitas9);
+            P_TotalKapasitas9.Controls.Add(A_TotalKapasitas9);
+            P_TotalKapasitas9.Location = new Point(392, 218);
+            P_TotalKapasitas9.Name = "P_TotalKapasitas9";
+            P_TotalKapasitas9.Size = new Size(169, 73);
+            P_TotalKapasitas9.TabIndex = 11;
             // 
-            // J_MonitoringStok9
+            // label8
             // 
-            J_MonitoringStok9.AutoSize = true;
-            J_MonitoringStok9.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            J_MonitoringStok9.Location = new Point(64, 27);
-            J_MonitoringStok9.Name = "J_MonitoringStok9";
-            J_MonitoringStok9.Size = new Size(210, 34);
-            J_MonitoringStok9.TabIndex = 3;
-            J_MonitoringStok9.Text = "Monitoring Stok";
-            J_MonitoringStok9.Click += J_DashboardAdmin_Click;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = SystemColors.ButtonHighlight;
+            label8.Location = new Point(51, 13);
+            label8.Name = "label8";
+            label8.Size = new Size(122, 17);
+            label8.TabIndex = 6;
+            label8.Text = "Total Kapasitas (kg)";
             // 
-            // SJ_StatusGudangSaatIni9
+            // G_TotalKapasitas9
             // 
-            SJ_StatusGudangSaatIni9.AutoSize = true;
-            SJ_StatusGudangSaatIni9.BackColor = Color.Ivory;
-            SJ_StatusGudangSaatIni9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SJ_StatusGudangSaatIni9.Location = new Point(0, 0);
-            SJ_StatusGudangSaatIni9.Name = "SJ_StatusGudangSaatIni9";
-            SJ_StatusGudangSaatIni9.Size = new Size(199, 23);
-            SJ_StatusGudangSaatIni9.TabIndex = 0;
-            SJ_StatusGudangSaatIni9.Text = "Status Gudang Saat Ini   ";
+            G_TotalKapasitas9.Image = (Image)resources.GetObject("G_TotalKapasitas9.Image");
+            G_TotalKapasitas9.Location = new Point(9, 12);
+            G_TotalKapasitas9.Name = "G_TotalKapasitas9";
+            G_TotalKapasitas9.Size = new Size(56, 48);
+            G_TotalKapasitas9.SizeMode = PictureBoxSizeMode.Zoom;
+            G_TotalKapasitas9.TabIndex = 6;
+            G_TotalKapasitas9.TabStop = false;
             // 
-            // SJ_Ringkasan9
+            // A_TotalKapasitas9
             // 
-            SJ_Ringkasan9.AutoSize = true;
-            SJ_Ringkasan9.BackColor = Color.Ivory;
-            SJ_Ringkasan9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SJ_Ringkasan9.Location = new Point(0, 173);
-            SJ_Ringkasan9.Name = "SJ_Ringkasan9";
-            SJ_Ringkasan9.Size = new Size(102, 23);
-            SJ_Ringkasan9.TabIndex = 1;
-            SJ_Ringkasan9.Text = "Ringkasan   ";
-            // 
-            // PB_MonitoringStok9
-            // 
-            PB_MonitoringStok9.Location = new Point(30, 114);
-            PB_MonitoringStok9.Name = "PB_MonitoringStok9";
-            PB_MonitoringStok9.Size = new Size(516, 31);
-            PB_MonitoringStok9.TabIndex = 2;
-            // 
-            // L_GudangUtamaA9
-            // 
-            L_GudangUtamaA9.AutoSize = true;
-            L_GudangUtamaA9.ForeColor = SystemColors.ButtonHighlight;
-            L_GudangUtamaA9.Location = new Point(28, 40);
-            L_GudangUtamaA9.Name = "L_GudangUtamaA9";
-            L_GudangUtamaA9.Size = new Size(123, 20);
-            L_GudangUtamaA9.TabIndex = 3;
-            L_GudangUtamaA9.Text = "Gudang Utama A";
-            // 
-            // L_BlokA9
-            // 
-            L_BlokA9.AutoSize = true;
-            L_BlokA9.ForeColor = SystemColors.ButtonHighlight;
-            L_BlokA9.Location = new Point(28, 63);
-            L_BlokA9.Name = "L_BlokA9";
-            L_BlokA9.Size = new Size(161, 20);
-            L_BlokA9.TabIndex = 4;
-            L_BlokA9.Text = "Blok A - Kebun Selatan";
-            // 
-            // A_BawahBlokA9
-            // 
-            A_BawahBlokA9.AutoSize = true;
-            A_BawahBlokA9.ForeColor = SystemColors.ButtonHighlight;
-            A_BawahBlokA9.Location = new Point(29, 86);
-            A_BawahBlokA9.Name = "A_BawahBlokA9";
-            A_BawahBlokA9.Size = new Size(141, 20);
-            A_BawahBlokA9.TabIndex = 5;
-            A_BawahBlokA9.Text = "3200/5000 kg (64%)";
-            // 
-            // P_JumlahGudang9
-            // 
-            P_JumlahGudang9.Controls.Add(L_StokSaatIni);
-            P_JumlahGudang9.Controls.Add(G_JumlahGudang9);
-            P_JumlahGudang9.Controls.Add(A_JumlahGudang9);
-            P_JumlahGudang9.Location = new Point(21, 216);
-            P_JumlahGudang9.Name = "P_JumlahGudang9";
-            P_JumlahGudang9.Size = new Size(169, 73);
-            P_JumlahGudang9.TabIndex = 10;
-            // 
-            // L_StokSaatIni
-            // 
-            L_StokSaatIni.AutoSize = true;
-            L_StokSaatIni.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            L_StokSaatIni.ForeColor = SystemColors.ButtonHighlight;
-            L_StokSaatIni.Location = new Point(69, 13);
-            L_StokSaatIni.Name = "L_StokSaatIni";
-            L_StokSaatIni.Size = new Size(98, 17);
-            L_StokSaatIni.TabIndex = 6;
-            L_StokSaatIni.Text = "Jumlah Gudang";
-            // 
-            // G_JumlahGudang9
-            // 
-            G_JumlahGudang9.Image = (Image)resources.GetObject("G_JumlahGudang9.Image");
-            G_JumlahGudang9.Location = new Point(9, 12);
-            G_JumlahGudang9.Name = "G_JumlahGudang9";
-            G_JumlahGudang9.Size = new Size(56, 48);
-            G_JumlahGudang9.SizeMode = PictureBoxSizeMode.Zoom;
-            G_JumlahGudang9.TabIndex = 6;
-            G_JumlahGudang9.TabStop = false;
-            // 
-            // A_JumlahGudang9
-            // 
-            A_JumlahGudang9.AutoSize = true;
-            A_JumlahGudang9.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            A_JumlahGudang9.Location = new Point(97, 29);
-            A_JumlahGudang9.Name = "A_JumlahGudang9";
-            A_JumlahGudang9.Size = new Size(27, 31);
-            A_JumlahGudang9.TabIndex = 8;
-            A_JumlahGudang9.Text = "3";
+            A_TotalKapasitas9.AutoSize = true;
+            A_TotalKapasitas9.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            A_TotalKapasitas9.Location = new Point(71, 29);
+            A_TotalKapasitas9.Name = "A_TotalKapasitas9";
+            A_TotalKapasitas9.Size = new Size(66, 31);
+            A_TotalKapasitas9.TabIndex = 8;
+            A_TotalKapasitas9.Text = "1000";
             // 
             // P_TotalStok9
             // 
@@ -358,46 +278,128 @@
             A_TotalStok9.TabIndex = 8;
             A_TotalStok9.Text = "5420 ";
             // 
-            // P_TotalKapasitas9
+            // P_JumlahGudang9
             // 
-            P_TotalKapasitas9.Controls.Add(label8);
-            P_TotalKapasitas9.Controls.Add(G_TotalKapasitas9);
-            P_TotalKapasitas9.Controls.Add(A_TotalKapasitas9);
-            P_TotalKapasitas9.Location = new Point(392, 218);
-            P_TotalKapasitas9.Name = "P_TotalKapasitas9";
-            P_TotalKapasitas9.Size = new Size(169, 73);
-            P_TotalKapasitas9.TabIndex = 11;
+            P_JumlahGudang9.Controls.Add(L_StokSaatIni);
+            P_JumlahGudang9.Controls.Add(G_JumlahGudang9);
+            P_JumlahGudang9.Controls.Add(A_JumlahGudang9);
+            P_JumlahGudang9.Location = new Point(21, 216);
+            P_JumlahGudang9.Name = "P_JumlahGudang9";
+            P_JumlahGudang9.Size = new Size(169, 73);
+            P_JumlahGudang9.TabIndex = 10;
             // 
-            // label8
+            // L_StokSaatIni
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(51, 13);
-            label8.Name = "label8";
-            label8.Size = new Size(122, 17);
-            label8.TabIndex = 6;
-            label8.Text = "Total Kapasitas (kg)";
+            L_StokSaatIni.AutoSize = true;
+            L_StokSaatIni.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            L_StokSaatIni.ForeColor = SystemColors.ButtonHighlight;
+            L_StokSaatIni.Location = new Point(69, 13);
+            L_StokSaatIni.Name = "L_StokSaatIni";
+            L_StokSaatIni.Size = new Size(98, 17);
+            L_StokSaatIni.TabIndex = 6;
+            L_StokSaatIni.Text = "Jumlah Gudang";
             // 
-            // G_TotalKapasitas9
+            // G_JumlahGudang9
             // 
-            G_TotalKapasitas9.Image = (Image)resources.GetObject("G_TotalKapasitas9.Image");
-            G_TotalKapasitas9.Location = new Point(9, 12);
-            G_TotalKapasitas9.Name = "G_TotalKapasitas9";
-            G_TotalKapasitas9.Size = new Size(56, 48);
-            G_TotalKapasitas9.SizeMode = PictureBoxSizeMode.Zoom;
-            G_TotalKapasitas9.TabIndex = 6;
-            G_TotalKapasitas9.TabStop = false;
+            G_JumlahGudang9.Image = (Image)resources.GetObject("G_JumlahGudang9.Image");
+            G_JumlahGudang9.Location = new Point(9, 12);
+            G_JumlahGudang9.Name = "G_JumlahGudang9";
+            G_JumlahGudang9.Size = new Size(56, 48);
+            G_JumlahGudang9.SizeMode = PictureBoxSizeMode.Zoom;
+            G_JumlahGudang9.TabIndex = 6;
+            G_JumlahGudang9.TabStop = false;
             // 
-            // A_TotalKapasitas9
+            // A_JumlahGudang9
             // 
-            A_TotalKapasitas9.AutoSize = true;
-            A_TotalKapasitas9.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            A_TotalKapasitas9.Location = new Point(71, 29);
-            A_TotalKapasitas9.Name = "A_TotalKapasitas9";
-            A_TotalKapasitas9.Size = new Size(66, 31);
-            A_TotalKapasitas9.TabIndex = 8;
-            A_TotalKapasitas9.Text = "1000";
+            A_JumlahGudang9.AutoSize = true;
+            A_JumlahGudang9.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            A_JumlahGudang9.Location = new Point(97, 29);
+            A_JumlahGudang9.Name = "A_JumlahGudang9";
+            A_JumlahGudang9.Size = new Size(27, 31);
+            A_JumlahGudang9.TabIndex = 8;
+            A_JumlahGudang9.Text = "3";
+            // 
+            // A_BawahBlokA9
+            // 
+            A_BawahBlokA9.AutoSize = true;
+            A_BawahBlokA9.ForeColor = SystemColors.ButtonHighlight;
+            A_BawahBlokA9.Location = new Point(29, 86);
+            A_BawahBlokA9.Name = "A_BawahBlokA9";
+            A_BawahBlokA9.Size = new Size(141, 20);
+            A_BawahBlokA9.TabIndex = 5;
+            A_BawahBlokA9.Text = "3200/5000 kg (64%)";
+            // 
+            // L_BlokA9
+            // 
+            L_BlokA9.AutoSize = true;
+            L_BlokA9.ForeColor = SystemColors.ButtonHighlight;
+            L_BlokA9.Location = new Point(28, 63);
+            L_BlokA9.Name = "L_BlokA9";
+            L_BlokA9.Size = new Size(161, 20);
+            L_BlokA9.TabIndex = 4;
+            L_BlokA9.Text = "Blok A - Kebun Selatan";
+            // 
+            // L_GudangUtamaA9
+            // 
+            L_GudangUtamaA9.AutoSize = true;
+            L_GudangUtamaA9.ForeColor = SystemColors.ButtonHighlight;
+            L_GudangUtamaA9.Location = new Point(28, 40);
+            L_GudangUtamaA9.Name = "L_GudangUtamaA9";
+            L_GudangUtamaA9.Size = new Size(123, 20);
+            L_GudangUtamaA9.TabIndex = 3;
+            L_GudangUtamaA9.Text = "Gudang Utama A";
+            // 
+            // PB_MonitoringStok9
+            // 
+            PB_MonitoringStok9.Location = new Point(30, 114);
+            PB_MonitoringStok9.Name = "PB_MonitoringStok9";
+            PB_MonitoringStok9.Size = new Size(516, 31);
+            PB_MonitoringStok9.TabIndex = 2;
+            // 
+            // SJ_Ringkasan9
+            // 
+            SJ_Ringkasan9.AutoSize = true;
+            SJ_Ringkasan9.BackColor = Color.Ivory;
+            SJ_Ringkasan9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SJ_Ringkasan9.Location = new Point(0, 173);
+            SJ_Ringkasan9.Name = "SJ_Ringkasan9";
+            SJ_Ringkasan9.Size = new Size(102, 23);
+            SJ_Ringkasan9.TabIndex = 1;
+            SJ_Ringkasan9.Text = "Ringkasan   ";
+            // 
+            // SJ_StatusGudangSaatIni9
+            // 
+            SJ_StatusGudangSaatIni9.AutoSize = true;
+            SJ_StatusGudangSaatIni9.BackColor = Color.Ivory;
+            SJ_StatusGudangSaatIni9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SJ_StatusGudangSaatIni9.Location = new Point(0, 0);
+            SJ_StatusGudangSaatIni9.Name = "SJ_StatusGudangSaatIni9";
+            SJ_StatusGudangSaatIni9.Size = new Size(199, 23);
+            SJ_StatusGudangSaatIni9.TabIndex = 0;
+            SJ_StatusGudangSaatIni9.Text = "Status Gudang Saat Ini   ";
+            // 
+            // G_MonitoringStok9
+            // 
+            G_MonitoringStok9.BackColor = Color.Transparent;
+            G_MonitoringStok9.ErrorImage = (Image)resources.GetObject("G_MonitoringStok9.ErrorImage");
+            G_MonitoringStok9.Image = (Image)resources.GetObject("G_MonitoringStok9.Image");
+            G_MonitoringStok9.Location = new Point(14, 20);
+            G_MonitoringStok9.Name = "G_MonitoringStok9";
+            G_MonitoringStok9.Size = new Size(53, 45);
+            G_MonitoringStok9.SizeMode = PictureBoxSizeMode.Zoom;
+            G_MonitoringStok9.TabIndex = 4;
+            G_MonitoringStok9.TabStop = false;
+            // 
+            // J_MonitoringStok9
+            // 
+            J_MonitoringStok9.AutoSize = true;
+            J_MonitoringStok9.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            J_MonitoringStok9.Location = new Point(64, 27);
+            J_MonitoringStok9.Name = "J_MonitoringStok9";
+            J_MonitoringStok9.Size = new Size(210, 34);
+            J_MonitoringStok9.TabIndex = 3;
+            J_MonitoringStok9.Text = "Monitoring Stok";
+            J_MonitoringStok9.Click += J_DashboardAdmin_Click;
             // 
             // MonitoringStokGudang
             // 
@@ -416,16 +418,16 @@
             BC_Page9.PerformLayout();
             BC_MonitoringCoklat9.ResumeLayout(false);
             BC_MonitoringCoklat9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)G_MonitoringStok9).EndInit();
-            P_JumlahGudang9.ResumeLayout(false);
-            P_JumlahGudang9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)G_JumlahGudang9).EndInit();
-            P_TotalStok9.ResumeLayout(false);
-            P_TotalStok9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)G_TotalStok9).EndInit();
             P_TotalKapasitas9.ResumeLayout(false);
             P_TotalKapasitas9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)G_TotalKapasitas9).EndInit();
+            P_TotalStok9.ResumeLayout(false);
+            P_TotalStok9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)G_TotalStok9).EndInit();
+            P_JumlahGudang9.ResumeLayout(false);
+            P_JumlahGudang9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)G_JumlahGudang9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)G_MonitoringStok9).EndInit();
             ResumeLayout(false);
         }
 
@@ -436,7 +438,7 @@
         private Button btLogout_9;
         private Button btKelolaHasilPanen_9;
         private Button btDashboard_9;
-        private Label L_Role9;
+        private Label L_Petani9;
         private Label L_Username9;
         private PictureBox G_Profil9;
         private Panel BC_Page9;

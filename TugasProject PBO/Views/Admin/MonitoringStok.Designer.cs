@@ -115,6 +115,7 @@
             btLogout_6.TabIndex = 9;
             btLogout_6.Text = "Logout";
             btLogout_6.UseVisualStyleBackColor = false;
+            btLogout_6.Click += btLogout_6_Click;
             // 
             // btLaporanInventori_6
             // 
@@ -126,6 +127,7 @@
             btLaporanInventori_6.TabIndex = 8;
             btLaporanInventori_6.Text = "Laporan Inventori";
             btLaporanInventori_6.UseVisualStyleBackColor = false;
+            btLaporanInventori_6.Click += btLaporanInventori_6_Click;
             // 
             // btMonitoringStok_6
             // 
@@ -137,6 +139,7 @@
             btMonitoringStok_6.TabIndex = 6;
             btMonitoringStok_6.Text = "Monitoring Stok";
             btMonitoringStok_6.UseVisualStyleBackColor = false;
+            btMonitoringStok_6.Click += btMonitoringStok_6_Click;
             // 
             // btStokKeluar_6
             // 
@@ -148,6 +151,7 @@
             btStokKeluar_6.TabIndex = 5;
             btStokKeluar_6.Text = "Stok Keluar";
             btStokKeluar_6.UseVisualStyleBackColor = false;
+            btStokKeluar_6.Click += btStokKeluar_6_Click;
             // 
             // btKelolaGudang_6
             // 
@@ -159,6 +163,7 @@
             btKelolaGudang_6.TabIndex = 5;
             btKelolaGudang_6.Text = "Kelola Gudang";
             btKelolaGudang_6.UseVisualStyleBackColor = false;
+            btKelolaGudang_6.Click += btKelolaGudang_6_Click;
             // 
             // btStokMasuk_6
             // 
@@ -170,6 +175,7 @@
             btStokMasuk_6.TabIndex = 4;
             btStokMasuk_6.Text = "Stok Masuk";
             btStokMasuk_6.UseVisualStyleBackColor = false;
+            btStokMasuk_6.Click += btStokMasuk_6_Click;
             // 
             // btKelolaHasilPanen_6
             // 
@@ -192,6 +198,7 @@
             btDashboard_6.TabIndex = 2;
             btDashboard_6.Text = "Dashboard";
             btDashboard_6.UseVisualStyleBackColor = false;
+            btDashboard_6.Click += btDashboard_6_Click;
             // 
             // L_Role6
             // 
@@ -239,6 +246,7 @@
             BC_.Name = "BC_";
             BC_.Size = new Size(649, 459);
             BC_.TabIndex = 2;
+            BC_.Paint += BC__Paint;
             // 
             // BC_penel6
             // 

@@ -32,10 +32,10 @@ namespace TugasProject_PBO.Views.Admin
             if (string.IsNullOrWhiteSpace(tbPetani4.Text) ||
                 string.IsNullOrWhiteSpace(tbGudang4.Text) ||
                 string.IsNullOrWhiteSpace(tbJumlah4.Text) ||
-                string.IsNullOrWhiteSpace(tbTanggal4.Text))
+                string.IsNullOrWhiteSpace(dtpTanggal4.Text))
             {
-                MessageBox.Show("Semua kolom data wajib diisi (kecuali catatan)!", "Peringatan", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Semua kolom data wajib diisi (kecuali catatan)!", "Peringatan",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
                 return;
             }
@@ -97,7 +97,7 @@ namespace TugasProject_PBO.Views.Admin
                     }
 
                     // Parse tanggal supporting multiple common formats
-                    string tanggalText = tbTanggal4.Text.Trim();
+                    string tanggalText = dtpTanggal4.Text.Trim();
                     DateTime tanggal;
                     string[] formats = new[] { "yyyy-MM-dd", "dd-MM-yyyy", "dd/MM/yyyy", "MM/dd/yyyy", "yyyy/MM/dd" };
                     if (!DateTime.TryParseExact(tanggalText, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out tanggal))
@@ -135,8 +135,8 @@ namespace TugasProject_PBO.Views.Admin
                 }
 
                 // 2. Tampilkan pesan sukses yang informatif
-                MessageBox.Show("Data stok masuk berhasil disimpan!", "Sukses", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Data stok masuk berhasil disimpan!", "Sukses",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
                 // 3. KUNCI UTAMA: Set DialogResult ke OK agar form pemanggil tahu data sukses disimpan
@@ -145,14 +145,14 @@ namespace TugasProject_PBO.Views.Admin
             }
             catch (FormatException)
             {
-                MessageBox.Show("Format inputan salah! Pastikan ID berupa angka, jumlah berupa desimal, dan tanggal berformat YYYY-MM-DD.", "Kesalahan Validasi", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Format inputan salah! Pastikan ID berupa angka, jumlah berupa desimal, dan tanggal berformat YYYY-MM-DD.", "Kesalahan Validasi",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal menyimpan ke database:\n" + ex.Message, "Error Database", 
-                MessageBoxButtons.OK, 
+                MessageBox.Show("Gagal menyimpan ke database:\n" + ex.Message, "Error Database",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
         }
@@ -164,6 +164,11 @@ namespace TugasProject_PBO.Views.Admin
         {
             this.DialogResult = DialogResult.Cancel; // Set ke Cancel agar tidak memicu refresh data di form induk
             this.Close();
+        }
+
+        private void tbTanggal4_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

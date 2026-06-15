@@ -110,24 +110,9 @@ namespace TugasProject_PBO.Views.Admin
 
         private void bt_tambah2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Membuka form tambah input secara Dialog Modal
-                using (var formTambah = new InputHasilPanen())
-                {
-                    // Jika di form input mengeklik simpan dan berhasil (DialogResult.OK)
-                    if (formTambah.ShowDialog() == DialogResult.OK)
-                    {
-                        LoadDataPanenAll(); // Otomatis refresh DataGridView utama
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal membuka form tambah: " + ex.Message, "Peringatan",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
-            }
+            InputHasilPanen frm = new InputHasilPanen();
+            frm.Show();
+            this.Hide();
         }
 
         private void bt_edit2_Click(object sender, EventArgs e)
@@ -210,25 +195,30 @@ namespace TugasProject_PBO.Views.Admin
 
         private void btKelolaGudang2_Click(object sender, EventArgs e)
         {
-            // Pindah ke form kelola gudang jika sudah ada
-            // KelolaGudang frm = new KelolaGudang();
-            // frm.Show();
-            // this.Hide();
+            KelolaGudang form = new KelolaGudang();
+            form.Show();
+            this.Hide();
         }
 
         private void btStokMasuk2_Click(object sender, EventArgs e)
         {
-            // Navigasi ke form stok masuk
+            KelolaStokMasuk form = new KelolaStokMasuk();
+            form.Show();
+            this.Hide();
         }
 
         private void btStokKeluar2_Click(object sender, EventArgs e)
         {
-            // Navigasi ke form stok keluar
+            KelolaStokMasuk form = new KelolaStokMasuk();
+            form.Show();
+            this.Hide();
         }
 
         private void btMonitoringStok2_Click(object sender, EventArgs e)
         {
-            // Navigasi ke form monitoring stok
+            MonitoringStok form = new MonitoringStok();
+            form.Show();
+            this.Hide();
         }
 
         private void btLaporanInventori2_Click(object sender, EventArgs e)
