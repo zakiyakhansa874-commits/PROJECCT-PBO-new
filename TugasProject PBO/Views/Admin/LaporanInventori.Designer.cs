@@ -64,13 +64,13 @@
             SJ_RekapStokKeluar = new Label();
             SJ_RekapStokMasuk = new Label();
             SJ_RekapHasilPanen7 = new Label();
-            tbSampai = new TextBox();
-            tbDari = new TextBox();
             L_Sampai = new Label();
             L_Dari7 = new Label();
             SJ_FilterPeriode7 = new Label();
             G_LaporanInventori = new PictureBox();
             J_LaporanInventori = new Label();
+            dtpDari7 = new DateTimePicker();
+            dtpSampai7 = new DateTimePicker();
             BC_MenuBar7ini.SuspendLayout();
             BC_MenuBar7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_Profil7).BeginInit();
@@ -108,16 +108,17 @@
             BC_MenuBar7.Controls.Add(btDashboard_7);
             BC_MenuBar7.Location = new Point(-3, 51);
             BC_MenuBar7.Name = "BC_MenuBar7";
-            BC_MenuBar7.Size = new Size(185, 401);
+            BC_MenuBar7.Size = new Size(185, 491);
             BC_MenuBar7.TabIndex = 0;
+            BC_MenuBar7.Paint += BC_MenuBar7_Paint;
             // 
             // btLogout_7
             // 
             btLogout_7.BackColor = Color.DarkKhaki;
             btLogout_7.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btLogout_7.Location = new Point(-5, 351);
+            btLogout_7.Location = new Point(-5, 359);
             btLogout_7.Name = "btLogout_7";
-            btLogout_7.Size = new Size(183, 34);
+            btLogout_7.Size = new Size(190, 34);
             btLogout_7.TabIndex = 9;
             btLogout_7.Text = "Logout";
             btLogout_7.UseVisualStyleBackColor = false;
@@ -250,36 +251,36 @@
             BC_Page7.Controls.Add(J_LaporanInventori);
             BC_Page7.Location = new Point(172, -1);
             BC_Page7.Name = "BC_Page7";
-            BC_Page7.Size = new Size(641, 462);
+            BC_Page7.Size = new Size(641, 544);
             BC_Page7.TabIndex = 2;
             // 
             // BC_LaporanInventori
             // 
             BC_LaporanInventori.BackColor = Color.SaddleBrown;
+            BC_LaporanInventori.Controls.Add(dtpSampai7);
+            BC_LaporanInventori.Controls.Add(dtpDari7);
             BC_LaporanInventori.Controls.Add(DGV_RHK7);
             BC_LaporanInventori.Controls.Add(DGV_RSM7);
             BC_LaporanInventori.Controls.Add(DGV_RHP7);
             BC_LaporanInventori.Controls.Add(SJ_RekapStokKeluar);
             BC_LaporanInventori.Controls.Add(SJ_RekapStokMasuk);
             BC_LaporanInventori.Controls.Add(SJ_RekapHasilPanen7);
-            BC_LaporanInventori.Controls.Add(tbSampai);
-            BC_LaporanInventori.Controls.Add(tbDari);
             BC_LaporanInventori.Controls.Add(L_Sampai);
             BC_LaporanInventori.Controls.Add(L_Dari7);
             BC_LaporanInventori.Controls.Add(SJ_FilterPeriode7);
-            BC_LaporanInventori.Location = new Point(17, 71);
+            BC_LaporanInventori.Location = new Point(17, 53);
             BC_LaporanInventori.Name = "BC_LaporanInventori";
-            BC_LaporanInventori.Size = new Size(590, 367);
+            BC_LaporanInventori.Size = new Size(599, 477);
             BC_LaporanInventori.TabIndex = 5;
             // 
             // DGV_RHK7
             // 
             DGV_RHK7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_RHK7.Columns.AddRange(new DataGridViewColumn[] { Tanggal4, Gudang2, Tujuan, Jumlah2 });
-            DGV_RHK7.Location = new Point(29, 323);
+            DGV_RHK7.Location = new Point(25, 357);
             DGV_RHK7.Name = "DGV_RHK7";
             DGV_RHK7.RowHeadersWidth = 51;
-            DGV_RHK7.Size = new Size(536, 57);
+            DGV_RHK7.Size = new Size(536, 75);
             DGV_RHK7.TabIndex = 9;
             // 
             // Tanggal4
@@ -314,10 +315,10 @@
             // 
             DGV_RSM7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_RSM7.Columns.AddRange(new DataGridViewColumn[] { Tanggal, Gudang, Petani2, Jumlah, Kualitas3 });
-            DGV_RSM7.Location = new Point(29, 215);
+            DGV_RSM7.Location = new Point(26, 241);
             DGV_RSM7.Name = "DGV_RSM7";
             DGV_RSM7.RowHeadersWidth = 51;
-            DGV_RSM7.Size = new Size(536, 59);
+            DGV_RSM7.Size = new Size(538, 75);
             DGV_RSM7.TabIndex = 8;
             // 
             // Tanggal
@@ -359,10 +360,10 @@
             // 
             DGV_RHP7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_RHP7.Columns.AddRange(new DataGridViewColumn[] { Tanggal3, Petani, Komoditas, BeratBersih, Kualitas });
-            DGV_RHP7.Location = new Point(27, 113);
+            DGV_RHP7.Location = new Point(26, 109);
             DGV_RHP7.Name = "DGV_RHP7";
             DGV_RHP7.RowHeadersWidth = 51;
-            DGV_RHP7.Size = new Size(538, 53);
+            DGV_RHP7.Size = new Size(538, 97);
             DGV_RHP7.TabIndex = 7;
             // 
             // Tanggal3
@@ -405,7 +406,7 @@
             SJ_RekapStokKeluar.AutoSize = true;
             SJ_RekapStokKeluar.BackColor = Color.Ivory;
             SJ_RekapStokKeluar.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SJ_RekapStokKeluar.Location = new Point(0, 286);
+            SJ_RekapStokKeluar.Location = new Point(26, 332);
             SJ_RekapStokKeluar.Name = "SJ_RekapStokKeluar";
             SJ_RekapStokKeluar.Size = new Size(176, 23);
             SJ_RekapStokKeluar.TabIndex = 3;
@@ -417,7 +418,7 @@
             SJ_RekapStokMasuk.AutoSize = true;
             SJ_RekapStokMasuk.BackColor = Color.Ivory;
             SJ_RekapStokMasuk.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SJ_RekapStokMasuk.Location = new Point(-1, 179);
+            SJ_RekapStokMasuk.Location = new Point(27, 217);
             SJ_RekapStokMasuk.Name = "SJ_RekapStokMasuk";
             SJ_RekapStokMasuk.Size = new Size(177, 23);
             SJ_RekapStokMasuk.TabIndex = 6;
@@ -429,25 +430,11 @@
             SJ_RekapHasilPanen7.AutoSize = true;
             SJ_RekapHasilPanen7.BackColor = Color.Ivory;
             SJ_RekapHasilPanen7.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SJ_RekapHasilPanen7.Location = new Point(0, 78);
+            SJ_RekapHasilPanen7.Location = new Point(27, 85);
             SJ_RekapHasilPanen7.Name = "SJ_RekapHasilPanen7";
             SJ_RekapHasilPanen7.Size = new Size(174, 23);
             SJ_RekapHasilPanen7.TabIndex = 5;
             SJ_RekapHasilPanen7.Text = "Rekap Hasil Panen     ";
-            // 
-            // tbSampai
-            // 
-            tbSampai.Location = new Point(277, 38);
-            tbSampai.Name = "tbSampai";
-            tbSampai.Size = new Size(125, 27);
-            tbSampai.TabIndex = 4;
-            // 
-            // tbDari
-            // 
-            tbDari.Location = new Point(74, 37);
-            tbDari.Name = "tbDari";
-            tbDari.Size = new Size(125, 27);
-            tbDari.TabIndex = 3;
             // 
             // L_Sampai
             // 
@@ -474,7 +461,7 @@
             SJ_FilterPeriode7.AutoSize = true;
             SJ_FilterPeriode7.BackColor = Color.Ivory;
             SJ_FilterPeriode7.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SJ_FilterPeriode7.Location = new Point(0, 0);
+            SJ_FilterPeriode7.Location = new Point(-1, 0);
             SJ_FilterPeriode7.Name = "SJ_FilterPeriode7";
             SJ_FilterPeriode7.Size = new Size(129, 23);
             SJ_FilterPeriode7.TabIndex = 0;
@@ -485,7 +472,7 @@
             G_LaporanInventori.BackColor = Color.Transparent;
             G_LaporanInventori.ErrorImage = (Image)resources.GetObject("G_LaporanInventori.ErrorImage");
             G_LaporanInventori.Image = (Image)resources.GetObject("G_LaporanInventori.Image");
-            G_LaporanInventori.Location = new Point(17, 9);
+            G_LaporanInventori.Location = new Point(17, 8);
             G_LaporanInventori.Name = "G_LaporanInventori";
             G_LaporanInventori.Size = new Size(53, 45);
             G_LaporanInventori.SizeMode = PictureBoxSizeMode.Zoom;
@@ -504,11 +491,29 @@
             J_LaporanInventori.Text = "Laporan Inventori";
             J_LaporanInventori.Click += J_DashboardAdmin_Click;
             // 
+            // dtpDari7
+            // 
+            dtpDari7.Format = DateTimePickerFormat.Short;
+            dtpDari7.Location = new Point(65, 36);
+            dtpDari7.Name = "dtpDari7";
+            dtpDari7.Size = new Size(122, 27);
+            dtpDari7.TabIndex = 10;
+            // 
+            // dtpSampai7
+            // 
+            dtpSampai7.Format = DateTimePickerFormat.Short;
+            dtpSampai7.Location = new Point(267, 37);
+            dtpSampai7.Name = "dtpSampai7";
+            dtpSampai7.Size = new Size(122, 27);
+            dtpSampai7.TabIndex = 11;
+            dtpSampai7.ValueChanged += dateTimePicker2_ValueChanged;
+            // 
             // LaporanInventori
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.Ivory;
+            ClientSize = new Size(786, 529);
             Controls.Add(BC_Page7);
             Controls.Add(BC_MenuBar7ini);
             Name = "LaporanInventori";
@@ -550,8 +555,6 @@
         private Label L_Sampai;
         private Label L_Dari7;
         private Label SJ_FilterPeriode7;
-        private TextBox tbSampai;
-        private TextBox tbDari;
         private Label SJ_RekapStokKeluar;
         private Label SJ_RekapStokMasuk;
         private Label SJ_RekapHasilPanen7;
@@ -572,5 +575,7 @@
         private DataGridViewTextBoxColumn Petani2;
         private DataGridViewTextBoxColumn Jumlah;
         private DataGridViewTextBoxColumn Kualitas3;
+        private DateTimePicker dtpSampai7;
+        private DateTimePicker dtpDari7;
     }
 }

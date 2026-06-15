@@ -84,7 +84,22 @@ namespace TugasProject_PBO.Views.Admin
 
         private void BC__Paint(object sender, PaintEventArgs e)
         {
+           
+        }
 
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+            // Show percentage based on progress bar
+            try
+            {
+                int max = RSProgressbar.Maximum;
+                int val = RSProgressbar.Value;
+                int percent = max > 0 ? (int)Math.Round(val * 100.0 / max) : 0;
+                MessageBox.Show($"Kapasitas saat ini: {val}/{max} kg ({percent}%)", "Kapasitas Gudang",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+            }
+            catch { }
         }
     }
 }

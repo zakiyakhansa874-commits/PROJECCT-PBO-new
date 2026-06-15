@@ -62,9 +62,22 @@ namespace TugasProject_PBO.Views.Admin
                         {
                             string id = reader["id_stokmasuk"].ToString();
 
-                            string tanggal = reader["tanggal"] != DBNull.Value
-                                ? Convert.ToDateTime(reader["tanggal"]).ToString("dd-MM-yyyy")
-                                : "-";
+                            string tanggal = "-";
+
+                            if (reader["tanggal"] != DBNull.Value)
+                            {
+                                var nilaiTanggal = reader["tanggal"];
+
+                                if (nilaiTanggal is DateOnly dateOnly)
+                                {
+                                    tanggal = dateOnly.ToString("dd-MM-yyyy");
+                                }
+                                else
+                                {
+                                    tanggal = Convert.ToDateTime(nilaiTanggal)
+                                        .ToString("dd-MM-yyyy");
+                                }
+                            }
 
                             string namaGudang = reader["nama_gudang"]?.ToString() ?? "-";
                             string namaPetani = reader["nama_petani"]?.ToString() ?? "-";

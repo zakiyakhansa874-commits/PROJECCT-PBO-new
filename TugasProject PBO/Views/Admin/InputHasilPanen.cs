@@ -39,7 +39,6 @@ namespace TugasProject_PBO.Views.Admin
                 using (NpgsqlConnection conn =
                     new NpgsqlConnection(connectionString))
                 {
-                    conn.Open();
 
                     string sql = @"
                     SELECT

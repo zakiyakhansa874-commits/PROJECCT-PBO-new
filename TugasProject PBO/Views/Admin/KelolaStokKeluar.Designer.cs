@@ -245,6 +245,7 @@
             btHapus5.TabIndex = 13;
             btHapus5.Text = "🗑️ Hapus";
             btHapus5.UseVisualStyleBackColor = false;
+            btHapus5.Click += btHapus5_Click;
             // 
             // btTambah5
             // 
@@ -255,6 +256,7 @@
             btTambah5.TabIndex = 12;
             btTambah5.Text = "➕Tambah";
             btTambah5.UseVisualStyleBackColor = false;
+            btTambah5.Click += btTambah5_Click;
             // 
             // P_DGV5
             // 
@@ -274,6 +276,7 @@
             DGV_KelolaStokKeluar5.RowHeadersWidth = 51;
             DGV_KelolaStokKeluar5.Size = new Size(523, 262);
             DGV_KelolaStokKeluar5.TabIndex = 0;
+            DGV_KelolaStokKeluar5.CellContentClick += DGV_KelolaStokKeluar5_CellContentClick;
             // 
             // ID
             // 
@@ -337,6 +340,7 @@
             J_KelolaStokKeluar5.Size = new Size(242, 34);
             J_KelolaStokKeluar5.TabIndex = 7;
             J_KelolaStokKeluar5.Text = "Kelola Stok Keluar";
+            J_KelolaStokKeluar5.Click += J_KelolaStokKeluar5_Click;
             // 
             // KelolaStokKeluar
             // 

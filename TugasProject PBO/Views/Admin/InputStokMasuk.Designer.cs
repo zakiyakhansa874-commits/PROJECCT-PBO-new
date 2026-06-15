@@ -37,15 +37,15 @@
             LJumlah4 = new Label();
             LKualitas4 = new Label();
             LCatatan4 = new Label();
-            tbGudang4 = new TextBox();
-            tbPetani4 = new TextBox();
-            tbKualitas4 = new TextBox();
             tbCatatan4 = new TextBox();
             btSimpan4 = new Button();
             btBatal4 = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
             dtpTanggal4 = new DateTimePicker();
+            cbGudang4 = new ComboBox();
+            cbKualitas4 = new ComboBox();
+            cbPetani4 = new ComboBox();
             SuspendLayout();
             // 
             // contextMenuStrip1
@@ -120,31 +120,9 @@
             LCatatan4.Text = "Catatan:";
             LCatatan4.Click += label6_Click;
             // 
-            // tbGudang4
-            // 
-            tbGudang4.Location = new Point(148, 77);
-            tbGudang4.Name = "tbGudang4";
-            tbGudang4.Size = new Size(323, 27);
-            tbGudang4.TabIndex = 10;
-            // 
-            // tbPetani4
-            // 
-            tbPetani4.Location = new Point(148, 116);
-            tbPetani4.Name = "tbPetani4";
-            tbPetani4.Size = new Size(323, 27);
-            tbPetani4.TabIndex = 11;
-            // 
-            // tbKualitas4
-            // 
-            tbKualitas4.Location = new Point(148, 193);
-            tbKualitas4.Name = "tbKualitas4";
-            tbKualitas4.Size = new Size(323, 27);
-            tbKualitas4.TabIndex = 12;
-            tbKualitas4.TextChanged += textBox5_TextChanged;
-            // 
             // tbCatatan4
             // 
-            tbCatatan4.Location = new Point(148, 233);
+            tbCatatan4.Location = new Point(148, 230);
             tbCatatan4.Multiline = true;
             tbCatatan4.Name = "tbCatatan4";
             tbCatatan4.Size = new Size(323, 50);
@@ -193,21 +171,47 @@
             dtpTanggal4.Size = new Size(323, 27);
             dtpTanggal4.TabIndex = 18;
             // 
+            // cbGudang4
+            // 
+            cbGudang4.FormattingEnabled = true;
+            cbGudang4.Location = new Point(148, 74);
+            cbGudang4.Name = "cbGudang4";
+            cbGudang4.Size = new Size(323, 28);
+            cbGudang4.TabIndex = 19;
+            cbGudang4.SelectedIndexChanged += cbGudang4_SelectedIndexChanged;
+            // 
+            // cbKualitas4
+            // 
+            cbKualitas4.FormattingEnabled = true;
+            cbKualitas4.Location = new Point(148, 190);
+            cbKualitas4.Name = "cbKualitas4";
+            cbKualitas4.Size = new Size(323, 28);
+            cbKualitas4.TabIndex = 20;
+            // 
+            // cbPetani4
+            // 
+            cbPetani4.FormattingEnabled = true;
+            cbPetani4.Location = new Point(148, 116);
+            cbPetani4.Name = "cbPetani4";
+            cbPetani4.Size = new Size(323, 28);
+            cbPetani4.TabIndex = 21;
+            cbPetani4.SelectedIndexChanged += cbPetani4_SelectedIndexChanged;
+            // 
             // InputStokMasuk4
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightYellow;
             ClientSize = new Size(529, 391);
+            Controls.Add(cbPetani4);
+            Controls.Add(cbKualitas4);
+            Controls.Add(cbGudang4);
             Controls.Add(dtpTanggal4);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(btBatal4);
             Controls.Add(btSimpan4);
             Controls.Add(tbCatatan4);
-            Controls.Add(tbKualitas4);
-            Controls.Add(tbPetani4);
-            Controls.Add(tbGudang4);
             Controls.Add(LCatatan4);
             Controls.Add(LKualitas4);
             Controls.Add(LJumlah4);
@@ -232,14 +236,15 @@
         private Label LJumlah4;
         private Label LKualitas4;
         private Label LCatatan4;
-        private TextBox tbGudang4;
         private TextBox tbPetani4;
-        private TextBox tbKualitas4;
         private TextBox tbCatatan4;
         private Button btSimpan4;
         private Button btBatal4;
         private Panel panel1;
         private Panel panel2;
         private DateTimePicker dtpTanggal4;
+        private ComboBox cbGudang4;
+        private ComboBox cbKualitas4;
+        private ComboBox cbPetani4;
     }
 }

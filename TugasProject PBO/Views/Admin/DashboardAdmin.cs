@@ -121,7 +121,7 @@ namespace TugasProject_PBO.Views.Admin
         }
         private void btStokMasuk_Click(object sender, EventArgs e)
         {
-            KelolaStokMasuk form = new KelolaStokMasuk();
+            KelolaStokKeluar form = new KelolaStokKeluar();
             form.Show();
             this.Hide();  
         }

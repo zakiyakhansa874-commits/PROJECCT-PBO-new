@@ -103,5 +103,15 @@ namespace TugasProject_PBO.Views.Admin
                 }
             }
         }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BC_MenuBar7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

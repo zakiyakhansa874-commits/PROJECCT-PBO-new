@@ -44,6 +44,7 @@
             G_Profil6 = new PictureBox();
             BC_ = new Panel();
             BC_penel6 = new Panel();
+            RSProgressbar = new ProgressBar();
             L_KeluarTerakhir6 = new Label();
             L_MasukTerakhir6 = new Label();
             DGV_KeluarTerakhir6 = new DataGridView();
@@ -61,7 +62,7 @@
             Kapasitas = new DataGridViewTextBoxColumn();
             Status = new DataGridViewTextBoxColumn();
             Terisi = new DataGridViewTextBoxColumn();
-            SJ_RiwayatMutasiStok6 = new Label();
+            SJ_RiwayatStok6 = new Label();
             SJ_StatusGudang6 = new Label();
             BC_Page6 = new PictureBox();
             J_MonitoringStok6 = new Label();
@@ -244,24 +245,33 @@
             BC_.Controls.Add(J_MonitoringStok6);
             BC_.Location = new Point(172, -9);
             BC_.Name = "BC_";
-            BC_.Size = new Size(649, 459);
+            BC_.Size = new Size(1091, 459);
             BC_.TabIndex = 2;
             BC_.Paint += BC__Paint;
             // 
             // BC_penel6
             // 
             BC_penel6.BackColor = Color.SaddleBrown;
+            BC_penel6.Controls.Add(RSProgressbar);
             BC_penel6.Controls.Add(L_KeluarTerakhir6);
             BC_penel6.Controls.Add(L_MasukTerakhir6);
             BC_penel6.Controls.Add(DGV_KeluarTerakhir6);
             BC_penel6.Controls.Add(DGV_MasukTerakhir);
             BC_penel6.Controls.Add(DGV_RiwayatMutasiStok);
-            BC_penel6.Controls.Add(SJ_RiwayatMutasiStok6);
+            BC_penel6.Controls.Add(SJ_RiwayatStok6);
             BC_penel6.Controls.Add(SJ_StatusGudang6);
             BC_penel6.Location = new Point(35, 79);
             BC_penel6.Name = "BC_penel6";
-            BC_penel6.Size = new Size(562, 348);
+            BC_penel6.Size = new Size(888, 348);
             BC_penel6.TabIndex = 5;
+            // 
+            // RSProgressbar
+            // 
+            RSProgressbar.Location = new Point(703, 96);
+            RSProgressbar.Name = "RSProgressbar";
+            RSProgressbar.Size = new Size(84, 16);
+            RSProgressbar.TabIndex = 7;
+            RSProgressbar.Click += progressBar1_Click;
             // 
             // L_KeluarTerakhir6
             // 
@@ -350,7 +360,7 @@
             DGV_RiwayatMutasiStok.Location = new Point(21, 41);
             DGV_RiwayatMutasiStok.Name = "DGV_RiwayatMutasiStok";
             DGV_RiwayatMutasiStok.RowHeadersWidth = 51;
-            DGV_RiwayatMutasiStok.Size = new Size(519, 107);
+            DGV_RiwayatMutasiStok.Size = new Size(803, 93);
             DGV_RiwayatMutasiStok.TabIndex = 2;
             // 
             // NamaGudang
@@ -395,16 +405,16 @@
             Terisi.Name = "Terisi";
             Terisi.Width = 125;
             // 
-            // SJ_RiwayatMutasiStok6
+            // SJ_RiwayatStok6
             // 
-            SJ_RiwayatMutasiStok6.AutoSize = true;
-            SJ_RiwayatMutasiStok6.BackColor = Color.Ivory;
-            SJ_RiwayatMutasiStok6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SJ_RiwayatMutasiStok6.Location = new Point(0, 0);
-            SJ_RiwayatMutasiStok6.Name = "SJ_RiwayatMutasiStok6";
-            SJ_RiwayatMutasiStok6.Size = new Size(186, 23);
-            SJ_RiwayatMutasiStok6.TabIndex = 1;
-            SJ_RiwayatMutasiStok6.Text = "Riwayat Mutasi Stok     ";
+            SJ_RiwayatStok6.AutoSize = true;
+            SJ_RiwayatStok6.BackColor = Color.Ivory;
+            SJ_RiwayatStok6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SJ_RiwayatStok6.Location = new Point(0, 0);
+            SJ_RiwayatStok6.Name = "SJ_RiwayatStok6";
+            SJ_RiwayatStok6.Size = new Size(130, 23);
+            SJ_RiwayatStok6.TabIndex = 1;
+            SJ_RiwayatStok6.Text = "Riwayat Stok     ";
             // 
             // SJ_StatusGudang6
             // 
@@ -442,7 +452,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1275, 561);
             Controls.Add(BC_);
             Controls.Add(BC_MenuBar6ini);
             Name = "MonitoringStok";
@@ -500,5 +510,7 @@
         private DataGridViewTextBoxColumn Kapasitas;
         private DataGridViewTextBoxColumn Status;
         private DataGridViewTextBoxColumn Terisi;
+        private Label SJ_RiwayatStok6;
+        private ProgressBar RSProgressbar;
     }
 }
