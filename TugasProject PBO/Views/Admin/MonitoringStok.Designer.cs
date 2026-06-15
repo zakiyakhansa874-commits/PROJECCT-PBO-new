@@ -44,24 +44,11 @@
             G_Profil6 = new PictureBox();
             BC_ = new Panel();
             BC_penel6 = new Panel();
-            RSProgressbar = new ProgressBar();
             L_KeluarTerakhir6 = new Label();
             L_MasukTerakhir6 = new Label();
             DGV_KeluarTerakhir6 = new DataGridView();
-            Tanggal2 = new DataGridViewTextBoxColumn();
-            Tujuan = new DataGridViewTextBoxColumn();
-            Kg2 = new DataGridViewTextBoxColumn();
             DGV_MasukTerakhir = new DataGridView();
-            Tanggal = new DataGridViewTextBoxColumn();
-            Gudang = new DataGridViewTextBoxColumn();
-            Kg = new DataGridViewTextBoxColumn();
-            DGV_RiwayatMutasiStok = new DataGridView();
-            NamaGudang = new DataGridViewTextBoxColumn();
-            Lokasi = new DataGridViewTextBoxColumn();
-            Stok = new DataGridViewTextBoxColumn();
-            Kapasitas = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewTextBoxColumn();
-            Terisi = new DataGridViewTextBoxColumn();
+            DGV_RiwayatStok = new DataGridView();
             SJ_RiwayatStok6 = new Label();
             SJ_StatusGudang6 = new Label();
             BC_Page6 = new PictureBox();
@@ -73,7 +60,7 @@
             BC_penel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_KeluarTerakhir6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGV_MasukTerakhir).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)DGV_RiwayatMutasiStok).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DGV_RiwayatStok).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BC_Page6).BeginInit();
             SuspendLayout();
             // 
@@ -252,31 +239,22 @@
             // BC_penel6
             // 
             BC_penel6.BackColor = Color.SaddleBrown;
-            BC_penel6.Controls.Add(RSProgressbar);
             BC_penel6.Controls.Add(L_KeluarTerakhir6);
             BC_penel6.Controls.Add(L_MasukTerakhir6);
             BC_penel6.Controls.Add(DGV_KeluarTerakhir6);
             BC_penel6.Controls.Add(DGV_MasukTerakhir);
-            BC_penel6.Controls.Add(DGV_RiwayatMutasiStok);
+            BC_penel6.Controls.Add(DGV_RiwayatStok);
             BC_penel6.Controls.Add(SJ_RiwayatStok6);
             BC_penel6.Controls.Add(SJ_StatusGudang6);
             BC_penel6.Location = new Point(35, 79);
             BC_penel6.Name = "BC_penel6";
-            BC_penel6.Size = new Size(888, 348);
+            BC_penel6.Size = new Size(889, 348);
             BC_penel6.TabIndex = 5;
-            // 
-            // RSProgressbar
-            // 
-            RSProgressbar.Location = new Point(703, 96);
-            RSProgressbar.Name = "RSProgressbar";
-            RSProgressbar.Size = new Size(84, 16);
-            RSProgressbar.TabIndex = 7;
-            RSProgressbar.Click += progressBar1_Click;
             // 
             // L_KeluarTerakhir6
             // 
             L_KeluarTerakhir6.AutoSize = true;
-            L_KeluarTerakhir6.Location = new Point(291, 208);
+            L_KeluarTerakhir6.Location = new Point(456, 206);
             L_KeluarTerakhir6.Name = "L_KeluarTerakhir6";
             L_KeluarTerakhir6.Size = new Size(107, 20);
             L_KeluarTerakhir6.TabIndex = 6;
@@ -294,116 +272,30 @@
             // DGV_KeluarTerakhir6
             // 
             DGV_KeluarTerakhir6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_KeluarTerakhir6.Columns.AddRange(new DataGridViewColumn[] { Tanggal2, Tujuan, Kg2 });
-            DGV_KeluarTerakhir6.Location = new Point(293, 230);
+            DGV_KeluarTerakhir6.Location = new Point(454, 230);
             DGV_KeluarTerakhir6.Name = "DGV_KeluarTerakhir6";
             DGV_KeluarTerakhir6.RowHeadersWidth = 51;
-            DGV_KeluarTerakhir6.Size = new Size(247, 99);
+            DGV_KeluarTerakhir6.Size = new Size(417, 75);
             DGV_KeluarTerakhir6.TabIndex = 4;
-            // 
-            // Tanggal2
-            // 
-            Tanggal2.HeaderText = "Tanggal ";
-            Tanggal2.MinimumWidth = 6;
-            Tanggal2.Name = "Tanggal2";
-            Tanggal2.Width = 125;
-            // 
-            // Tujuan
-            // 
-            Tujuan.HeaderText = "Tujuan";
-            Tujuan.MinimumWidth = 6;
-            Tujuan.Name = "Tujuan";
-            Tujuan.Width = 125;
-            // 
-            // Kg2
-            // 
-            Kg2.HeaderText = "Kg";
-            Kg2.MinimumWidth = 6;
-            Kg2.Name = "Kg2";
-            Kg2.Width = 125;
             // 
             // DGV_MasukTerakhir
             // 
             DGV_MasukTerakhir.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_MasukTerakhir.Columns.AddRange(new DataGridViewColumn[] { Tanggal, Gudang, Kg });
-            DGV_MasukTerakhir.Location = new Point(21, 230);
+            DGV_MasukTerakhir.Location = new Point(19, 230);
             DGV_MasukTerakhir.Name = "DGV_MasukTerakhir";
             DGV_MasukTerakhir.RowHeadersWidth = 51;
-            DGV_MasukTerakhir.Size = new Size(245, 99);
+            DGV_MasukTerakhir.Size = new Size(417, 75);
             DGV_MasukTerakhir.TabIndex = 3;
             // 
-            // Tanggal
+            // DGV_RiwayatStok
             // 
-            Tanggal.HeaderText = "Tanggal";
-            Tanggal.MinimumWidth = 6;
-            Tanggal.Name = "Tanggal";
-            Tanggal.Width = 125;
-            // 
-            // Gudang
-            // 
-            Gudang.HeaderText = "Gudang";
-            Gudang.MinimumWidth = 6;
-            Gudang.Name = "Gudang";
-            Gudang.Width = 125;
-            // 
-            // Kg
-            // 
-            Kg.HeaderText = "Kg";
-            Kg.MinimumWidth = 6;
-            Kg.Name = "Kg";
-            Kg.Width = 125;
-            // 
-            // DGV_RiwayatMutasiStok
-            // 
-            DGV_RiwayatMutasiStok.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_RiwayatMutasiStok.Columns.AddRange(new DataGridViewColumn[] { NamaGudang, Lokasi, Stok, Kapasitas, Status, Terisi });
-            DGV_RiwayatMutasiStok.Location = new Point(21, 41);
-            DGV_RiwayatMutasiStok.Name = "DGV_RiwayatMutasiStok";
-            DGV_RiwayatMutasiStok.RowHeadersWidth = 51;
-            DGV_RiwayatMutasiStok.Size = new Size(803, 93);
-            DGV_RiwayatMutasiStok.TabIndex = 2;
-            // 
-            // NamaGudang
-            // 
-            NamaGudang.HeaderText = "Nama Gudang";
-            NamaGudang.MinimumWidth = 6;
-            NamaGudang.Name = "NamaGudang";
-            NamaGudang.Width = 125;
-            // 
-            // Lokasi
-            // 
-            Lokasi.HeaderText = "Lokasi";
-            Lokasi.MinimumWidth = 6;
-            Lokasi.Name = "Lokasi";
-            Lokasi.Width = 125;
-            // 
-            // Stok
-            // 
-            Stok.HeaderText = "Stok (kg)";
-            Stok.MinimumWidth = 6;
-            Stok.Name = "Stok";
-            Stok.Width = 125;
-            // 
-            // Kapasitas
-            // 
-            Kapasitas.HeaderText = "Kapasitas (kg)";
-            Kapasitas.MinimumWidth = 6;
-            Kapasitas.Name = "Kapasitas";
-            Kapasitas.Width = 125;
-            // 
-            // Status
-            // 
-            Status.HeaderText = "Status";
-            Status.MinimumWidth = 6;
-            Status.Name = "Status";
-            Status.Width = 125;
-            // 
-            // Terisi
-            // 
-            Terisi.HeaderText = "Terisi";
-            Terisi.MinimumWidth = 6;
-            Terisi.Name = "Terisi";
-            Terisi.Width = 125;
+            DGV_RiwayatStok.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGV_RiwayatStok.Location = new Point(21, 41);
+            DGV_RiwayatStok.Name = "DGV_RiwayatStok";
+            DGV_RiwayatStok.RowHeadersWidth = 51;
+            DGV_RiwayatStok.Size = new Size(756, 116);
+            DGV_RiwayatStok.TabIndex = 2;
+            DGV_RiwayatStok.CellContentClick += DGV_RiwayatMutasiStok_CellContentClick;
             // 
             // SJ_RiwayatStok6
             // 
@@ -457,6 +349,7 @@
             Controls.Add(BC_MenuBar6ini);
             Name = "MonitoringStok";
             Text = "Form6";
+            Load += MonitoringStok_Load;
             BC_MenuBar6ini.ResumeLayout(false);
             BC_MenuBar6ini.PerformLayout();
             BC_MenuBar1.ResumeLayout(false);
@@ -467,7 +360,7 @@
             BC_penel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGV_KeluarTerakhir6).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGV_MasukTerakhir).EndInit();
-            ((System.ComponentModel.ISupportInitialize)DGV_RiwayatMutasiStok).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DGV_RiwayatStok).EndInit();
             ((System.ComponentModel.ISupportInitialize)BC_Page6).EndInit();
             ResumeLayout(false);
         }
@@ -491,7 +384,7 @@
         private PictureBox BC_Page6;
         private Label J_MonitoringStok6;
         private Panel BC_penel6;
-        private DataGridView DGV_RiwayatMutasiStok;
+        private DataGridView DGV_RiwayatStok;
         private Label SJ_RiwayatMutasiStok6;
         private Label SJ_StatusGudang6;
         private Label L_KeluarTerakhir6;
@@ -511,6 +404,5 @@
         private DataGridViewTextBoxColumn Status;
         private DataGridViewTextBoxColumn Terisi;
         private Label SJ_RiwayatStok6;
-        private ProgressBar RSProgressbar;
     }
 }

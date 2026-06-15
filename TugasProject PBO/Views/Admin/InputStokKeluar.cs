@@ -133,9 +133,6 @@ namespace TugasProject_PBO.Views.Admin
                 int idGudang =
                     Convert.ToInt32(cbGudang5.SelectedValue);
 
-                int idAdmin =
-                    Convert.ToInt32(cbAdmin5.SelectedValue);
-
                 decimal jumlah;
 
                 if (!decimal.TryParse(tbJumlah5.Text, out jumlah))
@@ -155,19 +152,17 @@ namespace TugasProject_PBO.Views.Admin
             INSERT INTO ""Stok_Keluar""
             (
                 id_gudang,
-                id_admin,
                 jumlah,
                 tanggal,
-                kualitas,
+                tujuan,
                 keterangan
             )
             VALUES
             (
                 @id_gudang,
-                @id_admin,
                 @jumlah,
                 @tanggal,
-                @kualitas,
+                @tujuan,
                 @keterangan
             )";
 
@@ -178,10 +173,6 @@ namespace TugasProject_PBO.Views.Admin
                             idGudang);
 
                         cmd.Parameters.AddWithValue(
-                            "@id_admin",
-                            idAdmin);
-
-                        cmd.Parameters.AddWithValue(
                             "@jumlah",
                             jumlah);
 
@@ -190,8 +181,8 @@ namespace TugasProject_PBO.Views.Admin
                             dtpTanggal5.Value.Date);
 
                         cmd.Parameters.AddWithValue(
-                            "@kualitas",
-                            cbKualitas5.Text);
+                            "@tujuan",
+                            cbAdmin5.Text);
 
                         cmd.Parameters.AddWithValue(
                             "@keterangan",
@@ -199,7 +190,8 @@ namespace TugasProject_PBO.Views.Admin
 
                         int hasil = cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Baris tersimpan = " + hasil);
+                        MessageBox.Show(
+                            "Baris tersimpan = " + hasil);
                     }
                 }
 

@@ -44,6 +44,8 @@
             G_Profil7 = new PictureBox();
             BC_Page7 = new Panel();
             BC_LaporanInventori = new Panel();
+            dtpSampai7 = new DateTimePicker();
+            dtpDari7 = new DateTimePicker();
             DGV_RHK7 = new DataGridView();
             Tanggal4 = new DataGridViewTextBoxColumn();
             Gudang2 = new DataGridViewTextBoxColumn();
@@ -69,8 +71,6 @@
             SJ_FilterPeriode7 = new Label();
             G_LaporanInventori = new PictureBox();
             J_LaporanInventori = new Label();
-            dtpDari7 = new DateTimePicker();
-            dtpSampai7 = new DateTimePicker();
             BC_MenuBar7ini.SuspendLayout();
             BC_MenuBar7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_Profil7).BeginInit();
@@ -273,11 +273,28 @@
             BC_LaporanInventori.Size = new Size(599, 477);
             BC_LaporanInventori.TabIndex = 5;
             // 
+            // dtpSampai7
+            // 
+            dtpSampai7.Format = DateTimePickerFormat.Short;
+            dtpSampai7.Location = new Point(267, 37);
+            dtpSampai7.Name = "dtpSampai7";
+            dtpSampai7.Size = new Size(122, 27);
+            dtpSampai7.TabIndex = 11;
+            dtpSampai7.ValueChanged += dateTimePicker2_ValueChanged;
+            // 
+            // dtpDari7
+            // 
+            dtpDari7.Format = DateTimePickerFormat.Short;
+            dtpDari7.Location = new Point(65, 36);
+            dtpDari7.Name = "dtpDari7";
+            dtpDari7.Size = new Size(122, 27);
+            dtpDari7.TabIndex = 10;
+            // 
             // DGV_RHK7
             // 
             DGV_RHK7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_RHK7.Columns.AddRange(new DataGridViewColumn[] { Tanggal4, Gudang2, Tujuan, Jumlah2 });
-            DGV_RHK7.Location = new Point(25, 357);
+            DGV_RHK7.Location = new Point(25, 356);
             DGV_RHK7.Name = "DGV_RHK7";
             DGV_RHK7.RowHeadersWidth = 51;
             DGV_RHK7.Size = new Size(536, 75);
@@ -490,23 +507,6 @@
             J_LaporanInventori.TabIndex = 3;
             J_LaporanInventori.Text = "Laporan Inventori";
             J_LaporanInventori.Click += J_DashboardAdmin_Click;
-            // 
-            // dtpDari7
-            // 
-            dtpDari7.Format = DateTimePickerFormat.Short;
-            dtpDari7.Location = new Point(65, 36);
-            dtpDari7.Name = "dtpDari7";
-            dtpDari7.Size = new Size(122, 27);
-            dtpDari7.TabIndex = 10;
-            // 
-            // dtpSampai7
-            // 
-            dtpSampai7.Format = DateTimePickerFormat.Short;
-            dtpSampai7.Location = new Point(267, 37);
-            dtpSampai7.Name = "dtpSampai7";
-            dtpSampai7.Size = new Size(122, 27);
-            dtpSampai7.TabIndex = 11;
-            dtpSampai7.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // LaporanInventori
             // 

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
+using Npgsql;
+using TugasProject_PBO.Helpers;
 
 namespace TugasProject_PBO.Views.Admin
 {
@@ -13,24 +11,163 @@ namespace TugasProject_PBO.Views.Admin
         public MonitoringStok()
         {
             InitializeComponent();
+            Load += MonitoringStok_Load;
         }
-        private void BC_MenuBar_Paint(object sender, PaintEventArgs e)
-        {
 
+
+        private void MonitoringStok_Load(object sender, EventArgs e)
+        {
+            LoadRiwayatStok();
+            LoadMasukTerakhir();
+            LoadKeluarTerakhir();
         }
-        private void G_KelolaDataHasilPanen_Click(object sender, EventArgs e)
-        {
 
+        private void LoadRiwayatStok()
+        {
+            try
+            {
+                using (NpgsqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    string query = @"
+                SELECT
+                    g.nama_gudang AS ""Nama Gudang"",
+                    g.lokasi AS ""Lokasi"",
+                    COALESCE(
+                        (SELECT SUM(sm.jumlah)
+                         FROM ""Stok_Masuk"" sm
+                         WHERE sm.id_gudang = g.id_gudang),0)
+                    -
+                    COALESCE(
+                        (SELECT SUM(sk.jumlah)
+                         FROM ""Stok_Keluar"" sk
+                         WHERE sk.id_gudang = g.id_gudang),0)
+                    AS ""Stok (kg)"",
+                    g.kapasitas_maksimal AS ""Kapasitas (kg)"",
+                    CASE
+                        WHEN (
+                            COALESCE(
+                                (SELECT SUM(sm.jumlah)
+                                 FROM ""Stok_Masuk"" sm
+                                 WHERE sm.id_gudang = g.id_gudang),0)
+                            -
+                            COALESCE(
+                                (SELECT SUM(sk.jumlah)
+                                 FROM ""Stok_Keluar"" sk
+                                 WHERE sk.id_gudang = g.id_gudang),0)
+                        ) >= g.kapasitas_maksimal
+                        THEN 'Penuh'
+                        ELSE 'Tersedia'
+                    END AS ""Status"",
+                    ROUND(
+                        (
+                            (
+                                COALESCE(
+                                    (SELECT SUM(sm.jumlah)
+                                     FROM ""Stok_Masuk"" sm
+                                     WHERE sm.id_gudang = g.id_gudang),0)
+                                -
+                                COALESCE(
+                                    (SELECT SUM(sk.jumlah)
+                                     FROM ""Stok_Keluar"" sk
+                                     WHERE sk.id_gudang = g.id_gudang),0)
+                            )
+                            / g.kapasitas_maksimal
+                        ) * 100,2
+                    ) || '%' AS ""Terisi""
+                FROM ""Gudang"" g
+                ORDER BY g.id_gudang";
+
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    DGV_RiwayatStok.DataSource = dt;
+                    DGV_RiwayatStok.AutoSizeColumnsMode =
+                        DataGridViewAutoSizeColumnsMode.Fill;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Gagal memuat data riwayat stok!\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void LoadMasukTerakhir()
+        {
+            try
+            {
+                using (NpgsqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    string query = @"
+                SELECT
+                    sm.tanggal AS ""Tanggal"",
+                    g.nama_gudang AS ""Gudang""
+                FROM ""Stok_Masuk"" sm
+                JOIN ""Gudang"" g
+                    ON sm.id_gudang = g.id_gudang
+                ORDER BY sm.tanggal DESC
+                LIMIT 10";
+
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    DGV_MasukTerakhir.DataSource = dt;
+                    DGV_MasukTerakhir.AutoSizeColumnsMode =
+                        DataGridViewAutoSizeColumnsMode.Fill;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Gagal memuat data stok masuk!\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadKeluarTerakhir()
+        {
+            try
+            {
+                using (NpgsqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    string query = @"
+                SELECT
+                    tanggal AS ""Tanggal"",
+                    keterangan AS ""Keterangan""
+                FROM ""Stok_Keluar""
+                ORDER BY tanggal DESC
+                LIMIT 10";
+
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    DGV_KeluarTerakhir6.DataSource = dt;
+                    DGV_KeluarTerakhir6.AutoSizeColumnsMode =
+                        DataGridViewAutoSizeColumnsMode.Fill;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Gagal memuat data stok keluar!\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void btDashboard_6_Click(object sender, EventArgs e)
         {
-            DashboardAdmin dashboard = new DashboardAdmin();
-            dashboard.Show();
+            DashboardAdmin form = new DashboardAdmin();
+            form.Show();
             this.Hide();
         }
 
@@ -57,9 +194,6 @@ namespace TugasProject_PBO.Views.Admin
 
         private void btMonitoringStok_6_Click(object sender, EventArgs e)
         {
-            MonitoringStok form = new MonitoringStok();
-            form.Show();
-            this.Hide();
         }
 
         private void btLaporanInventori_6_Click(object sender, EventArgs e)
@@ -71,35 +205,30 @@ namespace TugasProject_PBO.Views.Admin
 
         private void btLogout_6_Click(object sender, EventArgs e)
         {
-            using (KonfirmasiLogout frm = new KonfirmasiLogout())
-            {
-                if (frm.ShowDialog() == DialogResult.Yes)
-                {
-                    LoginSIMIHAN login = new LoginSIMIHAN();
-                    login.Show();
-                    this.Hide();
-                }
-            }
+            LoginSIMIHAN login = new LoginSIMIHAN();
+            login.Show();
+            this.Hide();
         }
 
         private void BC__Paint(object sender, PaintEventArgs e)
         {
-           
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
+        private void BC_penel6_Paint(object sender, PaintEventArgs e)
         {
-            // Show percentage based on progress bar
-            try
-            {
-                int max = RSProgressbar.Maximum;
-                int val = RSProgressbar.Value;
-                int percent = max > 0 ? (int)Math.Round(val * 100.0 / max) : 0;
-                MessageBox.Show($"Kapasitas saat ini: {val}/{max} kg ({percent}%)", "Kapasitas Gudang",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-            }
-            catch { }
+        }
+
+        private void DGV_RiwayatMutasiStok_CellContentClick(
+            object sender,
+            DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void J_MonitoringStok6_Click(object sender, EventArgs e)
+        {
+
         }
     }
+
+
 }

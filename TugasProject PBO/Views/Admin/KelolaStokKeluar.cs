@@ -29,22 +29,17 @@ namespace TugasProject_PBO.Views.Admin
                 using (var conn = DatabaseHelper.GetConnection())
                 {
                     string query = @"
-                        SELECT
-                            sk.id_stokkeluar,
-                            g.nama_gudang,
-                            u.nama AS admin,
-                            sk.jumlah,
-                            sk.tanggal,
-                            sk.kualitas,
-                            sk.keterangan
-                        FROM ""Stok_Keluar"" sk
-                        JOIN ""Gudang"" g
-                            ON sk.id_gudang = g.id_gudang
-                        JOIN ""Admin"" a
-                            ON sk.id_admin = a.id_admin
-                        JOIN ""User"" u
-                            ON a.id_user = u.id_user
-                        ORDER BY sk.id_stokkeluar";
+                SELECT
+                    sk.id_stokkeluar,
+                    g.nama_gudang,
+                    sk.jumlah,
+                    sk.tanggal,
+                    sk.tujuan,
+                    sk.keterangan
+                FROM ""Stok_Keluar"" sk
+                JOIN ""Gudang"" g
+                    ON sk.id_gudang = g.id_gudang
+                ORDER BY sk.id_stokkeluar";
 
                     using (var da = new NpgsqlDataAdapter(query, conn))
                     {
