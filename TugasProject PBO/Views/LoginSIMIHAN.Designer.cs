@@ -36,8 +36,6 @@ namespace TugasProject_PBO.Views
             btnLogin = new Button();
             panel1 = new Panel();
             cbRole = new ComboBox();
-            linkLabel1 = new LinkLabel();
-            label5 = new Label();
             label4 = new Label();
             tbPassword = new TextBox();
             label3 = new Label();
@@ -54,7 +52,7 @@ namespace TugasProject_PBO.Views
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(-422, -100);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1160, 755);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -66,7 +64,7 @@ namespace TugasProject_PBO.Views
             btnLogin.BackColor = Color.DarkKhaki;
             btnLogin.Font = new Font("Calibri", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogin.Location = new Point(432, 504);
-            btnLogin.Margin = new Padding(4, 4, 4, 4);
+            btnLogin.Margin = new Padding(4);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(120, 36);
             btnLogin.TabIndex = 9;
@@ -80,8 +78,6 @@ namespace TugasProject_PBO.Views
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(cbRole);
             panel1.Controls.Add(btnLogin);
-            panel1.Controls.Add(linkLabel1);
-            panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(tbPassword);
             panel1.Controls.Add(label3);
@@ -89,7 +85,7 @@ namespace TugasProject_PBO.Views
             panel1.Controls.Add(tbEmail);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(512, -1);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(593, 571);
             panel1.TabIndex = 1;
@@ -102,34 +98,11 @@ namespace TugasProject_PBO.Views
             cbRole.FormattingEnabled = true;
             cbRole.Items.AddRange(new object[] { "Admin", "Petani" });
             cbRole.Location = new Point(40, 385);
-            cbRole.Margin = new Padding(4, 4, 4, 4);
+            cbRole.Margin = new Padding(4);
             cbRole.Name = "cbRole";
             cbRole.Size = new Size(303, 33);
             cbRole.TabIndex = 8;
             cbRole.SelectedIndexChanged += cbRole_SelectedIndexChanged;
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(229, 435);
-            linkLabel1.Margin = new Padding(4, 0, 4, 0);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(73, 25);
-            linkLabel1.TabIndex = 7;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Sign up";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(38, 435);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(194, 25);
-            label5.TabIndex = 6;
-            label5.Text = "Don't have an account ";
-            label5.Click += label5_Click;
             // 
             // label4
             // 
@@ -146,7 +119,7 @@ namespace TugasProject_PBO.Views
             // 
             tbPassword.ForeColor = Color.Gray;
             tbPassword.Location = new Point(40, 332);
-            tbPassword.Margin = new Padding(4, 4, 4, 4);
+            tbPassword.Margin = new Padding(4);
             tbPassword.Name = "tbPassword";
             tbPassword.PlaceholderText = "Enter password";
             tbPassword.Size = new Size(303, 31);
@@ -182,7 +155,7 @@ namespace TugasProject_PBO.Views
             // 
             tbEmail.ForeColor = Color.Gray;
             tbEmail.Location = new Point(40, 281);
-            tbEmail.Margin = new Padding(4, 4, 4, 4);
+            tbEmail.Margin = new Padding(4);
             tbEmail.Name = "tbEmail";
             tbEmail.PlaceholderText = "Enter username";
             tbEmail.Size = new Size(303, 31);
@@ -208,7 +181,7 @@ namespace TugasProject_PBO.Views
             ClientSize = new Size(1102, 569);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "LoginSIMIHAN";
             Text = "Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -227,8 +200,6 @@ namespace TugasProject_PBO.Views
         private TextBox tbPassword;
         private Label label3;
         private Label label4;
-        private Label label5;
-        private LinkLabel linkLabel1;
         private ComboBox cbRole;
     }
 }
