@@ -20,6 +20,16 @@ namespace TugasProject_PBO.Views.Admin
 
         private void DashboardAdmin_Load(object sender, EventArgs e)
         {
+            // Contoh perbaikan query gabungan (JOIN) untuk Dashboard:
+            string query = @"SELECT g.id_gudang, g.nama_gudang, g.""kapasitas_maksimal"", 
+                 COALESCE(SUM(s.jumlah), 0) AS stok_saat_ini
+                 FROM ""Gudang"" g
+                 LEFT JOIN ""Stok_Masuk"" s ON g.id_gudang = s.id_gudang
+                 GROUP BY g.id_gudang, g.nama_gudang, g.""kapasitas_maksimal""";
+
+            // Cari juga query yang mengambil tabel Hasil Panen Terbaru, ubah menjadi:
+            string queryHasilPanen = @"SELECT * FROM ""Hasil_Panen"" ORDER BY tanggal DESC LIMIT 5";
+
             // Header labels
             L_TotalGedung.Text = "Total Gudang: 3";
             L_Username1.Text = "Username: Elmi";

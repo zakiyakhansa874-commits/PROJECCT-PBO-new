@@ -44,46 +44,78 @@ namespace TugasProject_PBO.Views.Admin
         /// </summary>
         private void LoadDataGudangAll()
         {
-            // Membersihkan baris lama di DataGridView sebelum diisi ulang
+            // 1. Bersihkan baris lama di DataGridView sebelum memuat data baru
             DGV_KelolaGudang3.Rows.Clear();
 
             try
             {
-                using (var conn = Helpers.DatabaseHelper.GetConnection())
+                using (var conn = DatabaseHelper.GetConnection())
                 {
-                    // Query mengambil data gudang. Menggunakan tanda petik ganda jika nama tabel Anda "Gudang" (Capital)
-                    // Ditambahkan subquery opsional untuk menghitung total stok riil saat ini dari tabel stok/inventori jika ada
+                    // Pastikan koneksi terbuka dengan aman
+                    if (conn.State != ConnectionState.Open)
+                        conn.Open();
+
+                    // Menggunakan LEFT JOIN agar gudang yang masih kosong (0 kg) tetap muncul di tabel
                     string sql = @"SELECT 
-                                    id_gudang, 
-                                    nama_gudang, 
-                                    lokasi, 
-                                    kapasitas 
-                                   FROM ""Gudang"" 
-                                   ORDER BY id_gudang ASC";
+                                    g.id_gudang, 
+                                    g.nama_gudang, 
+                                    g.lokasi, 
+                                    g.kapasitas_maksimal,
+                                    COALESCE(SUM(sm.jumlah), 0) AS stok_saat_ini
+                                   FROM ""Gudang"" g
+                                   LEFT JOIN ""Stok_Masuk"" sm ON g.id_gudang = sm.id_gudang
+                                   GROUP BY g.id_gudang, g.nama_gudang, g.lokasi, g.kapasitas_maksimal
+                                   ORDER BY g.id_gudang ASC";
+                    
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            int id = reader.GetInt32(0);
-                            string nama = reader.IsDBNull(1) ? "-" : reader.GetString(1);
-                            string lokasi = reader.IsDBNull(2) ? "-" : reader.GetString(2);
-                            int kapasitas = reader.IsDBNull(3) ? 0 : reader.GetInt32(3);
+                            string id = reader["id_gudang"].ToString();
+                            string namaGudang = reader["nama_gudang"]?.ToString() ?? "-";
+                            string lokasi = reader["lokasi"]?.ToString() ?? "-";
 
-                            // Sementara stok saat ini diset 0 atau bisa Anda formulasikan dari tabel detail stok masuk-keluar
-                            int stokSaatIni = 0;
+                            // BARIS COPIAN YANG SALAH DAN TERSELIP DI SINI SUDAH DIHAPUS 👍
 
-                            // Menambahkan data ke baris grid sesuai susunan kolom desainer Anda:
-                            // [ID] [Nama Gudang] [Lokasi] [Kapasitas (kg)] [Stok Saat Ini (kg)]
-                            DGV_KelolaGudang3.Rows.Add(id, nama, lokasi, kapasitas.ToString() + " kg", stokSaatIni.ToString() + " kg");
+                            // Format angka desimal/berat agar rapi saat tampil
+                            double kapasitas = reader["kapasitas_maksimal"] != DBNull.Value ? Convert.ToDouble(reader["kapasitas_maksimal"]) : 0;
+                            double stokSaatIni = reader["stok_saat_ini"] != DBNull.Value ? Convert.ToDouble(reader["stok_saat_ini"]) : 0;
+
+                            // 2. Hitung persentase keterisian kapasitas gudang
+                            string terisi;
+                            if (kapasitas <= 0)
+                            {
+                                terisi = "0%";
+                            }
+                            else
+                            {
+                                double percent = (stokSaatIni / kapasitas) * 100.0;
+                                terisi = Math.Round(percent, 2).ToString() + "%";
+                            }
+
+                            DGV_KelolaGudang3.Rows.Add(
+                                id,
+                                namaGudang,
+                                lokasi,
+                                kapasitas.ToString() + " kg",
+                                stokSaatIni.ToString() + " kg",
+                                terisi
+                            );
                         }
                     }
                 }
             }
+            catch (NpgsqlException npgEx)
+            {
+                MessageBox.Show("Terjadi masalah konfigurasi query database:\n" + npgEx.Message,
+                                "Error PostgreSQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal mengambil data gudang: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gagal memuat data halaman kelola gudang: " + ex.Message,
+                                "Error Aplikasi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -108,17 +140,17 @@ namespace TugasProject_PBO.Views.Admin
         {
             try
             {
-                // Berdasarkan Solution Explorer Anda, terdapat Form bernama InputEditGudang
                 using (var formTambah = new InputEditGudang())
                 {
                     formTambah.ShowDialog();
                 }
-                // Refresh data setelah form input ditutup
                 LoadDataGudangAll();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka form tambah gudang: " + ex.Message, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gagal membuka form tambah gudang: " + ex.Message, "Peringatan", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Warning);
             }
         }
 
@@ -126,16 +158,16 @@ namespace TugasProject_PBO.Views.Admin
         {
             if (selectedGudangId == 0)
             {
-                MessageBox.Show("Silakan pilih salah satu gudang di dalam tabel terlebih dahulu!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan pilih salah satu gudang di dalam tabel terlebih dahulu!", "Informasi", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                // Membuka form edit dengan mengirimkan ID gudang yang dipilih (Konsep OOP Overloading/Constructor)
                 using (var formEdit = new InputEditGudang())
                 {
-                    // Anda bisa mempassing selectedGudangId ke form tersebut jika constructor-nya sudah disiapkan
                     formEdit.ShowDialog();
                 }
                 LoadDataGudangAll();
@@ -152,16 +184,14 @@ namespace TugasProject_PBO.Views.Admin
         {
             if (selectedGudangId == 0)
             {
-                MessageBox.Show(
-                    "Silakan pilih data gudang yang ingin dihapus!",
-                    "Peringatan",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan pilih data gudang yang ingin dihapus!", "Peringatan", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Warning);
                 return;
             }
 
             DialogResult konfirmasi = MessageBox.Show(
-                "Apakah Anda yakin ingin menghapus data gudang ini?",
+                "Apakah Anda yakin ingin menghapus data gudang ini beserta semua riwayat stok masuknya?",
                 "Konfirmasi Hapus",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
@@ -172,22 +202,20 @@ namespace TugasProject_PBO.Views.Admin
                 {
                     using (var conn = Helpers.DatabaseHelper.GetConnection())
                     {
-                        // Hapus data Stok_Masuk yang terkait dengan gudang
-                        string deleteStokMasuk =
-                            @"DELETE FROM ""Stok_Masuk""
-                      WHERE id_gudang = @id";
+                        // PENGAMAN: Pastikan koneksi dibuka dulu sebelum eksekusi perintah SQL!
+                        if (conn.State != ConnectionState.Open)
+                            conn.Open();
 
+                        // Hapus data Stok_Masuk yang terkait dengan gudang terlebih dahulu (Mencegah error Foreign Key Cascade Restrict)
+                        string deleteStokMasuk = @"DELETE FROM ""Stok_Masuk"" WHERE id_gudang = @id";
                         using (var cmd1 = new NpgsqlCommand(deleteStokMasuk, conn))
                         {
                             cmd1.Parameters.AddWithValue("@id", selectedGudangId);
                             cmd1.ExecuteNonQuery();
                         }
 
-                        // Hapus data gudang
-                        string deleteGudang =
-                            @"DELETE FROM ""Gudang""
-                      WHERE id_gudang = @id";
-
+                        // Hapus data utama di tabel gudang
+                        string deleteGudang = @"DELETE FROM ""Gudang"" WHERE id_gudang = @id";
                         using (var cmd2 = new NpgsqlCommand(deleteGudang, conn))
                         {
                             cmd2.Parameters.AddWithValue("@id", selectedGudangId);
@@ -195,25 +223,18 @@ namespace TugasProject_PBO.Views.Admin
                         }
                     }
 
-                    MessageBox.Show(
-                        "Data gudang berhasil dihapus!",
-                        "Sukses",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    MessageBox.Show("Data gudang berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     selectedGudangId = 0;
                     LoadDataGudangAll();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(
-                        "Gagal menghapus data: " + ex.Message,
-                        "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show("Gagal menghapus data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
         // ==========================================
         // SCRIPT NAVIGASI SIDEBAR MENU (KIRI)
         // ==========================================
@@ -234,7 +255,6 @@ namespace TugasProject_PBO.Views.Admin
 
         private void btKelolaGudang3_Click(object sender, EventArgs e)
         {
-            // Tetap di halaman ini, cukup segarkan data
             LoadDataGudangAll();
         }
 
@@ -280,14 +300,9 @@ namespace TugasProject_PBO.Views.Admin
             }
         }
 
-        // Event handler bawaan desainer yang kosong (dibiarkan agar tidak merusak file designer)
         private void G_KelolaGudang_Click(object sender, EventArgs e) { }
         private void BC_MenuBar_Paint3(object sender, PaintEventArgs e) { }
         private void J_KelolaGudang3_Click(object sender, EventArgs e) { }
-
-        private void BC_Page3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void BC_Page3_Paint(object sender, PaintEventArgs e) { }
     }
 }

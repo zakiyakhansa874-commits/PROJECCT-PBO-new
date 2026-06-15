@@ -52,25 +52,18 @@ namespace TugasProject_PBO.Views.Admin
                 {
                     conn.Open();
 
-                    string query = @"
-                    INSERT INTO gudang
-                    (
-                        nama_gudang,
-                        lokasi,
-                        kapasitas,
-                        stok_saat_ini
-                    )
-                    VALUES
-                    (
-                        @nama_gudang,
-                        @lokasi,
-                        @kapasitas,
-                        @stok_saat_ini
-                    )";
+                    // Ubah query simpan perubahan Anda menjadi struktur seperti ini:
+                    string query = @"UPDATE ""gudang"" 
+                 SET nama_gudang = @nama, 
+                     lokasi = @lokasi, 
+                     ""kapasitas_maksimal"" = @kapasitas 
+                 WHERE id_gudang = @id";
+                    // ^^^ Pastikan memakai id_gudang, bukan "WHERE id = @id"
 
                     using (NpgsqlCommand cmd =
                            new NpgsqlCommand(query, conn))
                     {
+                        cmd.Parameters.AddWithValue("@id_gudang", 1); // Ganti dengan ID gudang yang ingin diedit
                         cmd.Parameters.AddWithValue(
                             "@nama_gudang",
                             txtNamaGudang.Text);
@@ -80,7 +73,7 @@ namespace TugasProject_PBO.Views.Admin
                             txtLokasi.Text);
 
                         cmd.Parameters.AddWithValue(
-                            "@kapasitas",
+                            "@kapasitas_maksimal",
                             Convert.ToDecimal(txtKapasitas.Text));
 
                         cmd.Parameters.AddWithValue(
@@ -220,7 +213,7 @@ namespace TugasProject_PBO.Views.Admin
             {
                 if (decimal.TryParse(kapasitas, out var value))
                 {
-                    MessageBox.Show($"Kapasitas: {value} kg",
+                    MessageBox.Show($"Kapasitas Maksimal: {value} kg",
                                     "Informasi Kapasitas",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
@@ -251,7 +244,7 @@ namespace TugasProject_PBO.Views.Admin
             }
             else
             {
-                lblStatus.Text = $"Kapasitas: {value} kg";
+                lblStatus.Text = $"Kapasitas Maksimal: {value} kg";
                 lblStatus.ForeColor = Color.Green;
             }
         }
