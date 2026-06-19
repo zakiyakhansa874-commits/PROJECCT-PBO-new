@@ -42,10 +42,9 @@
             // 
             GWarning.BackColor = Color.Transparent;
             GWarning.Image = (Image)resources.GetObject("GWarning.Image");
-            GWarning.Location = new Point(38, 62);
-            GWarning.Margin = new Padding(4);
+            GWarning.Location = new Point(63, 49);
             GWarning.Name = "GWarning";
-            GWarning.Size = new Size(62, 62);
+            GWarning.Size = new Size(64, 63);
             GWarning.SizeMode = PictureBoxSizeMode.StretchImage;
             GWarning.TabIndex = 0;
             GWarning.TabStop = false;
@@ -54,10 +53,9 @@
             // 
             JJudul.AutoSize = true;
             JJudul.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            JJudul.Location = new Point(126, 62);
-            JJudul.Margin = new Padding(4, 0, 4, 0);
+            JJudul.Location = new Point(140, 56);
             JJudul.Name = "JJudul";
-            JJudul.Size = new Size(234, 29);
+            JJudul.Size = new Size(195, 25);
             JJudul.TabIndex = 1;
             JJudul.Text = "Yakin ingin keluar?";
             JJudul.Click += label1_Click;
@@ -66,10 +64,9 @@
             // 
             SJKeluar.AutoSize = true;
             SJKeluar.ForeColor = SystemColors.GrayText;
-            SJKeluar.Location = new Point(125, 112);
-            SJKeluar.Margin = new Padding(4, 0, 4, 0);
+            SJKeluar.Location = new Point(141, 86);
             SJKeluar.Name = "SJKeluar";
-            SJKeluar.Size = new Size(310, 50);
+            SJKeluar.Size = new Size(261, 40);
             SJKeluar.TabIndex = 2;
             SJKeluar.Text = "Apakah anda ingin keluar dari aplikasi\r\n.\r\n";
             SJKeluar.Click += label1_Click_1;
@@ -77,19 +74,17 @@
             // GGaris
             // 
             GGaris.BackColor = SystemColors.ButtonShadow;
-            GGaris.Location = new Point(25, 225);
-            GGaris.Margin = new Padding(4);
+            GGaris.Location = new Point(53, 132);
             GGaris.Name = "GGaris";
-            GGaris.Size = new Size(600, 2);
+            GGaris.Size = new Size(411, 3);
             GGaris.TabIndex = 3;
             // 
             // btKeluar
             // 
-            btKeluar.BackColor = Color.Beige;
-            btKeluar.Location = new Point(275, 262);
-            btKeluar.Margin = new Padding(4);
+            btKeluar.BackColor = Color.Khaki;
+            btKeluar.Location = new Point(220, 181);
             btKeluar.Name = "btKeluar";
-            btKeluar.Size = new Size(162, 44);
+            btKeluar.Size = new Size(130, 35);
             btKeluar.TabIndex = 4;
             btKeluar.Text = "Ya, Keluar";
             btKeluar.UseVisualStyleBackColor = false;
@@ -97,12 +92,11 @@
             // 
             // btBatal
             // 
-            btBatal.BackColor = Color.Beige;
+            btBatal.BackColor = Color.Khaki;
             btBatal.ForeColor = Color.Black;
-            btBatal.Location = new Point(462, 262);
-            btBatal.Margin = new Padding(4);
+            btBatal.Location = new Point(363, 181);
             btBatal.Name = "btBatal";
-            btBatal.Size = new Size(162, 44);
+            btBatal.Size = new Size(130, 35);
             btBatal.TabIndex = 5;
             btBatal.Text = "Batal";
             btBatal.UseVisualStyleBackColor = false;
@@ -110,10 +104,10 @@
             // 
             // KonfirmasiLogout
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
-            ClientSize = new Size(818, 425);
+            ClientSize = new Size(523, 253);
             Controls.Add(btBatal);
             Controls.Add(btKeluar);
             Controls.Add(GGaris);
@@ -121,7 +115,6 @@
             Controls.Add(JJudul);
             Controls.Add(GWarning);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "KonfirmasiLogout";

@@ -23,12 +23,12 @@ namespace TugasProject_PBO.Controllers
 
             if (role == "Admin")
             {
-                DashboardAdmin dashboard = new DashboardAdmin();
+                V_DashboardAdmin dashboard = new V_DashboardAdmin();
                 dashboard.Show();
             }
             else if (role == "Petani")
             {
-                DataHasilPanenPetani formPetani = new DataHasilPanenPetani();
+                V_DataHasilPanenPetani formPetani = new V_DataHasilPanenPetani();
                 formPetani.Show();
             }
             else

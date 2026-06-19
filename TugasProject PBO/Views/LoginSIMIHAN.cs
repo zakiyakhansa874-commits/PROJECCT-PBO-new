@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Text;
 using System.Windows.Forms;
 using TugasProject_PBO.Helpers;
@@ -29,30 +30,30 @@ namespace TugasProject_PBO.Views
             this.Load += LoginSIMIHAN_Load;
             this.Shown += LoginSIMIHAN_Load2;
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void LoginSIMIHAN_Load(object sender, EventArgs e)
         {
-            // Draw a header band with gradient and title to style the login panel
-            try
-            {
-                Graphics g = e.Graphics;
-                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            BuatPanelRounded();
 
-                Rectangle headerRect = new Rectangle(0, 0, panel1.Width, 80);
-                using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-                           headerRect, Color.DarkOliveGreen, Color.Yellow, 90f))
-                {
-                    g.FillRectangle(brush, headerRect);
-                }
+            tbEmail.PlaceholderText = "Enter email";
+            tbPassword.PlaceholderText = "Enter password";
+            // Initialize email color and disable login until inputs are provided
+            tbEmail.ForeColor = Color.Gray;
+            btnLogin.Enabled = true;
+        }
+        
 
-                using (var titleFont = new Font("Times New Roman", 15f, FontStyle.Bold))
-                using (var titleBrush = new SolidBrush(Color.White))
-                using (var sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
-                {
-                    g.DrawString("SIMIHAN", titleFont, titleBrush, new Rectangle(12, 0, panel1.Width - 24, 80), sf);
-                }
-            }
-            catch { }
+        private void BuatPanelRounded()
+        {
+            GraphicsPath path = new GraphicsPath();
+            int radius = 30;
+
+            path.AddArc(0, 0, radius, radius, 180, 90);
+            path.AddArc(panelLogin.Width - radius, 0, radius, radius, 270, 90);
+            path.AddArc(panelLogin.Width - radius, panelLogin.Height - radius, radius, radius, 0, 90);
+            path.AddArc(0, panelLogin.Height - radius, radius, radius, 90, 90);
+            path.CloseFigure();
+
+            panelLogin.Region = new Region(path);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -101,14 +102,6 @@ namespace TugasProject_PBO.Views
             }
             UpdateLoginButtonState();
         }
-        private void LoginSIMIHAN_Load(object sender, EventArgs e)
-        {
-            tbEmail.PlaceholderText = "Enter email";
-            tbPassword.PlaceholderText = "Enter password";
-            // Initialize email color and disable login until inputs are provided
-            tbEmail.ForeColor = Color.Gray;
-            btnLogin.Enabled = true;
-        }
         private void LoginSIMIHAN_Load2(object sender, EventArgs e)
         {
             // Populate items only once. Use a prompt item at index 0.
@@ -155,23 +148,66 @@ namespace TugasProject_PBO.Views
                 return;
             }
 
-            if (string.IsNullOrEmpty(role))
+            if (string.IsNullOrEmpty(role) || role == " Select Role")
             {
                 MessageBox.Show("Pilih role terlebih dahulu!");
                 return;
             }
 
-            if (role == "Admin")
+            try
             {
-                DashboardAdmin dashboard = new DashboardAdmin();
-                dashboard.Show();
-                this.Hide();
+                using (NpgsqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    string query = @"SELECT id_user, username, nama, role 
+                             FROM ""User"" 
+                             WHERE username = @username 
+                             AND password = @password 
+                             AND role = @role";
+
+                    NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@role", role);
+
+                    
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        // Isi session dengan data dari DB
+                        SessionHelper.SetSession(
+                            Convert.ToInt32(reader["id_user"]),
+                            reader["username"].ToString(),
+                            reader["nama"].ToString(),
+                            reader["role"].ToString()
+                        );
+
+                        reader.Close();
+
+                        if (role == "Admin")
+                        {
+                            V_DashboardAdmin dashboard = new V_DashboardAdmin();
+                            dashboard.Show();
+                            this.Hide();
+                        }
+                        else if (role == "Petani")
+                        {
+                            V_DataHasilPanenPetani formPetani = new V_DataHasilPanenPetani();
+                            formPetani.Show();
+                            this.Hide();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username, password, atau role salah!", "Login Gagal",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
             }
-            else if (role == "Petani")
+            catch (Exception ex)
             {
-                DataHasilPanenPetani formPetani = new DataHasilPanenPetani();
-                formPetani.Show();
-                this.Hide();
+                MessageBox.Show("Gagal login: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -219,6 +255,16 @@ namespace TugasProject_PBO.Views
         }
 
         private void cbRole_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

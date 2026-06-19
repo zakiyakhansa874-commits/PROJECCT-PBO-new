@@ -1,45 +1,149 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Npgsql;
+using System;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
+using TugasProject_PBO.Controllers;
+using TugasProject_PBO.Helpers;
 using TugasProject_PBO.Views.Admin;
 
 namespace TugasProject_PBO.Views.Petani
 {
     public partial class MonitoringStokGudang : Form
     {
+        private MonitoringController _controller = new MonitoringController();
+
         public MonitoringStokGudang()
         {
             InitializeComponent();
+            this.Load += MonitoringStokGudang_Load;
         }
-        private void BC_MenuBar_Paint(object sender, PaintEventArgs e)
+
+        public (int jumlahGudang, decimal totalStok, decimal totalKapasitas) GetRingkasanGudang()
+        {
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    string query = @"
+                    SELECT
+                    COUNT(g.id_gudang) AS jumlah_gudang,
+                    SUM(
+                    COALESCE((SELECT SUM(sm.jumlah) FROM ""Stok_Masuk"" sm WHERE sm.id_gudang = g.id_gudang), 0)
+                    -
+                    COALESCE((SELECT SUM(sk.jumlah) FROM ""Stok_Keluar"" sk WHERE sk.id_gudang = g.id_gudang), 0)
+                    ) AS total_stok, SUM(g.kapasitas_maksimal) AS total_kapasitas FROM ""Gudang"" g";
+                    
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return (
+                                Convert.ToInt32(reader["jumlah_gudang"]),
+                                Convert.ToDecimal(reader["total_stok"]),
+                                Convert.ToDecimal(reader["total_kapasitas"])
+                            );
+                        }
+                    }
+                }
+                return (0, 0, 0);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Gagal memuat ringkasan: " + ex.Message);
+            }
+        }
+
+        private void MonitoringStokGudang_Load(object sender, EventArgs e)
         {
 
+            try
+            {
+                // Tampilkan info session
+                if (!string.IsNullOrEmpty(SessionHelper.Nama))
+                {
+                    L_Username9.Text = SessionHelper.Nama;
+                    L_Petani9.Text = SessionHelper.Role ?? "Petani";
+                }
+
+                LoadStatusGudang();
+                LoadRingkasan();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal memuat data: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        private void G_KelolaDataHasilPanen_Click(object sender, EventArgs e)
+
+
+        private void LoadStatusGudang()
         {
+            try
+            {
+                DataTable dt = _controller.GetStatusGudang();
 
+                ProgressBar[] bars = {
+                PB_MonitoringStok9,
+                PB_MonitoringStok2_9,
+                progressBar3_9
+                };
+
+                Label[] labelInfo = {
+                A_BawahBlokA9,   
+                label4,   
+                label1    
+                };
+
+                for (int i = 0; i < dt.Rows.Count && i < bars.Length; i++)
+                {
+                    DataRow row = dt.Rows[i];
+
+                    int kapasitas = Convert.ToInt32(row["kapasitas_maksimal"]);
+                    int stok = Convert.ToInt32(row["stok_saat_ini"]);
+                    int persen = kapasitas > 0
+                        ? (int)Math.Round(stok * 100.0 / kapasitas)
+                        : 0;
+                    persen = Math.Min(persen, 100);
+
+                    labelInfo[i].Text = $"{stok}/{kapasitas} kg ({persen}%)";
+                    bars[i].Maximum = 100;
+                    bars[i].Value = persen;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal memuat status gudang: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void LoadRingkasan()
         {
+            try
+            {
+                var (jumlahGudang, totalStok, totalKapasitas) = _controller.GetRingkasanGudang();
 
+                L_JumlahGudang9.Text = jumlahGudang.ToString();
+                L_TotalStok9.Text = totalStok.ToString("F0");
+                L_TotalKapasitas9.Text = totalKapasitas.ToString("F0");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        private void J_DashboardAdmin_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void L_Role9_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void BC_MenuBar_Paint(object sender, PaintEventArgs e) { }
+        private void G_KelolaDataHasilPanen_Click(object sender, EventArgs e) { }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void J_DashboardAdmin_Click(object sender, EventArgs e) { }
+        private void L_Role9_Click(object sender, EventArgs e) { }
 
         private void btDashboard_9_Click(object sender, EventArgs e)
         {
-            DataHasilPanenPetani frm = new DataHasilPanenPetani();
+            V_DataHasilPanenPetani frm = new V_DataHasilPanenPetani();
             frm.Show();
             this.Hide();
         }
@@ -49,6 +153,22 @@ namespace TugasProject_PBO.Views.Petani
             KonfirmasiLogout frm = new KonfirmasiLogout();
             frm.Show();
             this.Hide();
+        }
+        private void btLogout_9_Click(object sender, EventArgs e)
+        {
+            LoginSIMIHAN login = new LoginSIMIHAN();
+            login.Show();
+            this.Hide();
+        }
+
+        private void MonitoringStokGudang_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
