@@ -43,7 +43,8 @@ namespace TugasProject_PBO.Views.Petani
             DGV_InputHasilPanen8.Rows.Clear();
             try
             {
-                DataTable dt = _controller.GetHasilPanenByPetani(SessionHelper.IdUser);
+                int idPetani = _controller.GetIdPetaniByUserId(SessionHelper.IdUser);
+                DataTable dt = _controller.GetHasilPanenByPetani(idPetani);
 
                 decimal totalBeratBersih = 0m;
                 int totalEntri = 0;

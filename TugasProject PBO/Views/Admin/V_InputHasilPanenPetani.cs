@@ -21,6 +21,12 @@ namespace TugasProject_PBO.Views.Admin
             LoadKomoditas();
             LoadKualitas();
             dtpTanggal.Value = DateTime.Now;
+
+            if (idHasilPanen == 0)
+            {
+                this.Text = "Tambah Hasil Panen";
+                btSimpan.Text = "Simpan";
+            }
         }
 
         private void LoadPetani()
@@ -35,7 +41,23 @@ namespace TugasProject_PBO.Views.Admin
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+        public void LoadDataEdit(int id, int idPetani, DateTime tanggal, string komoditas,
+        decimal beratKotor, decimal beratBersih, string kualitas, string catatan)
+        {
+            idHasilPanen = id;
 
+            cbPetani.SelectedValue = idPetani;
+            dtpTanggal.Value = tanggal;
+            cbKomoditas.Text = komoditas;
+            txtBeratKotor.Text = beratKotor.ToString();
+            txtBeratBersih.Text = beratBersih.ToString();
+            cbKualitas.Text = kualitas;
+            txtCatatan.Text = catatan;
+
+            btSimpan.Text = "Update";
+            this.Text = "Edit Hasil Panen"; 
+        }
+        
         private void LoadKomoditas()
         {
             cbKomoditas.Items.Clear();
@@ -182,6 +204,11 @@ namespace TugasProject_PBO.Views.Admin
         }
 
         private void LPetani_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBeratKotor_TextChanged(object sender, EventArgs e)
         {
 
         }

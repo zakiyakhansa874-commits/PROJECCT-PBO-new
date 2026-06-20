@@ -12,7 +12,7 @@ namespace TugasProject_PBO.Helpers
             "Port=5432;" +
             "Database=ProjectPBO_SIMIHAN;" +
             "Username=postgres;" +
-            "Password=elmitra14";
+            "Password=Sutik13.";
 
         public static NpgsqlConnection GetConnection()
         {

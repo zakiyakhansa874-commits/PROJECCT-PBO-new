@@ -52,7 +52,7 @@
             LPetani.AutoSize = true;
             LPetani.Location = new Point(10, 20);
             LPetani.Name = "LPetani";
-            LPetani.Size = new Size(66, 22);
+            LPetani.Size = new Size(53, 18);
             LPetani.TabIndex = 0;
             LPetani.Text = "Petani:";
             LPetani.Click += LPetani_Click;
@@ -62,7 +62,7 @@
             LTanggal.AutoSize = true;
             LTanggal.Location = new Point(10, 50);
             LTanggal.Name = "LTanggal";
-            LTanggal.Size = new Size(81, 22);
+            LTanggal.Size = new Size(64, 18);
             LTanggal.TabIndex = 1;
             LTanggal.Text = "Tanggal:";
             // 
@@ -73,7 +73,7 @@
             LKomoditas.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LKomoditas.Location = new Point(10, 80);
             LKomoditas.Name = "LKomoditas";
-            LKomoditas.Size = new Size(99, 22);
+            LKomoditas.Size = new Size(84, 18);
             LKomoditas.TabIndex = 2;
             LKomoditas.Text = "Komoditas:";
             // 
@@ -82,7 +82,7 @@
             LBeratKotor.AutoSize = true;
             LBeratKotor.Location = new Point(10, 110);
             LBeratKotor.Name = "LBeratKotor";
-            LBeratKotor.Size = new Size(142, 22);
+            LBeratKotor.Size = new Size(118, 18);
             LBeratKotor.TabIndex = 3;
             LBeratKotor.Text = "Berat Kotor (kg):";
             // 
@@ -91,7 +91,7 @@
             LBeratBersih.AutoSize = true;
             LBeratBersih.Location = new Point(10, 140);
             LBeratBersih.Name = "LBeratBersih";
-            LBeratBersih.Size = new Size(150, 22);
+            LBeratBersih.Size = new Size(123, 18);
             LBeratBersih.TabIndex = 4;
             LBeratBersih.Text = "Berat Bersih (kg):";
             // 
@@ -100,7 +100,7 @@
             LKualitas.AutoSize = true;
             LKualitas.Location = new Point(10, 170);
             LKualitas.Name = "LKualitas";
-            LKualitas.Size = new Size(79, 22);
+            LKualitas.Size = new Size(64, 18);
             LKualitas.TabIndex = 5;
             LKualitas.Text = "Kualitas:";
             // 
@@ -109,7 +109,7 @@
             LCatatan.AutoSize = true;
             LCatatan.Location = new Point(10, 200);
             LCatatan.Name = "LCatatan";
-            LCatatan.Size = new Size(78, 22);
+            LCatatan.Size = new Size(63, 18);
             LCatatan.TabIndex = 6;
             LCatatan.Text = "Catatan:";
             // 
@@ -119,7 +119,7 @@
             cbPetani.FormattingEnabled = true;
             cbPetani.Location = new Point(158, 12);
             cbPetani.Name = "cbPetani";
-            cbPetani.Size = new Size(260, 30);
+            cbPetani.Size = new Size(260, 26);
             cbPetani.TabIndex = 7;
             // 
             // dtpTanggal
@@ -127,7 +127,7 @@
             dtpTanggal.Format = DateTimePickerFormat.Short;
             dtpTanggal.Location = new Point(158, 44);
             dtpTanggal.Name = "dtpTanggal";
-            dtpTanggal.Size = new Size(260, 28);
+            dtpTanggal.Size = new Size(260, 24);
             dtpTanggal.TabIndex = 8;
             // 
             // cbKomoditas
@@ -137,21 +137,22 @@
             cbKomoditas.Items.AddRange(new object[] { "Teh Hijau", "Teh Hitam", "Teh Oolong", "Teh Putih" });
             cbKomoditas.Location = new Point(158, 73);
             cbKomoditas.Name = "cbKomoditas";
-            cbKomoditas.Size = new Size(260, 30);
+            cbKomoditas.Size = new Size(260, 26);
             cbKomoditas.TabIndex = 9;
             // 
             // txtBeratKotor
             // 
             txtBeratKotor.Location = new Point(158, 105);
             txtBeratKotor.Name = "txtBeratKotor";
-            txtBeratKotor.Size = new Size(260, 28);
+            txtBeratKotor.Size = new Size(260, 24);
             txtBeratKotor.TabIndex = 10;
+            txtBeratKotor.TextChanged += txtBeratKotor_TextChanged;
             // 
             // txtBeratBersih
             // 
             txtBeratBersih.Location = new Point(158, 135);
             txtBeratBersih.Name = "txtBeratBersih";
-            txtBeratBersih.Size = new Size(260, 28);
+            txtBeratBersih.Size = new Size(260, 24);
             txtBeratBersih.TabIndex = 11;
             // 
             // cbKualitas
@@ -161,7 +162,7 @@
             cbKualitas.Items.AddRange(new object[] { "Premium", "Standart", "Rendah" });
             cbKualitas.Location = new Point(158, 165);
             cbKualitas.Name = "cbKualitas";
-            cbKualitas.Size = new Size(260, 30);
+            cbKualitas.Size = new Size(260, 26);
             cbKualitas.TabIndex = 12;
             // 
             // txtCatatan
@@ -204,7 +205,7 @@
             // 
             // V_InputHasilPanenPetani
             // 
-            AutoScaleDimensions = new SizeF(10F, 22F);
+            AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
             ClientSize = new Size(458, 322);

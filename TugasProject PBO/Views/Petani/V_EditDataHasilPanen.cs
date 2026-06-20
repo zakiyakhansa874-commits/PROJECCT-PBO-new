@@ -34,39 +34,15 @@ namespace TugasProject_PBO.Views.Petani
 
         private void btSimpan_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(cbKomoditas.Text) || string.IsNullOrEmpty(txtBeratKotor.Text))
+            int idPetani = _controller.GetIdPetaniByUserId(SessionHelper.IdUser);
+
+            if (idPetani == 0)
             {
-                MessageBox.Show("Harap isi semua field!", "Peringatan",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Data petani tidak ditemukan untuk user ini!", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            try
-            {
-                int idPetani = SessionHelper.IdUser; 
-                DateTime tanggal = dtpTanggalPanen.Value;
-                string komoditas = cbKomoditas.Text;
-                string kualitas = cbKualitas.SelectedItem?.ToString() ?? "";
-                string catatan = txtCatatan.Text;
-                decimal beratKotor = decimal.TryParse(txtBeratKotor.Text, out decimal bk) ? bk : 0;
-                decimal beratBersih = decimal.TryParse(txtBeratBersih.Text, out decimal bb) ? bb : 0;
-
-                _controller.TambahHasilPanen(idPetani, tanggal, komoditas, beratKotor, beratBersih, kualitas, catatan);
-
-                MessageBox.Show("Data berhasil disimpan!", "Sukses",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal menyimpan: " + ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
         }
-
         private void btBatal_Click(object sender, EventArgs e) 
         {
             this.DialogResult = DialogResult.Cancel;

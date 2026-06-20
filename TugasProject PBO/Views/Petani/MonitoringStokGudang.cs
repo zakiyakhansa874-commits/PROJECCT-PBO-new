@@ -125,9 +125,9 @@ namespace TugasProject_PBO.Views.Petani
             {
                 var (jumlahGudang, totalStok, totalKapasitas) = _controller.GetRingkasanGudang();
 
-                L_JumlahGudang9.Text = jumlahGudang.ToString();
-                L_TotalStok9.Text = totalStok.ToString("F0");
-                L_TotalKapasitas9.Text = totalKapasitas.ToString("F0");
+                A_JumlahGudang9.Text = jumlahGudang.ToString();
+                A_TotalStok9.Text = totalStok.ToString("F0");
+                A_TotalKapasitas9.Text = totalKapasitas.ToString("F0");
             }
             catch (Exception ex)
             {
@@ -200,6 +200,16 @@ namespace TugasProject_PBO.Views.Petani
                 // Tutup form saat ini
                 this.Hide();
             }
+        }
+
+        private void P_JumlahGudang9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void L_JumlahGudang9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

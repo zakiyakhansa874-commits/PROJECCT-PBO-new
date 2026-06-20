@@ -69,6 +69,32 @@ namespace TugasProject_PBO.Views.Admin
             }
         }
 
+        private void DGV_datahasilpanen2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            var row = DGV_datahasilpanen2.Rows[e.RowIndex];
+
+            int id = Convert.ToInt32(row.Cells[0].Value);
+            decimal beratKotor = decimal.Parse(row.Cells[1].Value.ToString());
+            decimal beratBersih = decimal.Parse(row.Cells[2].Value.ToString());
+            string kualitas = row.Cells[3].Value?.ToString() ?? "";
+            string catatan = row.Cells[4].Value?.ToString() ?? "";
+            DateTime tanggal = DateTime.Parse(row.Cells[5].Value.ToString());
+            int idPetani = Convert.ToInt32(row.Cells[6].Value);
+            string komoditas = row.Cells[7].Value?.ToString() ?? "";
+
+            using (V_InputHasilPanenPetani frm = new V_InputHasilPanenPetani())
+            {
+                frm.LoadDataEdit(id, idPetani, tanggal, komoditas, beratKotor, beratBersih, kualitas, catatan);
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadDataPanenAll();
+                }
+            }
+        }
+
         private void DGV_datahasilpanen2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -92,14 +118,37 @@ namespace TugasProject_PBO.Views.Admin
 
         private void bt_edit2_Click(object sender, EventArgs e)
         {
-            if (selectedId == 0)
+            try
             {
-                MessageBox.Show("Silakan pilih data pada tabel terlebih dahulu untuk diubah!", "Informasi",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                foreach (DataGridViewRow row in DGV_datahasilpanen2.Rows)
+                {
+                    if (row.Cells[0].Value != null && Convert.ToInt32(row.Cells[0].Value) == selectedId)
+                    {
+                        decimal beratKotor = decimal.Parse(row.Cells[1].Value.ToString());
+                        decimal beratBersih = decimal.Parse(row.Cells[2].Value.ToString());
+                        string kualitas = row.Cells[3].Value?.ToString() ?? "";
+                        string catatan = row.Cells[4].Value?.ToString() ?? "";
+                        DateTime tanggal = DateTime.Parse(row.Cells[5].Value.ToString());
+                        int idPetani = Convert.ToInt32(row.Cells[6].Value);
+                        string komoditas = row.Cells[7].Value?.ToString() ?? "";
+
+                        using (V_InputHasilPanenPetani frm = new V_InputHasilPanenPetani())
+                        {
+                            frm.LoadDataEdit(selectedId, idPetani, tanggal, komoditas, beratKotor, beratBersih, kualitas, catatan);
+
+                            if (frm.ShowDialog() == DialogResult.OK)
+                            {
+                                LoadDataPanenAll();
+                            }
+                        }
+                        break;
+                    }
+                }
             }
-            MessageBox.Show($"Fitur edit untuk ID: {selectedId} siap dikembangkan.", "Edit Data",
-            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show("DEBUG ERROR: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void bt_hapus2_Click(object sender, EventArgs e)
