@@ -91,37 +91,36 @@ namespace TugasProject_PBO.Views.Admin
         private void btSimpan_Click(object sender, EventArgs e)
         {
             if (!ValidasiInput()) return;
+
             try
             {
-                _controller.TambahHasilPanen(
-                    Convert.ToInt32(cbPetani.SelectedValue),
-                    dtpTanggal.Value.Date,
-                    cbKomoditas.Text,
-                    Convert.ToDecimal(txtBeratKotor.Text),
-                    Convert.ToDecimal(txtBeratBersih.Text),
-                    cbKualitas.Text,
-                    txtCatatan.Text);
+                if (idHasilPanen == 0)
+                {
+                    // Tambah Data
+                    _controller.TambahHasilPanen(
+                        Convert.ToInt32(cbPetani.SelectedValue),
+                        dtpTanggal.Value.Date,
+                        cbKomoditas.Text,
+                        Convert.ToDecimal(txtBeratKotor.Text),
+                        Convert.ToDecimal(txtBeratBersih.Text),
+                        cbKualitas.Text,
+                        txtCatatan.Text);
 
-                MessageBox.Show("Data hasil panen berhasil disimpan.", "Informasi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data hasil panen berhasil disimpan.");
+                }
+                else
+                {
+                    // Update Data
+                    UpdateData();
+                }
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        public void LoadDataEdit(int id, int idPetani, DateTime tanggal, string komoditas,
-            decimal beratKotor, decimal beratBersih, string kualitas, string catatan)
-        {
-            idHasilPanen = id;
-            cbPetani.SelectedValue = idPetani;
-            dtpTanggal.Value = tanggal;
-            cbKomoditas.Text = komoditas;
-            txtBeratKotor.Text = beratKotor.ToString();
-            txtBeratBersih.Text = beratBersih.ToString();
-            cbKualitas.Text = kualitas;
-            txtCatatan.Text = catatan;
-            btSimpan.Text = "Update";
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void UpdateData()
@@ -156,12 +155,18 @@ namespace TugasProject_PBO.Views.Admin
             btSimpan.Text = "Simpan";
         }
 
-        private void btBatal_Click(object sender, EventArgs e)
+        private void btBatal_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Yakin ingin membatalkan?", "Konfirmasi",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show(
+                "Apakah Anda yakin ingin membatalkan?",
+                "Konfirmasi",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
             if (result == DialogResult.Yes)
+            {
                 BersihkanForm();
+            }
         }
 
         private void txtBeratKotor_KeyPress(object sender, KeyPressEventArgs e)
@@ -176,6 +181,9 @@ namespace TugasProject_PBO.Views.Admin
                 e.Handled = true;
         }
 
-        private void LPetani_Click(object sender, EventArgs e) { }
+        private void LPetani_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

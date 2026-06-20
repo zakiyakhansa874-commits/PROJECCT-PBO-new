@@ -117,5 +117,10 @@ namespace TugasProject_PBO.Views.Admin
         private void tbTanggal4_TextChanged(object sender, EventArgs e) { }
         private void cbGudang4_SelectedIndexChanged(object sender, EventArgs e) { }
         private void cbPetani4_SelectedIndexChanged(object sender, EventArgs e) { }
+
+        private void dtpTanggal4_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

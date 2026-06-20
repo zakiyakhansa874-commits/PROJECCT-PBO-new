@@ -100,5 +100,10 @@ namespace TugasProject_PBO.Views.Admin
         private void LTanggal5_Click(object sender, EventArgs e) { }
         private void LGudang_Click(object sender, EventArgs e) { }
         private void cbAdmin5_SelectedIndexChanged(object sender, EventArgs e) { }
+
+        private void dtpTanggal5_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

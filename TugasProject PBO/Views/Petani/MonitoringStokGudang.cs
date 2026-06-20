@@ -33,7 +33,7 @@ namespace TugasProject_PBO.Views.Petani
                     -
                     COALESCE((SELECT SUM(sk.jumlah) FROM ""Stok_Keluar"" sk WHERE sk.id_gudang = g.id_gudang), 0)
                     ) AS total_stok, SUM(g.kapasitas_maksimal) AS total_kapasitas FROM ""Gudang"" g";
-                    
+
                     using (var cmd = new NpgsqlCommand(query, conn))
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -91,9 +91,9 @@ namespace TugasProject_PBO.Views.Petani
                 };
 
                 Label[] labelInfo = {
-                A_BawahBlokA9,   
-                label4,   
-                label1    
+                A_BawahBlokA9,
+                label4,
+                label1
                 };
 
                 for (int i = 0; i < dt.Rows.Count && i < bars.Length; i++)
@@ -156,9 +156,18 @@ namespace TugasProject_PBO.Views.Petani
         }
         private void btLogout_9_Click(object sender, EventArgs e)
         {
-            LoginSIMIHAN login = new LoginSIMIHAN();
-            login.Show();
-            this.Hide();
+            using (KonfirmasiLogout frm = new KonfirmasiLogout())
+            {
+                if (frm.ShowDialog() == DialogResult.Yes)
+                {
+                    SessionHelper.ClearSession();
+
+                    LoginSIMIHAN login = new LoginSIMIHAN();
+                    login.Show();
+
+                    this.Close();
+                }
+            }
         }
 
         private void MonitoringStokGudang_Load_1(object sender, EventArgs e)
@@ -169,6 +178,28 @@ namespace TugasProject_PBO.Views.Petani
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btLogout_9_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Yakin ingin logout?",
+                "Konfirmasi Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Hapus session login
+                SessionHelper.ClearSession();
+
+                // Tampilkan form login
+                LoginSIMIHAN login = new LoginSIMIHAN();
+                login.Show();
+
+                // Tutup form saat ini
+                this.Hide();
+            }
         }
     }
 }

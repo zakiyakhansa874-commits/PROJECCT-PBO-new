@@ -110,30 +110,46 @@ namespace TugasProject_PBO.Views.Admin
 
         private void btHapus3_Click(object sender, EventArgs e)
         {
-            if (selectedGudangId == 0)
+            if (DGV_KelolaGudang3.CurrentRow == null)
             {
-                MessageBox.Show("Silakan pilih data gudang yang ingin dihapus!", "Peringatan",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Silakan pilih data gudang terlebih dahulu!",
+                    "Peringatan",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return;
             }
 
+            int idGudang = Convert.ToInt32(
+                DGV_KelolaGudang3.CurrentRow.Cells[0].Value);
+
             DialogResult konfirmasi = MessageBox.Show(
-                "Apakah Anda yakin ingin menghapus data gudang ini beserta semua riwayat stok masuknya?",
-                "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                $"Yakin ingin menghapus Gudang ID {idGudang} ?",
+                "Konfirmasi",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
             if (konfirmasi == DialogResult.Yes)
             {
                 try
                 {
-                    _controller.HapusGudang(selectedGudangId);
-                    MessageBox.Show("Data gudang berhasil dihapus!", "Sukses",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    selectedGudangId = 0;
+                    _controller.HapusGudang(idGudang);
+
+                    MessageBox.Show(
+                        "Data berhasil dihapus!",
+                        "Sukses",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
                     LoadDataGudangAll();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
         }
