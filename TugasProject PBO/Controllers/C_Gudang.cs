@@ -18,15 +18,13 @@ namespace TugasProject_PBO.Controllers
                         conn.Open();
 
                     string sql = @"SELECT 
-                                    g.id_gudang, 
-                                    g.nama_gudang, 
-                                    g.lokasi, 
-                                    g.kapasitas_maksimal,
-                                    COALESCE(SUM(sm.jumlah), 0) AS stok_saat_ini
-                                   FROM ""Gudang"" g
-                                   LEFT JOIN ""Stok_Masuk"" sm ON g.id_gudang = sm.id_gudang
-                                   GROUP BY g.id_gudang, g.nama_gudang, g.lokasi, g.kapasitas_maksimal
-                                   ORDER BY g.id_gudang ASC";
+                            id_gudang, 
+                            nama_gudang, 
+                            lokasi, 
+                            kapasitas_maksimal,
+                            stok_saat_ini
+                           FROM ""Gudang""
+                           ORDER BY id_gudang ASC";
 
                     NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
                     DataTable dt = new DataTable();
@@ -43,8 +41,60 @@ namespace TugasProject_PBO.Controllers
                 throw new Exception("Gagal memuat data halaman kelola gudang: " + ex.Message);
             }
         }
+        
+        public DataRow GetGudangById(int idGudang)
+        {
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    string query = @"SELECT id_gudang, nama_gudang, lokasi, kapasitas_maksimal 
+                              FROM ""Gudang"" WHERE id_gudang = @id";
 
-        public void TambahGudang(string nama, string lokasi, decimal kapasitas)
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", idGudang);
+                        NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt.Rows.Count > 0 ? dt.Rows[0] : null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Gagal mengambil data gudang: " + ex.Message);
+            }
+        }
+
+        public void UpdateGudang(int idGudang, string nama, string lokasi, decimal kapasitas, decimal stok_saat_ini)
+        {
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    string query = @"UPDATE ""Gudang""
+                              SET nama_gudang = @nama, lokasi = @lokasi, kapasitas_maksimal = @kapasitas, stok_saat_ini = @stok_saat_ini
+                              WHERE id_gudang = @id";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", idGudang);
+                        cmd.Parameters.AddWithValue("@nama", nama);
+                        cmd.Parameters.AddWithValue("@lokasi", lokasi);
+                        cmd.Parameters.AddWithValue("@kapasitas", kapasitas);
+                        cmd.Parameters.AddWithValue("@stok_saat_ini", stok_saat_ini);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Gagal mengupdate data gudang: " + ex.Message);
+            }
+        }
+
+        public void TambahGudang(string nama, string lokasi, decimal kapasitas, decimal stok_saat_ini)
         {
             try
             {
@@ -52,14 +102,15 @@ namespace TugasProject_PBO.Controllers
                 {
                     string query = @"
                         INSERT INTO ""Gudang""
-                        (nama_gudang, lokasi, kapasitas_maksimal)
-                        VALUES (@nama, @lokasi, @kapasitas)";
+                        (nama_gudang, lokasi, kapasitas_maksimal, stok_saat_ini)
+                        VALUES (@nama, @lokasi, @kapasitas, @stok_saat_ini)";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@nama", nama);
                         cmd.Parameters.AddWithValue("@lokasi", lokasi);
                         cmd.Parameters.AddWithValue("@kapasitas", kapasitas);
+                        cmd.Parameters.AddWithValue("@stok_saat_ini", stok_saat_ini);
                         cmd.ExecuteNonQuery();
                     }
                 }

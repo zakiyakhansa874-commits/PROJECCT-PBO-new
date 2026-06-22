@@ -33,7 +33,7 @@ namespace TugasProject_PBO.Views.Admin
             }
         }
 
-        private void LoadDataPanenAll()
+        private void LoadDataPanenAll() // DGV kelola hasil panen ADMIN
         {
             DGV_datahasilpanen2.Rows.Clear();
             try
@@ -58,8 +58,8 @@ namespace TugasProject_PBO.Views.Admin
                     string komoditas = row.IsNull("komoditas") ? "" : row["komoditas"].ToString();
                     string petani = row.IsNull("id_petani") ? "" : row["id_petani"].ToString();
 
-                    DGV_datahasilpanen2.Rows.Add(id, beratKotor.ToString("F2"), beratBersih.ToString("F2"),
-                        kualitas, catatan, tanggal, petani, komoditas);
+                    DGV_datahasilpanen2.Rows.Add(id, petani, tanggal, komoditas, kualitas, beratKotor.ToString("F2"), beratBersih.ToString("F2"),
+                        catatan);
                 }
             }
             catch (Exception ex)
@@ -76,13 +76,13 @@ namespace TugasProject_PBO.Views.Admin
             var row = DGV_datahasilpanen2.Rows[e.RowIndex];
 
             int id = Convert.ToInt32(row.Cells[0].Value);
-            decimal beratKotor = decimal.Parse(row.Cells[1].Value.ToString());
-            decimal beratBersih = decimal.Parse(row.Cells[2].Value.ToString());
-            string kualitas = row.Cells[3].Value?.ToString() ?? "";
-            string catatan = row.Cells[4].Value?.ToString() ?? "";
-            DateTime tanggal = DateTime.Parse(row.Cells[5].Value.ToString());
-            int idPetani = Convert.ToInt32(row.Cells[6].Value);
-            string komoditas = row.Cells[7].Value?.ToString() ?? "";
+            int idPetani = Convert.ToInt32(row.Cells[1].Value);
+            DateTime tanggal = DateTime.Parse(row.Cells[2].Value.ToString());
+            string komoditas = row.Cells[3].Value?.ToString() ?? "";
+            string kualitas = row.Cells[4].Value?.ToString() ?? "";
+            decimal beratKotor = decimal.Parse(row.Cells[5].Value.ToString());
+            decimal beratBersih = decimal.Parse(row.Cells[6].Value.ToString());
+            string catatan = row.Cells[7].Value?.ToString() ?? "";
 
             using (V_InputHasilPanenPetani frm = new V_InputHasilPanenPetani())
             {

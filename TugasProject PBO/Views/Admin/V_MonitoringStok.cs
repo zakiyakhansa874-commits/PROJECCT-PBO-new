@@ -27,18 +27,24 @@ namespace TugasProject_PBO.Views.Admin
 
         private void LoadRiwayatStok()
         {
+            DGV_RiwayatStok.Columns.Clear();
+            DGV_RiwayatStok.AutoGenerateColumns = true;
             DGV_RiwayatStok.DataSource = _controller.GetRiwayatStok();
             DGV_RiwayatStok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void LoadMasukTerakhir()
         {
+            DGV_MasukTerakhir.Columns.Clear();
+            DGV_MasukTerakhir.AutoGenerateColumns = true;
             DGV_MasukTerakhir.DataSource = _controller.GetMasukTerakhir();
             DGV_MasukTerakhir.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void LoadKeluarTerakhir()
         {
+            DGV_KeluarTerakhir6.Columns.Clear();
+            DGV_KeluarTerakhir6.AutoGenerateColumns = true;
             DGV_KeluarTerakhir6.DataSource = _controller.GetKeluarTerakhir();
             DGV_KeluarTerakhir6.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }

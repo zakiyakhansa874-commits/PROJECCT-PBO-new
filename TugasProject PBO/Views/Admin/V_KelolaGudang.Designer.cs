@@ -262,7 +262,7 @@
             DGV_KelolaGudang3.RowHeadersWidth = 51;
             DGV_KelolaGudang3.Size = new Size(916, 385);
             DGV_KelolaGudang3.TabIndex = 0;
-            DGV_KelolaGudang3.CellContentClick += DGV_KelolaGudang3_CellContentClick;
+            DGV_KelolaGudang3.CellClick += DGV_KelolaGudang3_CellClick;
             // 
             // ID
             // 
@@ -399,12 +399,12 @@
         private Button btEdit3;
         private Button btTambah3;
         private Panel P_DGV3;
-        private DataGridView DGV_KelolaGudang3;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn NamaGudang;
         private DataGridViewTextBoxColumn Lokasi;
         private DataGridViewTextBoxColumn Kapasitas;
         private DataGridViewTextBoxColumn StokSaatIni;
         private DataGridViewTextBoxColumn Terisi;
+        private DataGridView DGV_KelolaGudang3;
     }
 }

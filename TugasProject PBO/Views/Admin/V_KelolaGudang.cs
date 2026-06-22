@@ -9,12 +9,14 @@ namespace TugasProject_PBO.Views.Admin
     public partial class V_KelolaGudang : Form
     {
         private GudangController _controller = new GudangController();
+        private int idGudang = 0;
         private int selectedGudangId = 0;
 
         public V_KelolaGudang()
         {
             InitializeComponent();
             this.Load += KelolaGudang_Load;
+
         }
 
         private void KelolaGudang_Load(object sender, EventArgs e)
@@ -77,8 +79,11 @@ namespace TugasProject_PBO.Views.Admin
             try
             {
                 using (var formTambah = new V_InputEditGudang())
-                    formTambah.ShowDialog();
-                LoadDataGudangAll();
+                {
+                    // TIDAK panggil LoadDataEdit, jadi idGudang tetap 0 → mode Tambah
+                    if (formTambah.ShowDialog() == DialogResult.OK)
+                        LoadDataGudangAll();
+                }
             }
             catch (Exception ex)
             {
@@ -98,8 +103,12 @@ namespace TugasProject_PBO.Views.Admin
             try
             {
                 using (var formEdit = new V_InputEditGudang())
-                    formEdit.ShowDialog();
-                LoadDataGudangAll();
+                {
+                    formEdit.LoadDataEdit(selectedGudangId);
+
+                    if (formEdit.ShowDialog() == DialogResult.OK)
+                        LoadDataGudangAll();
+                }
             }
             catch (Exception ex)
             {
@@ -216,5 +225,15 @@ namespace TugasProject_PBO.Views.Admin
         private void BC_MenuBar_Paint3(object sender, PaintEventArgs e) { }
         private void J_KelolaGudang3_Click(object sender, EventArgs e) { }
         private void BC_Page3_Paint(object sender, PaintEventArgs e) { }
+
+        private void DGV_KelolaGudang3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var row = DGV_KelolaGudang3.Rows[e.RowIndex];
+                if (row.Cells[0].Value != null)
+                    selectedGudangId = Convert.ToInt32(row.Cells[0].Value);
+            }
+        }
     }
 }

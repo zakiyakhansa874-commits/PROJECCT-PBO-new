@@ -45,19 +45,19 @@
             BC_page2 = new Panel();
             BC_Keloladatahasilpanen2 = new Panel();
             DGV_datahasilpanen2 = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            BeratKotor = new DataGridViewTextBoxColumn();
-            BeratBersih = new DataGridViewTextBoxColumn();
-            Kualitas = new DataGridViewTextBoxColumn();
-            Catatan = new DataGridViewTextBoxColumn();
-            Tanggal = new DataGridViewTextBoxColumn();
-            Petani = new DataGridViewTextBoxColumn();
-            Komoditas = new DataGridViewTextBoxColumn();
             bt_hapus2 = new Button();
             bt_edit2 = new Button();
             bt_tambah2 = new Button();
             G_KelolaDataHasilPanen2 = new PictureBox();
             J_KelolaDataHasilPanen2 = new Label();
+            ID = new DataGridViewTextBoxColumn();
+            Petani = new DataGridViewTextBoxColumn();
+            Tanggal = new DataGridViewTextBoxColumn();
+            Komoditas = new DataGridViewTextBoxColumn();
+            Kualitas = new DataGridViewTextBoxColumn();
+            BeratKotor = new DataGridViewTextBoxColumn();
+            BeratBersih = new DataGridViewTextBoxColumn();
+            Catatan = new DataGridViewTextBoxColumn();
             BC_MenuBar2ini.SuspendLayout();
             BC_MenuBar2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_Profil2).BeginInit();
@@ -256,61 +256,13 @@
             DGV_datahasilpanen2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGV_datahasilpanen2.BackgroundColor = SystemColors.ControlLightLight;
             DGV_datahasilpanen2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_datahasilpanen2.Columns.AddRange(new DataGridViewColumn[] { ID, BeratKotor, BeratBersih, Kualitas, Catatan, Tanggal, Petani, Komoditas });
+            DGV_datahasilpanen2.Columns.AddRange(new DataGridViewColumn[] { ID, Petani, Tanggal, Komoditas, Kualitas, BeratKotor, BeratBersih, Catatan });
             DGV_datahasilpanen2.Location = new Point(20, 22);
             DGV_datahasilpanen2.Name = "DGV_datahasilpanen2";
             DGV_datahasilpanen2.RowHeadersWidth = 51;
             DGV_datahasilpanen2.Size = new Size(928, 397);
             DGV_datahasilpanen2.TabIndex = 10;
-            DGV_datahasilpanen2.CellContentDoubleClick += DGV_datahasilpanen2_CellDoubleClick;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            // 
-            // BeratKotor
-            // 
-            BeratKotor.HeaderText = "Berat Kotor (kg)";
-            BeratKotor.MinimumWidth = 6;
-            BeratKotor.Name = "BeratKotor";
-            // 
-            // BeratBersih
-            // 
-            BeratBersih.HeaderText = "Berat Bersih (kg)";
-            BeratBersih.MinimumWidth = 6;
-            BeratBersih.Name = "BeratBersih";
-            // 
-            // Kualitas
-            // 
-            Kualitas.HeaderText = "Kualitas";
-            Kualitas.MinimumWidth = 6;
-            Kualitas.Name = "Kualitas";
-            // 
-            // Catatan
-            // 
-            Catatan.HeaderText = "Catatan";
-            Catatan.MinimumWidth = 6;
-            Catatan.Name = "Catatan";
-            // 
-            // Tanggal
-            // 
-            Tanggal.HeaderText = "Tanggal";
-            Tanggal.MinimumWidth = 6;
-            Tanggal.Name = "Tanggal";
-            // 
-            // Petani
-            // 
-            Petani.HeaderText = "Petani";
-            Petani.MinimumWidth = 6;
-            Petani.Name = "Petani";
-            // 
-            // Komoditas
-            // 
-            Komoditas.HeaderText = "Komoditas";
-            Komoditas.MinimumWidth = 6;
-            Komoditas.Name = "Komoditas";
+            DGV_datahasilpanen2.CellClick += DGV_datahasilpanen2_CellDoubleClick;
             // 
             // bt_hapus2
             // 
@@ -367,6 +319,54 @@
             J_KelolaDataHasilPanen2.Text = "Kelola Data Hasil Panen";
             J_KelolaDataHasilPanen2.Click += J_KelolaDataHasilPanen2_Click;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            // 
+            // Petani
+            // 
+            Petani.HeaderText = "Petani";
+            Petani.MinimumWidth = 6;
+            Petani.Name = "Petani";
+            // 
+            // Tanggal
+            // 
+            Tanggal.HeaderText = "Tanggal";
+            Tanggal.MinimumWidth = 6;
+            Tanggal.Name = "Tanggal";
+            // 
+            // Komoditas
+            // 
+            Komoditas.HeaderText = "Komoditas";
+            Komoditas.MinimumWidth = 6;
+            Komoditas.Name = "Komoditas";
+            // 
+            // Kualitas
+            // 
+            Kualitas.HeaderText = "Kualitas";
+            Kualitas.MinimumWidth = 6;
+            Kualitas.Name = "Kualitas";
+            // 
+            // BeratKotor
+            // 
+            BeratKotor.HeaderText = "Berat Kotor (kg)";
+            BeratKotor.MinimumWidth = 6;
+            BeratKotor.Name = "BeratKotor";
+            // 
+            // BeratBersih
+            // 
+            BeratBersih.HeaderText = "Berat Bersih (kg)";
+            BeratBersih.MinimumWidth = 6;
+            BeratBersih.Name = "BeratBersih";
+            // 
+            // Catatan
+            // 
+            Catatan.HeaderText = "Catatan";
+            Catatan.MinimumWidth = 6;
+            Catatan.Name = "Catatan";
+            // 
             // V_KelolaDataHasilPanen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -412,12 +412,12 @@
         private DataGridView DGV_datahasilpanen2;
         private Panel BC_Keloladatahasilpanen2;
         private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Petani;
+        private DataGridViewTextBoxColumn Tanggal;
+        private DataGridViewTextBoxColumn Komoditas;
+        private DataGridViewTextBoxColumn Kualitas;
         private DataGridViewTextBoxColumn BeratKotor;
         private DataGridViewTextBoxColumn BeratBersih;
-        private DataGridViewTextBoxColumn Kualitas;
         private DataGridViewTextBoxColumn Catatan;
-        private DataGridViewTextBoxColumn Tanggal;
-        private DataGridViewTextBoxColumn Petani;
-        private DataGridViewTextBoxColumn Komoditas;
     }
 }

@@ -1,13 +1,16 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Data;
 using System.Drawing;
+using System.Windows.Forms;
 using TugasProject_PBO.Controllers;
+using TugasProject_PBO.Models;
 
 namespace TugasProject_PBO.Views.Admin
 {
     public partial class V_InputEditGudang : Form
     {
         private GudangController _controller = new GudangController();
+        private int idGudang = 0;
 
         public V_InputEditGudang()
         {
@@ -16,13 +19,47 @@ namespace TugasProject_PBO.Views.Admin
 
         private void KelolaGudang_Load(object sender, EventArgs e)
         {
-            txtNamaGudang.Text = "Gudang A";
-            txtLokasi.Text = "Jl. Raya Sumbersari No. 12";
-            txtKapasitas.Text = "5000";
-            txtStokSaatIni.Text = "1200";
+            if (idGudang == 0)
+            {
+                // Mode Tambah
+                this.Text = "Tambah Gudang";
+                txtNamaGudang.Clear();
+                txtLokasi.Clear();
+                txtKapasitas.Clear();
+                txtStokSaatIni.Clear();
+                txtStokSaatIni.Text = "0";
 
-            lblStatus.Text = "Form Edit Gudang siap digunakan.";
-            lblStatus.ForeColor = Color.Blue;
+                lblStatus.Text = "Form Tambah Gudang siap digunakan.";
+                lblStatus.ForeColor = Color.Blue;
+            }
+            else
+            {
+                // Mode Edit 
+                this.Text = "Edit Gudang";
+                lblStatus.Text = "Form Edit Gudang siap digunakan.";
+                lblStatus.ForeColor = Color.Blue;
+            }
+        }
+        public void LoadDataEdit(int id)
+        {
+            idGudang = id;
+
+            var row = _controller.GetGudangById(id);
+            if (row != null)
+            {
+                txtNamaGudang.Text = row["nama_gudang"].ToString();
+                txtLokasi.Text = row["lokasi"].ToString();
+                txtKapasitas.Text = row["kapasitas_maksimal"].ToString();
+            }
+            var dtGudang = _controller.GetAllGudang();
+            foreach (DataRow dr in dtGudang.Rows)
+            {
+                if (Convert.ToInt32(dr["id_gudang"]) == id)
+                {
+                    txtStokSaatIni.Text = dr["stok_saat_ini"].ToString();
+                    break;
+                }
+            }
         }
 
         private void btSimpan_Click(object sender, EventArgs e)
@@ -38,13 +75,32 @@ namespace TugasProject_PBO.Views.Admin
                     return;
                 }
 
-                _controller.TambahGudang(
-                    txtNamaGudang.Text,
-                    txtLokasi.Text,
-                    Convert.ToDecimal(txtKapasitas.Text));
+                if (idGudang == 0)
+                {
+                    // Mode Tambah
+                    _controller.TambahGudang(
+                        txtNamaGudang.Text,
+                        txtLokasi.Text,
+                        Convert.ToDecimal(txtKapasitas.Text),
+                        string.IsNullOrWhiteSpace(txtStokSaatIni.Text) ? 0 : Convert.ToDecimal(txtStokSaatIni.Text));
 
-                MessageBox.Show("Data gudang berhasil ditambahkan!", "Sukses",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Data gudang berhasil ditambahkan!", "Sukses",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Mode Edit
+                    _controller.UpdateGudang(
+                        idGudang,
+                        txtNamaGudang.Text,
+                        txtLokasi.Text,
+                        Convert.ToDecimal(txtKapasitas.Text),
+                        string.IsNullOrWhiteSpace(txtStokSaatIni.Text) ? 0 : Convert.ToDecimal(txtStokSaatIni.Text));
+
+                    MessageBox.Show("Data gudang berhasil diupdate!", "Sukses",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();

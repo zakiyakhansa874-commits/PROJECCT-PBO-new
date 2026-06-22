@@ -93,6 +93,56 @@ namespace TugasProject_PBO.Controllers
             }
         }
 
+        public void TambahHasilPanenDanSinkronStokMasuk( int idPetani, DateTime tanggal, string komoditas,
+            decimal beratKotor, decimal beratBersih, string kualitas, string catatan, int idGudang)
+        {
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    // Insert ke hasil_panen
+                    string queryPanen = @"
+                        INSERT INTO hasil_panen 
+                        (id_petani, tanggal_panen, komoditas, berat_kotor, berat_bersih, kualitas, catatan)
+                        VALUES (@id_petani, @tanggal, @komoditas, @berat_kotor, @berat_bersih, @kualitas, @catatan)";
+
+                    using (var cmd = new NpgsqlCommand(queryPanen, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id_petani", idPetani);
+                        cmd.Parameters.AddWithValue("@tanggal", tanggal);
+                        cmd.Parameters.AddWithValue("@komoditas", komoditas);
+                        cmd.Parameters.AddWithValue("@berat_kotor", beratKotor);
+                        cmd.Parameters.AddWithValue("@berat_bersih", beratBersih);
+                        cmd.Parameters.AddWithValue("@kualitas", kualitas);
+                        cmd.Parameters.AddWithValue("@catatan",
+                            string.IsNullOrWhiteSpace(catatan) ? (object)DBNull.Value : catatan);
+                        cmd.ExecuteNonQuery();
+                    }
+                    // Auto-sync ke Stok_Masuk
+                    string queryStok = @"
+                        INSERT INTO ""Stok_Masuk""
+                        (id_petani, id_gudang, jumlah, tanggal, kualitas, catatan)
+                        VALUES (@id_petani, @id_gudang, @jumlah, @tanggal, @kualitas, @catatan)";
+
+                    using (var cmd = new NpgsqlCommand(queryStok, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id_petani", idPetani);
+                        cmd.Parameters.AddWithValue("@id_gudang", idGudang);
+                        cmd.Parameters.AddWithValue("@jumlah", beratBersih);
+                        cmd.Parameters.AddWithValue("@tanggal", tanggal);
+                        cmd.Parameters.AddWithValue("@kualitas", kualitas);
+                        cmd.Parameters.AddWithValue("@catatan",
+                            $"Auto-sync dari hasil panen: {komoditas}");
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Gagal menyimpan data: " + ex.Message);
+            }
+        }
+
         public void UpdateHasilPanen(int id, int idPetani, DateTime tanggal, string komoditas,
             decimal beratKotor, decimal beratBersih, string kualitas, string catatan)
         {
@@ -175,17 +225,19 @@ namespace TugasProject_PBO.Controllers
                 {
                     const string sql = @"
                     SELECT
-                        id_hasilpanen,
-                        berat_kotor,
-                        berat_bersih,
-                        kualitas,
-                        catatan,
-                        tanggal_panen,
-                        id_petani,
-                        komoditas
-                    FROM hasil_panen
-                    WHERE id_petani = @id_petani
-                    ORDER BY tanggal_panen DESC";
+                      hp.id_hasilpanen,
+                      hp.tanggal_panen,
+                      u.nama AS nama_petani,
+                      hp.komoditas,
+                      hp.berat_kotor,
+                      hp.berat_bersih,
+                      hp.kualitas,
+                      hp.catatan
+                    FROM hasil_panen hp
+                    JOIN ""Petani"" p ON hp.id_petani = p.id_petani
+                    JOIN ""User"" u ON p.id_user = u.id_user
+                    WHERE hp.id_petani = @id_petani
+                    ORDER BY hp.tanggal_panen DESC";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {

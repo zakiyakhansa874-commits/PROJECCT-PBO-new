@@ -17,7 +17,7 @@ namespace TugasProject_PBO.Controllers
                 Role = SessionHelper.Role,
                 StokSaatIni = "Stok Saat Ini: ",
                 TotalHasilPanen = "Total Hasil Panen: ",
-                KapasitasGudang = "Gudang Utama A – 3200/5000 kg (64%)"
+                KapasitasGudang = "Ringkasan Gudang: "
                 
             };
 
@@ -61,18 +61,12 @@ namespace TugasProject_PBO.Controllers
                 {
                     string query = @"
                 SELECT
-                    g.id_gudang,
-                    g.nama_gudang,
-                    g.kapasitas_maksimal,
-                    COALESCE(SUM(sm.jumlah), 0) -
-                    COALESCE(
-                        (SELECT SUM(sk.jumlah)
-                         FROM ""Stok_Keluar"" sk
-                         WHERE sk.id_gudang = g.id_gudang), 0
-                    ) AS stok_saat_ini
-                FROM ""Gudang"" g
-                LEFT JOIN ""Stok_Masuk"" sm ON g.id_gudang = sm.id_gudang
-                GROUP BY g.id_gudang, g.nama_gudang, g.kapasitas_maksimal";
+                    id_gudang,
+                    nama_gudang,
+                    kapasitas_maksimal,
+                    stok_saat_ini
+                FROM ""Gudang""
+                ORDER BY id_gudang";
 
                     NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
@@ -103,6 +97,36 @@ namespace TugasProject_PBO.Controllers
             catch (Exception ex)
             {
                 throw new Exception("Gagal memuat data hasil panen: " + ex.Message);
+            }
+        }
+        public DataTable GetHasilPanenTerbaruDashboard()
+        {
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    string query = @"
+                SELECT 
+                    hp.tanggal_panen,
+                    u.nama AS nama_petani,
+                    hp.komoditas,
+                    hp.berat_bersih,
+                    hp.kualitas
+                FROM hasil_panen hp
+                JOIN ""Petani"" p ON hp.id_petani = p.id_petani
+                JOIN ""User"" u ON p.id_user = u.id_user
+                ORDER BY hp.tanggal_panen DESC
+                LIMIT 5";
+
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Gagal memuat hasil panen terbaru: " + ex.Message);
             }
         }
     }

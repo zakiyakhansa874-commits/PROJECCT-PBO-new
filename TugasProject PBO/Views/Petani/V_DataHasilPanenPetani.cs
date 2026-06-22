@@ -61,13 +61,14 @@ namespace TugasProject_PBO.Views.Petani
                             tanggal = Convert.ToDateTime(nilaiTanggal).ToString("yyyy-MM-dd");
                     }
 
+                    string namaPetani = row.IsNull("nama_petani") ? "-" : row["nama_petani"].ToString();
                     string komoditas = row.IsNull("komoditas") ? "-" : row["komoditas"].ToString();
                     decimal beratKotor = row.IsNull("berat_kotor") ? 0m : Convert.ToDecimal(row["berat_kotor"]);
                     decimal beratBersih = row.IsNull("berat_bersih") ? 0m : Convert.ToDecimal(row["berat_bersih"]);
                     string kualitas = row.IsNull("kualitas") ? "-" : row["kualitas"].ToString();
                     string catatan = row.IsNull("catatan") ? "" : row["catatan"].ToString();
 
-                    DGV_InputHasilPanen8.Rows.Add(tanggal, komoditas,
+                    DGV_InputHasilPanen8.Rows.Add(tanggal, row["nama_petani"].ToString(), komoditas,
                         beratKotor.ToString("F2"), beratBersih.ToString("F2"), kualitas, catatan);
 
                     totalBeratBersih += beratBersih;

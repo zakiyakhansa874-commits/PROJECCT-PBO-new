@@ -40,16 +40,17 @@
             BC_Page8 = new Panel();
             BC_DataHasilPanenSaya8 = new Panel();
             DGV_InputHasilPanen8 = new DataGridView();
+            label6 = new Label();
+            btInputBaru8 = new Button();
+            G_InputHasilPetani = new PictureBox();
+            J_InputHasilPanenPetani8 = new Label();
             Tanggal4 = new DataGridViewTextBoxColumn();
+            Nama1 = new DataGridViewTextBoxColumn();
             Komoditas = new DataGridViewTextBoxColumn();
             BeratKotor = new DataGridViewTextBoxColumn();
             BeratBersih = new DataGridViewTextBoxColumn();
             Kualitas = new DataGridViewTextBoxColumn();
             Catatan = new DataGridViewTextBoxColumn();
-            label6 = new Label();
-            btInputBaru8 = new Button();
-            G_InputHasilPetani = new PictureBox();
-            J_InputHasilPanenPetani8 = new Label();
             BC_MenuBar8ini.SuspendLayout();
             BC_MenuBar8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)G_Profil8).BeginInit();
@@ -180,49 +181,13 @@
             DGV_InputHasilPanen8.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGV_InputHasilPanen8.BackgroundColor = SystemColors.ControlLightLight;
             DGV_InputHasilPanen8.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_InputHasilPanen8.Columns.AddRange(new DataGridViewColumn[] { Tanggal4, Komoditas, BeratKotor, BeratBersih, Kualitas, Catatan });
+            DGV_InputHasilPanen8.Columns.AddRange(new DataGridViewColumn[] { Tanggal4, Nama1, Komoditas, BeratKotor, BeratBersih, Kualitas, Catatan });
             DGV_InputHasilPanen8.Location = new Point(27, 23);
             DGV_InputHasilPanen8.Name = "DGV_InputHasilPanen8";
             DGV_InputHasilPanen8.RowHeadersWidth = 51;
             DGV_InputHasilPanen8.Size = new Size(916, 387);
             DGV_InputHasilPanen8.TabIndex = 3;
             DGV_InputHasilPanen8.CellContentClick += DGV_InputHasilPanen8_CellContentClick_1;
-            // 
-            // Tanggal4
-            // 
-            Tanggal4.HeaderText = "Tanggal ";
-            Tanggal4.MinimumWidth = 6;
-            Tanggal4.Name = "Tanggal4";
-            // 
-            // Komoditas
-            // 
-            Komoditas.HeaderText = "Komoditas";
-            Komoditas.MinimumWidth = 6;
-            Komoditas.Name = "Komoditas";
-            // 
-            // BeratKotor
-            // 
-            BeratKotor.HeaderText = "Berat Kotor (kg)";
-            BeratKotor.MinimumWidth = 6;
-            BeratKotor.Name = "BeratKotor";
-            // 
-            // BeratBersih
-            // 
-            BeratBersih.HeaderText = "Berat Bersih (kg)";
-            BeratBersih.MinimumWidth = 6;
-            BeratBersih.Name = "BeratBersih";
-            // 
-            // Kualitas
-            // 
-            Kualitas.HeaderText = "Kualitas";
-            Kualitas.MinimumWidth = 6;
-            Kualitas.Name = "Kualitas";
-            // 
-            // Catatan
-            // 
-            Catatan.HeaderText = "Catatan";
-            Catatan.MinimumWidth = 6;
-            Catatan.Name = "Catatan";
             // 
             // label6
             // 
@@ -268,6 +233,48 @@
             J_InputHasilPanenPetani8.Text = "Data Hasil Panen Petani";
             J_InputHasilPanenPetani8.Click += J_InputHasilPanenPetani8_Click;
             // 
+            // Tanggal4
+            // 
+            Tanggal4.HeaderText = "Tanggal ";
+            Tanggal4.MinimumWidth = 6;
+            Tanggal4.Name = "Tanggal4";
+            // 
+            // Nama1
+            // 
+            Nama1.HeaderText = "Nama Petani";
+            Nama1.MinimumWidth = 6;
+            Nama1.Name = "Nama1";
+            // 
+            // Komoditas
+            // 
+            Komoditas.HeaderText = "Komoditas";
+            Komoditas.MinimumWidth = 6;
+            Komoditas.Name = "Komoditas";
+            // 
+            // BeratKotor
+            // 
+            BeratKotor.HeaderText = "Berat Kotor (kg)";
+            BeratKotor.MinimumWidth = 6;
+            BeratKotor.Name = "BeratKotor";
+            // 
+            // BeratBersih
+            // 
+            BeratBersih.HeaderText = "Berat Bersih (kg)";
+            BeratBersih.MinimumWidth = 6;
+            BeratBersih.Name = "BeratBersih";
+            // 
+            // Kualitas
+            // 
+            Kualitas.HeaderText = "Kualitas";
+            Kualitas.MinimumWidth = 6;
+            Kualitas.Name = "Kualitas";
+            // 
+            // Catatan
+            // 
+            Catatan.HeaderText = "Catatan";
+            Catatan.MinimumWidth = 6;
+            Catatan.Name = "Catatan";
+            // 
             // V_DataHasilPanenPetani
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -308,6 +315,7 @@
         private DataGridView DGV_InputHasilPanen8;
         private Button btInputBaru8;
         private DataGridViewTextBoxColumn Tanggal4;
+        private DataGridViewTextBoxColumn Nama1;
         private DataGridViewTextBoxColumn Komoditas;
         private DataGridViewTextBoxColumn BeratKotor;
         private DataGridViewTextBoxColumn BeratBersih;

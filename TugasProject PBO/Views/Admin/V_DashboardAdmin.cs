@@ -58,9 +58,25 @@ namespace TugasProject_PBO.Views.Admin
                 T_HPT.Text = "Hasil Panen Terbaru";
 
                 HPT_dataGridView1.Rows.Clear();
-                HPT_dataGridView1.Rows.Add(DateTime.Now.ToString("yyyy-MM-dd"), "Pak Budi", "Jagung", "120", "A");
-                HPT_dataGridView1.Rows.Add(DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), "Bu Siti", "Padi", "860", "B");
-                HPT_dataGridView1.Rows.Add(DateTime.Now.AddDays(-2).ToString("yyyy-MM-dd"), "Pak Agus", "Kedelai", "326", "A");
+                DataTable dtHasilPanen = _controller.GetHasilPanenTerbaruDashboard();
+                foreach (DataRow row in dtHasilPanen.Rows)
+                {
+                    string tanggal = "-";
+                    if (row["tanggal_panen"] != DBNull.Value)
+                    {
+                        var nilaiTanggal = row["tanggal_panen"];
+                        tanggal = nilaiTanggal is DateOnly dateOnly
+                            ? dateOnly.ToString("yyyy-MM-dd")
+                            : Convert.ToDateTime(nilaiTanggal).ToString("yyyy-MM-dd");
+                    }
+
+                    string petani = row["nama_petani"]?.ToString() ?? "-";
+                    string komoditas = row["komoditas"]?.ToString() ?? "-";
+                    string beratBersih = row["berat_bersih"] != DBNull.Value ? row["berat_bersih"].ToString() : "0";
+                    string kualitas = row["kualitas"]?.ToString() ?? "-";
+
+                    HPT_dataGridView1.Rows.Add(tanggal, petani, komoditas, beratBersih, kualitas);
+                }
             }
             catch (Exception ex)
             {
