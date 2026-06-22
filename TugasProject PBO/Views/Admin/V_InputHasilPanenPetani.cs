@@ -202,15 +202,5 @@ namespace TugasProject_PBO.Views.Admin
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
                 e.Handled = true;
         }
-
-        private void LPetani_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBeratKotor_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

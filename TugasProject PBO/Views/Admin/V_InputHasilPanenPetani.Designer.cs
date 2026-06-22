@@ -55,7 +55,7 @@
             LPetani.Size = new Size(53, 18);
             LPetani.TabIndex = 0;
             LPetani.Text = "Petani:";
-            LPetani.Click += LPetani_Click;
+            
             // 
             // LTanggal
             // 
@@ -146,7 +146,7 @@
             txtBeratKotor.Name = "txtBeratKotor";
             txtBeratKotor.Size = new Size(260, 24);
             txtBeratKotor.TabIndex = 10;
-            txtBeratKotor.TextChanged += txtBeratKotor_TextChanged;
+            
             // 
             // txtBeratBersih
             // 

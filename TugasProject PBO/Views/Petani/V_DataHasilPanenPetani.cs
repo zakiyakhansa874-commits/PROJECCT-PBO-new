@@ -46,6 +46,10 @@ namespace TugasProject_PBO.Views.Petani
                 int idPetani = _controller.GetIdPetaniByUserId(SessionHelper.IdUser);
                 DataTable dt = _controller.GetHasilPanenByPetani(idPetani);
 
+                MessageBox.Show(
+                    "ID Petani = " + idPetani +
+                    "\nJumlah Data = " + dt.Rows.Count);
+
                 decimal totalBeratBersih = 0m;
                 int totalEntri = 0;
 
@@ -68,8 +72,20 @@ namespace TugasProject_PBO.Views.Petani
                     string kualitas = row.IsNull("kualitas") ? "-" : row["kualitas"].ToString();
                     string catatan = row.IsNull("catatan") ? "" : row["catatan"].ToString();
 
-                    DGV_InputHasilPanen8.Rows.Add(tanggal, row["nama_petani"].ToString(), komoditas,
-                        beratKotor.ToString("F2"), beratBersih.ToString("F2"), kualitas, catatan);
+                    int rowIndex = DGV_InputHasilPanen8.Rows.Add(
+                        tanggal,
+                        row["nama_petani"].ToString(),
+                        komoditas,
+                        beratKotor.ToString("F2"),
+                        beratBersih.ToString("F2"),
+                        kualitas,
+                        catatan);
+
+                    DGV_InputHasilPanen8.Rows[rowIndex].Tag =
+                        row["id_hasilpanen"];
+
+                    // Simpan ID hasil panen di Tag
+                    DGV_InputHasilPanen8.Rows[rowIndex].Tag = row["id_hasilpanen"];
 
                     totalBeratBersih += beratBersih;
                     totalEntri++;
@@ -187,6 +203,75 @@ namespace TugasProject_PBO.Views.Petani
         {
             // Forward to the main handler so designer wiring to this method still works.
             DGV_InputHasilPanen8_CellContentClick(sender, e);
+            MessageBox.Show(
+            DGV_InputHasilPanen8.CurrentRow.Tag?.ToString() ?? "NULL");
+        }
+
+        private void btInput8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DGV_InputHasilPanen8.CurrentRow == null)
+                {
+                    MessageBox.Show(
+                        "Pilih data yang akan dihapus terlebih dahulu!",
+                        "Peringatan",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (DGV_InputHasilPanen8.CurrentRow.Tag == null)
+                {
+                    MessageBox.Show(
+                        "ID data tidak ditemukan. Periksa LoadHasilPanen().",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+
+                DialogResult result = MessageBox.Show(
+                    "Apakah Anda yakin ingin menghapus data ini?",
+                    "Konfirmasi Hapus",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result != DialogResult.Yes)
+                    return;
+
+                int idPanen = Convert.ToInt32(DGV_InputHasilPanen8.CurrentRow.Tag);
+                MessageBox.Show(
+                    "ID yang akan dihapus = " + idPanen);
+                bool berhasil = _controller.HapusData(idPanen);
+
+                if (berhasil)
+                {
+                    MessageBox.Show(
+                        "Data berhasil dihapus!",
+                        "Sukses",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    LoadHasilPanen();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Data gagal dihapus dari database!",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Terjadi kesalahan:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }

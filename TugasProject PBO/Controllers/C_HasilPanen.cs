@@ -154,7 +154,7 @@ namespace TugasProject_PBO.Controllers
                     string sql = @"UPDATE hasil_panen
                     SET id_petani=@id_petani, tanggal_panen=@tanggal, komoditas=@komoditas,
                         berat_kotor=@berat_kotor, berat_bersih=@berat_bersih, kualitas=@kualitas, catatan=@catatan
-                    WHERE id_hasil_panen=@id";
+                    WHERE id_hasilpanen=@id";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {
@@ -270,6 +270,50 @@ namespace TugasProject_PBO.Controllers
                            $"- Catatan: {catatan}";
 
             MessageBox.Show(pesan, "Data Disimpan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public bool HapusData(int idPanen)
+        {
+            try
+            {
+                using (var conn = DatabaseHelper.GetConnection())
+                {
+                    // SOLUSI: Cek status koneksi terlebih dahulu sebelum di-Open
+                    if (conn.State == System.Data.ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+                    else if (conn.State == System.Data.ConnectionState.Broken)
+                    {
+                        conn.Close();
+                        conn.Open();
+                    }
+
+                    MessageBox.Show("ID diterima Controller = " + idPanen);
+
+                    string query = @"DELETE FROM hasil_panen WHERE id_hasilpanen = @id";
+
+                    using (var cmd = new Npgsql.NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", idPanen);
+
+                        int affectedRows = cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Rows affected = " + affectedRows);
+
+                        return affectedRows > 0;
+                    }
+                } 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "ERROR DATABASE:\n\n" + ex.Message,
+                    "Database Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
         }
     }
 }
