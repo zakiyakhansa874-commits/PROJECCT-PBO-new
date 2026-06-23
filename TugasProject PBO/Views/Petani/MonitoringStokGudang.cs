@@ -1,4 +1,4 @@
-﻿using Npgsql;
+﻿
 using System;
 using System.Data;
 using System.Drawing;
@@ -19,42 +19,7 @@ namespace TugasProject_PBO.Views.Petani
             this.Load += MonitoringStokGudang_Load;
         }
 
-        public (int jumlahGudang, decimal totalStok, decimal totalKapasitas) GetRingkasanGudang()
-        {
-            try
-            {
-                using (var conn = DatabaseHelper.GetConnection())
-                {
-                    string query = @"
-                    SELECT
-                    COUNT(g.id_gudang) AS jumlah_gudang,
-                    SUM(
-                    COALESCE((SELECT SUM(sm.jumlah) FROM ""Stok_Masuk"" sm WHERE sm.id_gudang = g.id_gudang), 0)
-                    -
-                    COALESCE((SELECT SUM(sk.jumlah) FROM ""Stok_Keluar"" sk WHERE sk.id_gudang = g.id_gudang), 0)
-                    ) AS total_stok, SUM(g.kapasitas_maksimal) AS total_kapasitas FROM ""Gudang"" g";
-
-                    using (var cmd = new NpgsqlCommand(query, conn))
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return (
-                                Convert.ToInt32(reader["jumlah_gudang"]),
-                                Convert.ToDecimal(reader["total_stok"]),
-                                Convert.ToDecimal(reader["total_kapasitas"])
-                            );
-                        }
-                    }
-                }
-                return (0, 0, 0);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Gagal memuat ringkasan: " + ex.Message);
-            }
-        }
-
+      
         private void MonitoringStokGudang_Load(object sender, EventArgs e)
         {
 

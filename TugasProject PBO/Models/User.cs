@@ -4,7 +4,8 @@ using System.Text;
 
 namespace inventory_panen_mvc.Models
 {
-    public abstract class User
+    public abstract class User : IUserMenu
+
     {
         public int IdUser { get; set; }
         public string Username { get; set; }
