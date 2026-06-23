@@ -80,16 +80,39 @@ namespace TugasProject_PBO.Controllers
             }
         }
 
-        public void TambahStokKeluar(int idGudang, decimal jumlah, DateTime tanggal, string tujuan, string keterangan)
+        public void TambahStokKeluar(int idGudang, decimal jumlah,
+    DateTime tanggal, string tujuan, string keterangan)
         {
             try
             {
                 using (var conn = DatabaseHelper.GetConnection())
                 {
+                    // Cek stok gudang
+                    string cekStok = @"
+            SELECT stok_saat_ini
+            FROM ""Gudang""
+            WHERE id_gudang = @id_gudang";
+
+                    decimal stokSaatIni;
+
+                    using (var cmdCek = new NpgsqlCommand(cekStok, conn))
+                    {
+                        cmdCek.Parameters.AddWithValue("@id_gudang", idGudang);
+                        stokSaatIni = Convert.ToDecimal(cmdCek.ExecuteScalar());
+                    }
+
+                    if (jumlah > stokSaatIni)
+                    {
+                        throw new Exception(
+                            $"Stok tidak mencukupi. Stok tersedia hanya {stokSaatIni} kg.");
+                    }
+
+                    // Simpan stok keluar
                     string query = @"
-                INSERT INTO ""Stok_Keluar""
-                (id_gudang, jumlah, tanggal, tujuan, keterangan)
-                VALUES (@id_gudang, @jumlah, @tanggal, @tujuan, @keterangan)";
+            INSERT INTO ""Stok_Keluar""
+            (id_gudang, jumlah, tanggal, tujuan, keterangan)
+            VALUES
+            (@id_gudang, @jumlah, @tanggal, @tujuan, @keterangan)";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
@@ -99,8 +122,21 @@ namespace TugasProject_PBO.Controllers
                         cmd.Parameters.AddWithValue("@tujuan", tujuan);
                         cmd.Parameters.AddWithValue("@keterangan", keterangan);
 
-                        int hasil = cmd.ExecuteNonQuery();
-                        MessageBox.Show("Baris tersimpan = " + hasil);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Kurangi stok gudang
+                    string updateGudang = @"
+            UPDATE ""Gudang""
+            SET stok_saat_ini = stok_saat_ini - @jumlah
+            WHERE id_gudang = @id_gudang";
+
+                    using (var cmdUpdate = new NpgsqlCommand(updateGudang, conn))
+                    {
+                        cmdUpdate.Parameters.AddWithValue("@jumlah", jumlah);
+                        cmdUpdate.Parameters.AddWithValue("@id_gudang", idGudang);
+
+                        cmdUpdate.ExecuteNonQuery();
                     }
                 }
             }

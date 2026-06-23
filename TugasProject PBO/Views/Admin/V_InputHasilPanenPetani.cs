@@ -55,9 +55,9 @@ namespace TugasProject_PBO.Views.Admin
             txtCatatan.Text = catatan;
 
             btSimpan.Text = "Update";
-            this.Text = "Edit Hasil Panen"; 
+            this.Text = "Edit Hasil Panen";
         }
-        
+
         private void LoadKomoditas()
         {
             cbKomoditas.Items.Clear();
@@ -83,30 +83,60 @@ namespace TugasProject_PBO.Views.Admin
                 cbPetani.Focus();
                 return false;
             }
+
             if (cbKomoditas.SelectedIndex == -1)
             {
                 MessageBox.Show("Pilih komoditas.");
                 cbKomoditas.Focus();
                 return false;
             }
-            if (!decimal.TryParse(txtBeratKotor.Text, out _))
+
+            if (!decimal.TryParse(txtBeratKotor.Text, out decimal beratKotor))
             {
-                MessageBox.Show("Berat kotor harus angka.");
+                MessageBox.Show("Berat kotor harus berupa angka.");
                 txtBeratKotor.Focus();
                 return false;
             }
-            if (!decimal.TryParse(txtBeratBersih.Text, out _))
+
+            if (!decimal.TryParse(txtBeratBersih.Text, out decimal beratBersih))
             {
-                MessageBox.Show("Berat bersih harus angka.");
+                MessageBox.Show("Berat bersih harus berupa angka.");
                 txtBeratBersih.Focus();
                 return false;
             }
+
+            // Berat tidak boleh 0 atau negatif
+            if (beratKotor <= 0 || beratBersih <= 0)
+            {
+                MessageBox.Show(
+                    "Berat kotor dan berat bersih harus lebih dari 0 kg!",
+                    "Validasi Data",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return false;
+            }
+
+            // Berat bersih harus lebih kecil dari berat kotor
+            if (beratBersih >= beratKotor)
+            {
+                MessageBox.Show(
+                    "Berat bersih harus lebih kecil dari berat kotor!",
+                    "Validasi Data",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtBeratBersih.Focus();
+                return false;
+            }
+
             if (cbKualitas.SelectedIndex == -1)
             {
                 MessageBox.Show("Pilih kualitas.");
                 cbKualitas.Focus();
                 return false;
             }
+
             return true;
         }
 
@@ -201,6 +231,11 @@ namespace TugasProject_PBO.Views.Admin
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
                 e.Handled = true;
+        }
+
+        private void LPetani_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -150,7 +150,7 @@ namespace TugasProject_PBO.Controllers
             {
                 using (var conn = DatabaseHelper.GetConnection())
                 {
-                    conn.Open();
+
                     string sql = @"UPDATE hasil_panen
                     SET id_petani=@id_petani, tanggal_panen=@tanggal, komoditas=@komoditas,
                         berat_kotor=@berat_kotor, berat_bersih=@berat_bersih, kualitas=@kualitas, catatan=@catatan

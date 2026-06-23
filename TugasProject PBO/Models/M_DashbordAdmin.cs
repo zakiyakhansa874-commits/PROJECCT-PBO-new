@@ -21,3 +21,5 @@ namespace TugasProject_PBO.Models
 
     }
 }
+
+// ENKAPSULASI harus menerapkan private 

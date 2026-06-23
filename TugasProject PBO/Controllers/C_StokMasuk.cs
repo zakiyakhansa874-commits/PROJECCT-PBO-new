@@ -90,10 +90,12 @@ namespace TugasProject_PBO.Controllers
             {
                 using (var conn = DatabaseHelper.GetConnection())
                 {
+                    // Simpan ke tabel Stok_Masuk
                     string query = @"
-                        INSERT INTO ""Stok_Masuk""
-                        (id_petani, id_gudang, jumlah, tanggal, kualitas, catatan)
-                        VALUES (@id_petani, @id_gudang, @jumlah, @tanggal, @kualitas, @catatan)";
+            INSERT INTO ""Stok_Masuk""
+            (id_petani, id_gudang, jumlah, tanggal, kualitas, catatan)
+            VALUES
+            (@id_petani, @id_gudang, @jumlah, @tanggal, @kualitas, @catatan)";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
@@ -102,10 +104,33 @@ namespace TugasProject_PBO.Controllers
                         cmd.Parameters.AddWithValue("@jumlah", jumlah);
                         cmd.Parameters.AddWithValue("@tanggal", tanggal);
                         cmd.Parameters.AddWithValue("@kualitas",
-                            string.IsNullOrWhiteSpace(kualitas) ? (object)DBNull.Value : kualitas.Trim());
+                            string.IsNullOrWhiteSpace(kualitas)
+                            ? (object)DBNull.Value
+                            : kualitas.Trim());
+
                         cmd.Parameters.AddWithValue("@catatan",
-                            string.IsNullOrWhiteSpace(catatan) ? (object)DBNull.Value : catatan.Trim());
+                            string.IsNullOrWhiteSpace(catatan)
+                            ? (object)DBNull.Value
+                            : catatan.Trim());
+
                         cmd.ExecuteNonQuery();
+                    }
+
+                    // Tambah stok gudang
+                    string updateGudang = @"
+                        UPDATE ""Gudang""
+                        SET stok_saat_ini = stok_saat_ini + @jumlah
+                        WHERE id_gudang = @id_gudang";
+
+                    using (var cmdUpdate = new NpgsqlCommand(updateGudang, conn))
+                    {
+                        cmdUpdate.Parameters.AddWithValue("@jumlah", jumlah);
+                        cmdUpdate.Parameters.AddWithValue("@id_gudang", idGudang);
+
+                        int rows = cmdUpdate.ExecuteNonQuery();
+
+                        MessageBox.Show(
+                            "Stok gudang berhasil diperbarui.\nRows = " + rows);
                     }
                 }
             }

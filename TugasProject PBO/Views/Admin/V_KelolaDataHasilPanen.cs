@@ -29,7 +29,7 @@ namespace TugasProject_PBO.Views.Admin
             catch (Exception ex)
             {
                 MessageBox.Show("Gagal memuat data awal: " + ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -65,7 +65,7 @@ namespace TugasProject_PBO.Views.Admin
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "ERROR DATABASE",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
