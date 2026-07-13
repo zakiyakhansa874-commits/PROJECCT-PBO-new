@@ -19,7 +19,7 @@ namespace TugasProject_PBO.Views.Petani
             this.Load += MonitoringStokGudang_Load;
         }
 
-      
+
         private void MonitoringStokGudang_Load(object sender, EventArgs e)
         {
 
@@ -70,7 +70,11 @@ namespace TugasProject_PBO.Views.Petani
                     int persen = kapasitas > 0
                         ? (int)Math.Round(stok * 100.0 / kapasitas)
                         : 0;
-                    persen = Math.Min(persen, 100);
+                    if (persen < 0)
+                        persen = 0;
+
+                    if (persen > 100)
+                        persen = 100;
 
                     labelInfo[i].Text = $"{stok}/{kapasitas} kg ({persen}%)";
                     bars[i].Maximum = 100;
@@ -173,6 +177,11 @@ namespace TugasProject_PBO.Views.Petani
         }
 
         private void L_JumlahGudang9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PB_MonitoringStok9_Click(object sender, EventArgs e)
         {
 
         }
